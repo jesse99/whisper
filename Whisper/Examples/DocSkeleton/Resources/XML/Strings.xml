@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE StringTable SYSTEM "XStringTable.dtd">
+
+<StringTable date = "2/7/01" time = "10:36 PM">
+	<Entry file = "CAppMenuHandler.cpp">
+		<Original>A skeleton for document oriented applications using the Whisper framework. Jesse Jones (c) 2000</Original>
+	</Entry>
+
+	<Entry file = "CMouseHandler.cpp">
+		<Original>Add Rect</Original>
+	</Entry>
+
+	<Entry file = "CDocMenuHandler.cpp">
+		<Original>Change Color</Original>
+	</Entry>
+
+	<Entry file = "CWidthDialog.cpp">
+		<Original>Change Pen Width</Original>
+	</Entry>
+
+	<Entry file = "MMain.cpp WMain.cpp">
+		<Original>Couldn't initialize the application.</Original>
+	</Entry>
+
+	<Entry file = "CAppMenuHandler.cpp">
+		<Original>DocSkeleton 1.0</Original>
+	</Entry>
+
+	<Entry file = "MMain.cpp">
+		<Original>DocSkeleton Prefs</Original>
+	</Entry>
+
+	<Entry file = "CDocMenuHandler.cpp">
+		<Original>Pick a fill color</Original>
+	</Entry>
+
+	<Entry file = "WMain.cpp">
+		<Original>SOFTWARE\\Whisper\\HyperMandella\\1.0</Original>
+	</Entry>
+
+</StringTable>

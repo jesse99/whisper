@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Formulas SYSTEM "resource://ColorFormulas.dtd">
+
+<Formulas>
+	<Formula value = "log(x*x + 1)^abs(y/2)"/>
+	<Formula value = "sqrt(x^2 + y^2 + z^2)"/>
+	<Formula value = "sin(x+y)"/>
+	<Formula value = "tan(abs(x+y)*1.2)"/>
+	<Formula value = "0.5*z + 0.4"/>
+	<Formula value = "abs(sin(2*x))"/>
+	<Formula value = "sin(0.5*x)"/>
+	<Formula value = "sqrt(z*z)"/>
+</Formulas>
+
+

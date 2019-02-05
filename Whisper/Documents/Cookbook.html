@@ -1,0 +1,258 @@
+<HTML>
+
+<HEAD>
+   <META NAME = "Author" CONTENT = "Jesse Jones">
+      <META NAME = "DESCRIPTION" CONTENT = "Whisper Cookbook">
+   <META NAME = "KEYWORDS" CONTENT = "C++, framework, Whisper, cross platform, Windows, Macintosh, Mac, programming, source, cookbook, howto, faq">
+   <TITLE>Whisper Cookbook</TITLE>
+</HEAD>
+
+<BODY>
+	<H1><CENTER>Whisper Cookbook</CENTER></H1>
+
+	<H3>1) How do I create a new drag and drop app?</H3>
+		<P>The easiest way to do this is to clone one of the existing drag and drop apps. Normally the best one to
+		clone is the DropSkeleton project. For example if you wanted to create an app called "Encrypt" you would do
+		the following:</P>
+		
+		<P>1) Copy the DropSkeleton folder. Name the new folder "Encrypt".</P>
+		<P>2) Throw away the DropSkeleton app, the xSYM file, and the data folder (if they're present). Throw away
+		      the "Read Me.txt" file.</P>
+		<P>3) Rename the project file "Encrypt.mcp".</P>
+		<P>4) Switch to the targets tab and open the preferences window for each Mac target. Go to the "PPC Target"
+		      panel and change the file name and the creator code.</P>
+		<P>5) Open the preferences window for each Win target. Go to the "x86 Target" panel and change the file name.</P>
+		<P>6) Open the App.r file and change kCreatorType, kFileType, and kFileType2. Also change the text inside the
+		      owner resource and inside the finder help resource.</P>
+		<P>7) Open the MMain.cpp file, goto the CBootStrap::OnBoot method and change the pref's file name and change
+		      the '????' to your app's creator code. If your app will only run on certain systems (eg it 
+		      requires System 8.5 or QD3D) you'll want to change CBootStrap::OnSystemNeeds.</P>
+		<P>8) Open the WMain.cpp file, goto the CBootStrap::OnBoot method and change the registry key used by the preference
+		      code. If your app only runs on certain systems (eg NT 5) you'll want to change CBootStrap::OnSystemNeeds.</P>
+		<P>9) If you want to process only files of a certain type or extension you'll have to change the file filter
+		      in the CApp ctor. (You can look at StringTableBuilder for an example of how to do this).</P>
+		<P>10) Change CApp::OnQuit to tell the user what your app did.</P>
+		<P>11) Change ProcessFiles.cpp so that it does something useful (eg encrypt/decrypt each file).</P>
+		<P>12) Test your app. Generaly the easiest way to do this is to run the app from the IDE in which
+		      case it will ask you for a file or folder to process.</P>
+	</H3>
+
+	<H3>3) How do I create a dialog box?</H3>
+		<P>1) The first step is to create a custom interface that you can call to display the dialog. HyperMandella
+		      uses an interface called IDocInfoDialog for most of the dialogs that operate on document data. It looks 
+		      like this:
+<PRE><FONT color = "#0000B4">class</FONT> IDocInfoDialog : <FONT color = "#0000B4">public</FONT> XUnknown {
+<FONT color = "#0000B4">public</FONT>:
+    <FONT color = "#0000B4">virtual</FONT> <FONT color = "#0000B4">void</FONT>     Pose(IDocInfoPtr&amp; doc) = 0;
+};</PRE>
+		      You'll probably want to define something similar if you're writing a document oriented application. If not
+		      you might want to have Pose take a reference to the data and return a bool to signal if OK was pressed.</P>
+		<P>2) The next step is to create an implementation class to pose the dialog. The dtor does nothing. The ctor calls
+		      DoSetBoss. Pose methods look like this:
+<PRE><FONT color = "#0000B4">void</FONT> CBailoutDialog::Pose(IDocInfoPtr&amp; doc)
+{    
+    <FONT color = "#B40000">// Initialize and open the dialog
+</FONT>    <FONT color = "#0000B4">this</FONT>-&gt;DoSetUp(doc);
+    
+    IPoseDialogBoxPtr handler(L"<FONT color = "#666666">Pose Dialog Box</FONT>");    
+    handler-&gt;Open(<FONT color = "#0000B4">this</FONT>);
+    
+    <FONT color = "#B40000">// Select the textbox
+</FONT>    IWindowPtr window(<FONT color = "#0000B4">this</FONT>);
+    IRootControlPtr root = window-&gt;GetRootControl();
+    ITextBoxPtr textbox = root-&gt;FindChild(L"<FONT color = "#666666">Bailout</FONT>");
+    textbox-&gt;Select();
+
+    <FONT color = "#B40000">// Let the dialog process events until the user presses the
+</FONT>    <FONT color = "#B40000">// OK or Cancel button.
+</FONT>    <FONT color = "#0000B4">if</FONT> (handler-&gt;Run()) 
+        <FONT color = "#0000B4">this</FONT>-&gt;DoPostCommand(doc);
+        
+    handler-&gt;Close();
+}</PRE>
+		      The DoSetUp is used to initialize the controls in the dialog:
+<PRE><FONT color = "#0000B4">void</FONT> CBailoutDialog::DoSetUp(<FONT color = "#0000B4">const</FONT> IConstDocInfoPtr&amp; doc)
+{
+    IWindowPtr window(<FONT color = "#0000B4">this</FONT>);
+    IRootControlPtr root = window-&gt;GetRootControl();
+    
+    <FONT color = "#0000B4">const</FONT> SFractalInfo&amp; info = doc-&gt;GetFractalInfo();
+
+    IFloatValuePtr bailout = root-&gt;FindChild(L"<FONT color = "#666666">Bailout</FONT>");
+    bailout-&gt;<FONT color = "#0000B4">Set</FONT>(info.bailout, kDontRedraw);
+}</PRE>
+		      The IFloatValue interface is a bit of sugar used with numeric textboxes to make the values easier to get
+		      and set. The last method is DoPostCommand. It's called when the user hits OK and fires off a command to
+		      change the document's state (the command allows for undo). It looks like this:
+<PRE><FONT color = "#0000B4">void</FONT> CBailoutDialog::DoPostCommand(IDocInfoPtr&amp; doc)
+{
+    IWindowPtr window(<FONT color = "#0000B4">this</FONT>);
+    IRootControlPtr root = window-&gt;GetRootControl();
+    
+    <FONT color = "#0000B4">const</FONT> SFractalInfo&amp; oldInfo = doc-&gt;GetFractalInfo();
+
+    <FONT color = "#B40000">// If the bailout value has changed then,
+</FONT>    IConstFloatValuePtr bailout = root-&gt;FindChild(L"<FONT color = "#666666">Bailout</FONT>");
+    <FONT color = "#0000B4">float</FONT> value = bailout-&gt;Get();
+    <FONT color = "#0000B4">if</FONT> (!Whisper::Equal(value, oldInfo.bailout)) {
+    
+        <FONT color = "#B40000">// create a new SFractalInfo,
+</FONT>        SFractalInfo newInfo = oldInfo;
+        newInfo.bailout = value;
+
+        <FONT color = "#B40000">// create an undo action,
+</FONT>        IUndoActionPtr action(L"<FONT color = "#666666">Undo Callback Action</FONT>");
+        action-&gt;Init(LoadAppString(L"<FONT color = "#666666">Change Bailout</FONT>"));
+        
+        <FONT color = "#B40000">// setup the callbacks,
+</FONT>        <FONT color = "#0000B4">const</FONT> <FONT color = "#0000B4">bool</FONT> dirtyDoc = <FONT color = "#0000B4">true</FONT>;
+        XCallback2&lt;<FONT color = "#0000B4">void</FONT>, SFractalInfo, <FONT color = "#0000B4">bool</FONT>&gt; callback(doc.Get(), &amp;IDocInfo::SetFractalInfo);
+        XCallback0&lt;<FONT color = "#0000B4">void</FONT>&gt; doIt = Bind2(callback, newInfo, dirtyDoc);
+        XCallback0&lt;<FONT color = "#0000B4">void</FONT>&gt; undoIt = Bind2(callback, oldInfo, dirtyDoc);
+
+        IUndoCallbackActionPtr undo(action);
+        undo-&gt;SetCallbacks(doIt, undoIt);
+
+        <FONT color = "#B40000">// and schedule the action.
+</FONT>        ICommandQueuePtr queue(L"<FONT color = "#666666">Application</FONT>");
+        queue-&gt;Post(action);
+    }
+}</PRE>		      </P>
+		<P>3) Then we create a boss for our new dialog:
+<PRE>    &lt;<FONT color = "0000B4">Boss</FONT> name = &quot;Bailout Dialog&quot;&gt;
+        &lt;<FONT color = "0000B4">Inherit</FONT> name = &quot;Base Dialog Box&quot;/&gt;
+        &lt;<FONT color = "0000B4">Interface</FONT> name = &quot;IDocInfoDialog&quot; impl = &quot;CBailoutDialog&quot;/&gt;
+    &lt;/<FONT color = "0000B4">Boss</FONT>&gt;</PRE>		</P>
+		<P>4) And add an entry in the Windows.xml file to control the dialog layout:
+<PRE>    &lt;<FONT color = "0000B4">Boss</FONT> name = &quot;Bailout Dialog&quot; id = &quot;Bailout_Dialog&quot;&gt;
+        &lt;<FONT color = "0000B4">IWindow
+</FONT>            name = &quot;Point Light&quot;&gt;
+            &lt;<FONT color = "0000B4">SWindowStyle
+</FONT>                type = &quot;modal&quot;
+                style = &quot;WS_CAPTION+WS_POPUP&quot;
+                style_ex = &quot;WS_EX_DLGMODALFRAME&quot;
+                class_style = &quot;CS_DBLCLKS+CS_NOCLOSE&quot;
+                draw_size_grip = &quot;false&quot;
+                window_class = &quot;moveable_modal&quot;
+                attributes = &quot;&quot;
+                get_select_click = &quot;false&quot;/&gt;
+        &lt;/<FONT color = "0000B4">IWindow</FONT>&gt;
+        
+        &lt;<FONT color = "0000B4">IDefaultPositionWindow</FONT> position = &quot;alert_position_on_top_window&quot;/&gt;
+
+        &lt;<FONT color = "0000B4">IDialogBox/</FONT>&gt;
+        
+        &lt;<FONT color = "0000B4">IGeometry
+</FONT>            location = &quot;6 42&quot;
+            mac_size = &quot;192 83&quot;
+            win_size = &quot;192 83&quot;/&gt;
+        
+        &lt;<FONT color = "0000B4">IHierarchy</FONT>&gt;
+            &lt;<FONT color = "0000B4">Boss</FONT> name = &quot;Root Control&quot;&gt;
+                &lt;<FONT color = "0000B4">IControl
+</FONT>                    name = &quot;Root Control&quot;/&gt;
+                                                
+                &lt;<FONT color = "0000B4">IRootControl/</FONT>&gt;
+
+                &lt;<FONT color = "0000B4">IHierarchy</FONT>&gt;
+                    &lt;<FONT color = "0000B4">Boss</FONT> name = &quot;Static Text&quot;&gt;
+                        &lt;<FONT color = "0000B4">IControl
+</FONT>                            name = &quot;Bailout Label&quot;/&gt;
+                                
+                        &lt;<FONT color = "0000B4">IGeometry
+</FONT>                            location = &quot;10 12&quot;
+                            mac_size = &quot;50 16&quot;
+                            win_size = &quot;50 16&quot;/&gt;
+                                                            
+                        &lt;<FONT color = "0000B4">IStaticText</FONT> 
+                            text = &quot;Bailout:&quot;/&gt;
+                    &lt;/<FONT color = "0000B4">Boss</FONT>&gt;
+
+                    &lt;<FONT color = "0000B4">Boss</FONT> name = &quot;Float Text Box&quot;&gt;
+                        &lt;<FONT color = "0000B4">IControl
+</FONT>                            name = &quot;Bailout&quot;/&gt;
+                                
+                        &lt;<FONT color = "0000B4">IGeometry
+</FONT>                            location = &quot;70 10&quot;
+                            mac_size = &quot;110 16&quot;
+                            win_size = &quot;110 21&quot;/&gt;
+                                                            
+                        &lt;<FONT color = "0000B4">ITextBox</FONT> 
+                            text = &quot;16.0&quot;/&gt;
+                                                        
+                        &lt;<FONT color = "0000B4">IDoubleRange
+</FONT>                            min = &quot;4.0&quot;
+                            max = &quot;inf&quot;/&gt;
+                            
+                        &lt;<FONT color = "0000B4">ISetHelp
+</FONT>                            message = &quot;To determine whether a point is within the fractal the point is iterated using the fractal formula. If the result is larger than bailout the point is consided to be outside the fractal. Larger values may result in a more accurate view of the fractal.&quot;/&gt;
+                    &lt;/<FONT color = "0000B4">Boss</FONT>&gt;
+
+                    &lt;<FONT color = "0000B4">Boss</FONT> name = &quot;Push Button&quot;&gt;
+                        &lt;<FONT color = "0000B4">IControl
+</FONT>                            name = &quot;cancel&quot;/&gt;
+                                
+                        &lt;<FONT color = "0000B4">IGeometry
+</FONT>                            location = &quot;40 50&quot;
+                            mac_size = &quot;58 20&quot;
+                            win_size = &quot;58 20&quot;/&gt;
+                                                            
+                        &lt;<FONT color = "0000B4">IPushButton</FONT> 
+                            text = &quot;Cancel&quot;/&gt;
+                    &lt;/<FONT color = "0000B4">Boss</FONT>&gt;
+
+                    &lt;<FONT color = "0000B4">Boss</FONT> name = &quot;Push Button&quot;&gt;
+                        &lt;<FONT color = "0000B4">IControl
+</FONT>                            name = &quot;ok&quot;/&gt;
+                                
+                        &lt;<FONT color = "0000B4">IGeometry
+</FONT>                            location = &quot;120 50&quot;
+                            mac_size = &quot;58 20&quot;
+                            win_size = &quot;58 20&quot;/&gt;
+                                                            
+                        &lt;<FONT color = "0000B4">IPushButton</FONT> 
+                            text = &quot;OK&quot;/&gt;
+                    &lt;/<FONT color = "0000B4">Boss</FONT>&gt;
+                &lt;/<FONT color = "0000B4">IHierarchy</FONT>&gt;
+            &lt;/<FONT color = "0000B4">Boss</FONT>&gt;
+        &lt;/<FONT color = "0000B4">IHierarchy</FONT>&gt;
+    &lt;/<FONT color = "0000B4">Boss</FONT>&gt;</PRE>		      
+    		  Whisper doesn't have a visual layout tool yet so you may want to use something like Constructor to
+		      position your widgets.</P>
+		<P>5) Once you've done this you can display the dialog with code like this:
+<PRE><FONT color = "#0000B4">void</FONT> CDocMenuHandler::DoBailoutDialog()
+{    
+    IApplicationPtr app(L"<FONT color = "#666666">Application</FONT>");
+
+    XURI uri(L"<FONT color = "#666666">resource://Windows.bXML</FONT>");
+    IReadXMLPtr persist(L"<FONT color = "#666666">XML Persist</FONT>");
+    IDocInfoDialogPtr dialog = persist-&gt;CreateBoss(uri, L"<FONT color = "#666666">Bailout_Dialog</FONT>", app);
+    
+    IDocViewPtr view(<FONT color = "#0000B4">this</FONT>);
+    IDocInfoPtr info = view-&gt;GetDoc();
+    dialog-&gt;Pose(info);
+}</PRE>				</P>
+
+	</H3>
+
+	<H3>3) How do I create a custom control?</H3>
+		<P>1) The first step is normally to create a custom interface that allows clients to initialize your control
+		      and perform other operations specific to your control.</P>
+		<P>2) Next you need to provide an implementation of your custom interface. You'll often need to write code to
+		     handle drawing, and mouse events as well so it's often convenient to mix XDraw and XMouseHandler into your
+		     implementations (eg see XColorSwatch.cpp).</P>
+		<P>3) You need to register your interface and implementation with the object mode. The sample apps use a file
+		     called CRegisterClasses.cpp to do this. Use REGISTER_INTERFACE_NAME to register the interface and REGISTER_INTERFACE_FACTORY
+		     to register the implementation.</P>
+		<P>4) Use the Bosses.xml file to create a new boss listing the interfaces provided by the new control.</P>
+		<P>5) If you want to initialize your control when loading from XML there are a few more things you have to do:
+			<UL> 
+				<LI>You need to define the elements and attributes that are stored with your control (see XControls.dtd).</LI>
+				<LI>Write a loader for your control (see XXMLControls.cpp for examples).</LI>
+				<LI>Register the loader with the IReadXML interface (see XRegisterXMLLoaders.cpp for examples).</LI>
+			</UL>
+	</H3>
+</BODY>
+
+</HTML>
+
