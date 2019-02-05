@@ -1,1 +1,0 @@
-<?xml version = "1.0" encoding = "UTF-8" standalone = "no"?><!DOCTYPE BossList SYSTEM "XBosses.dtd"><BossList>	<Boss name = "C++ Plugin" singleton = "true">		<Interface name = "ICountLines, ICountSemiColons" impl = "C++ Count Lines"/>	</Boss></BossList>

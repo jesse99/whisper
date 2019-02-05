@@ -1,1 +1,0 @@
-DropSkeleton doesn't do anything useful, but it's usually the best project to useif you want to write an app that processes files/folders. See Cookbook.html fordetails on how to write a drag and drop app.

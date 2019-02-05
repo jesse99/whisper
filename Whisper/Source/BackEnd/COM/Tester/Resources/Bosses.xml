@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE BossList SYSTEM "XBosses.dtd"><BossList>	<Boss name = "Plugins Boss" singleton = "true">		<Interface name = "IPlugins" impl = "CPlugins"/>	</Boss></BossList>
