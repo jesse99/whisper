@@ -1,0 +1,842 @@
+<HTML>
+<BODY>
+	<H1><CENTER>Changes as of Sun, Nov 25, 2001</CENTER></H1>
+
+	<H3>November 2001</H3>
+		<P>Array.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Array.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>AtomicCounter.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>AtomicCounter.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>BaseTypes.h</P>
+		<UL>
+			<LI>Added OSImage.</LI>
+			<LI>Made MilliSecond an int64 (int32 might overflow with server apps).</LI>
+			<LI>Added an OSError typedef.</LI>
+			<LI>Checked in	</LI>
+		</UL>
+
+		<P>Bootstrap.cpp</P>
+		<UL>
+			<LI>Updated a comment. Added missing #if DEBUGs.</LI>
+			<LI>Disabled leak checking if !__MWERKS__ and added a comment. Enabled leak checking if __MWERKS__ (instead of MAC &amp;&amp; __MWERKS__).</LI>
+			<LI>Leak checking is now done with a custom runtime library with CodeWarrior (I had to build a custom library anyway because CW suddenly started issueing duplicate symbol errors for the operator new overloads).</LI>
+			<LI>Checked in		</LI>
+		</UL>
+
+		<P>Bootstrap.h</P>
+		<UL>
+			<LI>Removed a comment.</LI>
+			<LI>Checked in	</LI>
+		</UL>
+
+		<P>Box.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Box.h</P>
+		<UL>
+			<LI>Removed a bogus forward reference.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Component.cpp</P>
+		<UL>
+			<LI>Added &lt;list&gt; include.</LI>
+			<LI>Components can no longer be abstract (this was a hold over from Whisper where component declarations weren't very decoupled from component definitions).</LI>
+			<LI>Ctor takes the component name.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Component.h</P>
+		<UL>
+			<LI>Made Invariant public (for gcc).</LI>
+			<LI>Components can no longer be abstract (this was a hold over from Whisper where component declarations weren't very decoupled from component definitions).</LI>
+			<LI>Ctor takes the component name.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Debug.cpp</P>
+		<UL>
+			<LI>Moved AssertException into the new Exceptions.h file.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Debug.h</P>
+		<UL>
+			<LI>Removed COMPILE_CHECK (use BOOST_STATIC_ASSERT instead).</LI>
+			<LI>Worked around a gcc 2.95 namespace bug.</LI>
+			<LI>Moved AssertException into the new Exceptions.h file.</LI>
+			<LI>Checked in	</LI>
+		</UL>
+
+		<P>DebugMalloc.cpp</P>
+		<UL>
+			<LI>Only zaps the first kilobyte of blocks.</LI>
+			<LI>Renamed SMemoryBlock MemoryBlock. MemoryBlock no longer includes space for stack crawl addresses if stack crawling is disabled.</LI>
+			<LI>Deallocate zaps the entire block (instead of just the user area).</LI>
+			<LI>Moved the static asserts closer to the struct declaration.</LI>
+			<LI>Fixed some minor problems caught with -Wall.</LI>
+			<LI>Removed the gross iostream hacks (don't need these with a custom runtime library).</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>DebugMalloc.h</P>
+		<UL>
+			<LI>Renamed SMemoryBlock MemoryBlock.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>DebugNew.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>DebugNew.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>DeclareObjectModel.cpp</P>
+		<UL>
+			<LI>DeclareComponent takes a mask instead of to bools.</LI>
+			<LI>Aggregated interfaces now share the implementation object.</LI>
+			<LI>Fixed a silly bug when replacing old interfaces. Improved the logging a bit.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>DeclareObjectModel.h</P>
+		<UL>
+			<LI>DeclareComponent takes a mask instead of to bools.</LI>
+			<LI>Nuked DoAddInterface.</LI>
+			<LI>Added &lt;vector&gt; include.</LI>
+			<LI>Checked in	</LI>
+		</UL>
+
+		<P>DeclarePOD.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>DirectionalLight.cpp</P>
+		<UL>
+			<LI>DoEnable sets the light up even if it's not enabled (because Light::Enable won't call the other interfaces).</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>DumpState.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Enable.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>ErrorToString.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Exceptions.cpp</P>
+		<UL>
+			<LI>Renamed ThrowIfNil ThrowIfNull.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Exceptions.h</P>
+		<UL>
+			<LI>Renamed ThrowIfNil ThrowIfNull.</LI>
+			<LI>Tweaked Carbon includes for gcc.</LI>
+			<LI>Added &lt;new&gt; include.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>FloatConversions.cpp</P>
+		<UL>
+			<LI>Field width is now a uint32 instead of an int32 (keeps gcc happy).</LI>
+			<LI>Added &lt;cmath&gt; include.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>FloatConversions.h</P>
+		<UL>
+			<LI>Field width is now a uint32 instead of an int32 (keeps gcc happy).</LI>
+			<LI>Added &lt;string&gt; include.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>FrameCount.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>HandleGLError.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IApplication.h</P>
+		<UL>
+			<LI>Added SetTimeSlice.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>ICamera.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IDirectionalLight.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IDumpState.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IErrorToString.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IFrameCount.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IHeightMap.h</P>
+		<UL>
+			<LI>Init takes an IImagePtr instead of an Array.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IImage.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IImageImporter.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IImportImage.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IInitOpenGL.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IInstallMenus.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IKeyboard.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>ILight.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IMenu.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IMenuBar.h</P>
+		<UL>
+			<LI>Added support for deleting menu items and menu open callbacks.</LI>
+			<LI>Added a #pragma error to the Accelerator struct.</LI>
+			<LI>Checked in		</LI>
+		</UL>
+
+		<P>IMoveCamera.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IOpenGLError.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IPerspectiveCamera.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IPlatformOpenGL.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IPointLight.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IQuadModel.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IRender.h</P>
+		<UL>
+			<LI>Added IsUsingWireFrame.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IRenderFrameCount.h</P>
+		<UL>
+			<LI>Added IsEnabled and Enabled.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IRenderHelper.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IRenderText.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IReportError.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>ISpotLight.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>ITerrain.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>ITimeSlice.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IVertices.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IWindow.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Implementation.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Implementation.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>ImportImage.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>IntConversions.cpp</P>
+		<UL>
+			<LI>Added fallback code for when numeric_limits isn't present.</LI>
+			<LI>Checked in		</LI>
+		</UL>
+
+		<P>IntConversions.h</P>
+		<UL>
+			<LI>Added &lt;string&gt; include.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Interface.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Interface.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>InterfaceFactory.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>InterfaceMacros.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>InterfaceMacros.h</P>
+		<UL>
+			<LI>Fixed a namespace problem in the REGISTER_INTERFACE_NAME macro.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>InterfacePtr.cpp</P>
+		<UL>
+			<LI>Removed some unused variables (caught by gcc).</LI>
+			<LI>Checked in	</LI>
+		</UL>
+
+		<P>InterfacePtr.h</P>
+		<UL>
+			<LI>Replaced BOOST_STATIC_ASSERT with some custom code so that a more intelligible error message is generated. Rewrote the CallRepeatedMethod that takes an argument and renamed it CallRepeatedFunctor (the old code wasn't quite correct).</LI>
+			<LI>Tweaked a comment.</LI>
+			<LI>Added CallRepeatedInterface. Added work-around for a gcc bug with DoCast.</LI>
+			<LI>Uses BOOST_STATIC_ASSERT instead of COMPILE_CHECK.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Interpolate.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Interpolate.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Invariant.cpp</P>
+		<UL>
+			<LI>Included &lt;map&gt;.</LI>
+			<LI>Checked in	</LI>
+		</UL>
+
+		<P>Invariant.h</P>
+		<UL>
+			<LI>Worked around a gcc 2.95 template bug that was crashing the compiler.</LI>
+			<LI>Checked in	</LI>
+		</UL>
+
+		<P>Light.cpp</P>
+		<UL>
+			<LI>Disabled lights are removed from msActiveLights.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Log.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Log.h</P>
+		<UL>
+			<LI>Worked around a gcc 2.95 namespace bug.</LI>
+			<LI>Checked in	</LI>
+		</UL>
+
+		<P>LogSink.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>LogSink.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>LogSinks.cpp</P>
+		<UL>
+			<LI>Removed the X from the front of the class names.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>LogSinks.h</P>
+		<UL>
+			<LI>Removed the X from the front of the class names.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>MacApplication.cpp</P>
+		<UL>
+			<LI>Added in an IWindow interface.</LI>
+			<LI>Uses a CFString instead of a Pascal string to set the window title (gcc doesn't grok Pascal strings).</LI>
+			<LI>Added SetTimeSlice.</LI>
+			<LI>Uses new IRender interface.</LI>
+			<LI>Checked in	</LI>
+		</UL>
+
+		<P>MacErrorToString.cpp</P>
+		<UL>
+			<LI>Calls DoInitTable.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>MacImage.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>MacKeyboard.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>MacMenuBar.cpp</P>
+		<UL>
+			<LI>Added support for deleting menu items and menu open callbacks.</LI>
+			<LI>Special cases quit command.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>MacPlatformOpenGL.cpp</P>
+		<UL>
+			<LI>Added a magic incantation from some Apple sample code.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>MacReportError.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>MacString.cpp</P>
+		<UL>
+			<LI>Renamed ThrowIfNil ThrowIfNull.</LI>
+			<LI>Disabled the wstring ctors (more gcc lameness).</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>MacString.h</P>
+		<UL>
+			<LI>Disabled the wstring ctors (more gcc lameness).</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Matrix.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Matrix.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Menu.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>MoveCamera.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Numbers.cpp</P>
+		<UL>
+			<LI>Added NAN and INFINITY unit tests (mostly for fallback code).</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Numbers.h</P>
+		<UL>
+			<LI>Includes &lt;algorithm&gt;.</LI>
+			<LI>Math macros aren't used at all on MAC (Carbon defines these, but not BSD).</LI>
+			<LI>Defines isnan, isfinite, NAN, and INFINITY based on config.h macros.</LI>
+			<LI>Includes &lt;cmath&gt;.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>ObjectModel.cpp</P>
+		<UL>
+			<LI>Added a missing #if DEBUG.</LI>
+			<LI>Removed checks for abstract components.</LI>
+			<LI>AddComponent asserts if the component is abstract.</LI>
+			<LI>Fixed some ref counting problems with the components.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>ObjectModel.h</P>
+		<UL>
+			<LI>Tweaked a comment.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>PerlinNoise2D.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>PerlinNoise2D.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>PerspectiveCamera.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Plane.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Plane.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Point.cpp</P>
+		<UL>
+			<LI>Uses BOOST_STATIC_ASSERT instead of COMPILE_CHECK.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Point.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>PointLight.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Precomp (Common).h</P>
+		<UL>
+			<LI>Set RELEASE to 0 in non-debug builds (to make it easier to do some performance testing).</LI>
+			<LI>Includes Carbon.h instead of ApplicationServices.h</LI>
+			<LI>Added &lt;ApplicationServices.h&gt; include.</LI>
+			<LI>Nuked HAVE_CONFIG_H (we don't use config.h with CodeWarrior).</LI>
+			<LI>Includes &lt;mslconfig&gt;.</LI>
+			<LI>Defines __CF_USE_FRAMEWORK_INCLUDES__.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>QuadModel.cpp</P>
+		<UL>
+			<LI>IFrameCount is on the Scene not the Application.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>QuickTimeImageImporter.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>RGBColor.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>RGBColor.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>ReferenceCounted.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>ReferenceCounted.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>RegisterOpenGL.cpp</P>
+		<UL>
+			<LI>Added some more stuff.</LI>
+			<LI>Added some new files.</LI>
+			<LI>Added image and image importer files.</LI>
+			<LI>Added light files.</LI>
+			<LI>Updated for new files/folders.</LI>
+			<LI>Added some camera files.</LI>
+			<LI>Added ITimeSlice.</LI>
+			<LI>Added a bunch of new files.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>RegisterOpenGL.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Render.cpp</P>
+		<UL>
+			<LI>Added IsUsingWireFrame.</LI>
+			<LI>IFrameCount is on the Scene not the Application.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>RenderFrameCount.cpp</P>
+		<UL>
+			<LI>Added IsEnabled and Enabled.</LI>
+			<LI>Checked in	</LI>
+		</UL>
+
+		<P>RenderText.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Singleton.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Sphere.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Sphere.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>SpotLight.cpp</P>
+		<UL>
+			<LI>DoEnable sets the light up even if it's not enabled (because Light::Enable won't call the other interfaces).</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>StringUtils.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>StringUtils.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Terrain.cpp</P>
+		<UL>
+			<LI>Fixed the Patch code that keeps track of the number of polygons so that it works when we re-use the display list.</LI>
+			<LI>Init takes an IImagePtr instead of an Array.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>TextConversions.cpp</P>
+		<UL>
+			<LI>Added fallbacks for missing istringstream.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>TextConversions.h</P>
+		<UL>
+			<LI>Includes &lt;string&gt;.</LI>
+			<LI>Checked in		</LI>
+		</UL>
+
+		<P>Timing.cpp</P>
+		<UL>
+			<LI>Fixed an off-by-one error in GetMilliSeconds.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Timing.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Transcode.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Transcode.h</P>
+		<UL>
+			<LI>Added &lt;string&gt; include.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>UnitTest.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>UnitTest.h</P>
+		<UL>
+			<LI>Removed a bogus forward reference.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Unknown.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Unknown.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Vector.cpp</P>
+		<UL>
+			<LI>Uses BOOST_STATIC_ASSERT instead of COMPILE_CHECK.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Vector.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>Vertex.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>WillowConfig.h</P>
+		<UL>
+			<LI>Added math, numeric_limits, and stream defines.</LI>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>WindowProjection.cpp</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+		<P>WindowProjection.h</P>
+		<UL>
+			<LI>Checked in</LI>
+		</UL>
+
+</BODY>
+</HTML>
