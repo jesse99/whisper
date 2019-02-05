@@ -1,1 +1,21 @@
-<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?><!-- this is used to update the Free XML Software list at: http://birk105.studby.uio.no/linker/XMLtools.html --><!DOCTYPE xsa PUBLIC "-//LM Garshol//DTD XML Software Autoupdate 1.0//EN//XML"                     "http://birk105.studby.uio.no/www_work/xsa/xsa.dtd"><xsa>	<vendor>		<name>Jesse Jones</name>		<email>jesjones@halcyon.com</email>   	</vendor>	<product id="whisper">		<name>Whisper</name>		<version>2.0</version>		<last-release>20010323</last-release>		<info-url>http://www.halcyon.com/www3/jesjones/Whisper/Home.html</info-url>		<changes>Added an XXMLDocVisitor class. Added XXMLPrintDoc subclass to convert an XXMLDoc to a string.</changes>	</product></xsa>
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+
+<!-- this is used to update the Free XML Software list at: http://birk105.studby.uio.no/linker/XMLtools.html -->
+
+<!DOCTYPE xsa PUBLIC "-//LM Garshol//DTD XML Software Autoupdate 1.0//EN//XML"
+                     "http://birk105.studby.uio.no/www_work/xsa/xsa.dtd">
+
+<xsa>
+	<vendor>
+		<name>Jesse Jones</name>
+		<email>jesjones@halcyon.com</email>   
+	</vendor>
+
+	<product id="whisper">
+		<name>Whisper</name>
+		<version>2.0</version>
+		<last-release>20010323</last-release>
+		<info-url>http://www.halcyon.com/www3/jesjones/Whisper/Home.html</info-url>
+		<changes>Added an XXMLDocVisitor class. Added XXMLPrintDoc subclass to convert an XXMLDoc to a string.</changes>
+	</product>
+</xsa>

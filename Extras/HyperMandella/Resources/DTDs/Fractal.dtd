@@ -1,1 +1,120 @@
-<?xml version = "1.0" encoding = "UTF-8"?><!-- this file defines the elements and attributes used to stream      fractals in and out --><!-- ***************** Types ******************* --><!ENTITY % STRING		"CDATA">   			<!-- arbitrary text --><!ENTITY % BOOL 		"(true | false)"> <!ENTITY % INTEGER 		"NMTOKEN">   		<!-- signed integer --><!ENTITY % FLOAT 		"CDATA">  			<!-- real number --><!ENTITY % POINT3D 		"CDATA">  			<!-- 3D real number --><!ENTITY % POINT4D 		"CDATA">  			<!-- 4D real number --><!ENTITY % COLOR 		"CDATA">  			<!-- RGB color triplet in [0.0, 1.0] --><!ENTITY % ATTENUATION 	"(none | inverse_distance | inverse_distance_squared)"><!-- ***************** Defaults ***************** --><!ELEMENT Defaults		(Fractal+)>	<!-- ***************** Fractal ***************** --><!ELEMENT Fractal		(ICamera?, IDocInfo, IOrthographicCamera?)>	<!-- ***************** ICamera ***************** --><!ELEMENT ICamera		(Placement, Range?)>						<!-- ***************** Placement *************** --><!ELEMENT Placement		EMPTY>						<!ATTLIST Placement		loc 		%POINT3D;	#REQUIRED>			<!-- camera position --><!ATTLIST Placement		focus_pt	%POINT3D;	"0.0 0.0 0.0">		<!-- point the camera is focused on --><!ATTLIST Placement		up_vector	%POINT3D;	"0.0 1.0 0.0">		<!-- camera orientation --><!-- ******************* Range ***************** --><!ELEMENT Range			EMPTY>						<!ATTLIST Range			hither		%FLOAT;		"0.001">			<!-- minimum distance from the camera at which we check for the fractal --><!ATTLIST Range			yon			%FLOAT;		"4.0">				<!-- maximum distance from the camera at which we check for the fractal --><!-- ************ IOrthographicCamera ********** --><!ELEMENT IOrthographicCamera	EMPTY>						<!ATTLIST IOrthographicCamera size 	CDATA		"2.5 2.0">			<!-- area of the camera aperture --><!-- **************** IDocInfo ***************** --><!ELEMENT IDocInfo		(FractalInfo, ShaderInfo?, Resolution?, Palette?, Light?, PointLight*, DirectionalLight?)>						<!ATTLIST IDocInfo		function	%STRING;	#REQUIRED>			<!-- eg "q^2 + c" --><!ATTLIST IDocInfo		shader		%STRING;	"Phong Shader">		<!-- or "Lambert Shader" -->	<!-- *************** FractalInfo *************** --><!ELEMENT FractalInfo	EMPTY>						<!ATTLIST FractalInfo	w			%FLOAT;		"0.0">				<!-- fourth dimension of the fractal (we fix this and iterate over the other three dimensions to render the fractal) --><!ATTLIST FractalInfo	constant	%POINT4D;	"0.0 0.0 0.0 0.0">	<!-- constant used by many fractal formulas, eg CSqrQ is q := q^2 + c --><!ATTLIST FractalInfo	lambda		%POINT4D;	"0.0 0.0 0.0 0.0">	<!-- constant used by a few fractal formulas, eg CExpH is h := l*e^h + c --><!ATTLIST FractalInfo	bailout		%FLOAT;		"16.0">				<!-- point at which the fractal formula is considered to have escaped to infinity --><!ATTLIST FractalInfo	max_dwell	%INTEGER;	"20">				<!-- max number of times to iterate the fractal formula (if the result hasn't escaped to infinity the initial point is assumed to be inside the fractal) --><!-- **************** ShaderInfo *************** --><!ELEMENT ShaderInfo	EMPTY>						<!ATTLIST ShaderInfo	ambient		%FLOAT;		"0.9">				<!-- weight for the contribution from the ambient light --><!ATTLIST ShaderInfo	diffuse		%FLOAT;		"0.8">				<!-- weight for the contribution from the point and directional lights --><!ATTLIST ShaderInfo	specular	%FLOAT;		"0.3">				<!-- weight for the contribution from specular highlights --><!ATTLIST ShaderInfo	specular_exp %FLOAT;	"500.0">			<!-- adjusts the size of specular highlights --><!ATTLIST ShaderInfo	formula		%STRING;	"sin(0.5*x)"><!-- **************** Resolution *************** --><!ELEMENT Resolution	EMPTY>						<!ATTLIST Resolution	width		%INTEGER;	"256">				<!-- pixel width --><!ATTLIST Resolution	height		%INTEGER;	"256">				<!-- pixel height --><!ATTLIST Resolution	depth		%INTEGER;	"32">				<!-- number of steps to take into the screen when looking for fractal --><!-- ****************** Palette **************** --><!ELEMENT Palette		(Color+)>						<!ATTLIST Palette		name		%STRING;	#REQUIRED><!-- ****************** Color ****************** --><!ELEMENT Color			EMPTY>						<!ATTLIST Color			red			%FLOAT;		#REQUIRED><!ATTLIST Color			green		%FLOAT;		#REQUIRED><!ATTLIST Color			blue		%FLOAT;		#REQUIRED><!-- ******************* Light ***************** --><!ELEMENT Light			EMPTY>						<!ATTLIST Light			on			%BOOL;		"true">				<!-- whether the light is on or off --><!ATTLIST Light			brightness	%FLOAT;		"1.0">				<!-- scale factor used to weight lights --><!ATTLIST Light			color		%COLOR;		"1.0 1.0 1.0">		<!-- **************** PointLight *************** --><!ELEMENT PointLight	(Light)>									<!-- a light with a fixed location -->		<!ATTLIST PointLight 	loc 		%POINT3D;	#REQUIRED><!ATTLIST PointLight 	attenuation %ATTENUATION; "none"><!-- ************* DirectionalLight ************ --><!ELEMENT DirectionalLight	(Light)>								<!-- a light located infinitely far away that shines in a particular direction -->	<!ATTLIST DirectionalLight direction %POINT3D;	#REQUIRED>			<!-- vector that points in the direction the light is faced -->
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!-- this file defines the elements and attributes used to stream 
+     fractals in and out -->
+
+
+<!-- ***************** Types ******************* -->
+<!ENTITY % STRING		"CDATA">   			<!-- arbitrary text -->
+<!ENTITY % BOOL 		"(true | false)"> 
+<!ENTITY % INTEGER 		"NMTOKEN">   		<!-- signed integer -->
+<!ENTITY % FLOAT 		"CDATA">  			<!-- real number -->
+<!ENTITY % POINT3D 		"CDATA">  			<!-- 3D real number -->
+<!ENTITY % POINT4D 		"CDATA">  			<!-- 4D real number -->
+<!ENTITY % COLOR 		"CDATA">  			<!-- RGB color triplet in [0.0, 1.0] -->
+
+<!ENTITY % ATTENUATION 	"(none | inverse_distance | inverse_distance_squared)">
+
+
+<!-- ***************** Defaults ***************** -->
+<!ELEMENT Defaults		(Fractal+)>	
+
+
+<!-- ***************** Fractal ***************** -->
+<!ELEMENT Fractal		(ICamera?, IDocInfo, IOrthographicCamera?)>	
+
+
+<!-- ***************** ICamera ***************** -->
+<!ELEMENT ICamera		(Placement, Range?)>						
+
+
+<!-- ***************** Placement *************** -->
+<!ELEMENT Placement		EMPTY>						
+
+<!ATTLIST Placement		loc 		%POINT3D;	#REQUIRED>			<!-- camera position -->
+<!ATTLIST Placement		focus_pt	%POINT3D;	"0.0 0.0 0.0">		<!-- point the camera is focused on -->
+<!ATTLIST Placement		up_vector	%POINT3D;	"0.0 1.0 0.0">		<!-- camera orientation -->
+
+
+<!-- ******************* Range ***************** -->
+<!ELEMENT Range			EMPTY>						
+
+<!ATTLIST Range			hither		%FLOAT;		"0.001">			<!-- minimum distance from the camera at which we check for the fractal -->
+<!ATTLIST Range			yon			%FLOAT;		"4.0">				<!-- maximum distance from the camera at which we check for the fractal -->
+
+
+<!-- ************ IOrthographicCamera ********** -->
+<!ELEMENT IOrthographicCamera	EMPTY>						
+
+<!ATTLIST IOrthographicCamera size 	CDATA		"2.5 2.0">			<!-- area of the camera aperture -->
+
+
+<!-- **************** IDocInfo ***************** -->
+<!ELEMENT IDocInfo		(FractalInfo, ShaderInfo?, Resolution?, Palette?, Light?, PointLight*, DirectionalLight?)>						
+
+<!ATTLIST IDocInfo		function	%STRING;	#REQUIRED>			<!-- eg "q^2 + c" -->
+<!ATTLIST IDocInfo		shader		%STRING;	"Phong Shader">		<!-- or "Lambert Shader" -->	
+
+
+<!-- *************** FractalInfo *************** -->
+<!ELEMENT FractalInfo	EMPTY>						
+
+<!ATTLIST FractalInfo	w			%FLOAT;		"0.0">				<!-- fourth dimension of the fractal (we fix this and iterate over the other three dimensions to render the fractal) -->
+<!ATTLIST FractalInfo	constant	%POINT4D;	"0.0 0.0 0.0 0.0">	<!-- constant used by many fractal formulas, eg CSqrQ is q := q^2 + c -->
+<!ATTLIST FractalInfo	lambda		%POINT4D;	"0.0 0.0 0.0 0.0">	<!-- constant used by a few fractal formulas, eg CExpH is h := l*e^h + c -->
+<!ATTLIST FractalInfo	bailout		%FLOAT;		"16.0">				<!-- point at which the fractal formula is considered to have escaped to infinity -->
+<!ATTLIST FractalInfo	max_dwell	%INTEGER;	"20">				<!-- max number of times to iterate the fractal formula (if the result hasn't escaped to infinity the initial point is assumed to be inside the fractal) -->
+
+
+<!-- **************** ShaderInfo *************** -->
+<!ELEMENT ShaderInfo	EMPTY>						
+
+<!ATTLIST ShaderInfo	ambient		%FLOAT;		"0.9">				<!-- weight for the contribution from the ambient light -->
+<!ATTLIST ShaderInfo	diffuse		%FLOAT;		"0.8">				<!-- weight for the contribution from the point and directional lights -->
+<!ATTLIST ShaderInfo	specular	%FLOAT;		"0.3">				<!-- weight for the contribution from specular highlights -->
+<!ATTLIST ShaderInfo	specular_exp %FLOAT;	"500.0">			<!-- adjusts the size of specular highlights -->
+<!ATTLIST ShaderInfo	formula		%STRING;	"sin(0.5*x)">
+
+
+<!-- **************** Resolution *************** -->
+<!ELEMENT Resolution	EMPTY>						
+
+<!ATTLIST Resolution	width		%INTEGER;	"256">				<!-- pixel width -->
+<!ATTLIST Resolution	height		%INTEGER;	"256">				<!-- pixel height -->
+<!ATTLIST Resolution	depth		%INTEGER;	"32">				<!-- number of steps to take into the screen when looking for fractal -->
+
+
+<!-- ****************** Palette **************** -->
+<!ELEMENT Palette		(Color+)>						
+
+<!ATTLIST Palette		name		%STRING;	#REQUIRED>
+
+
+<!-- ****************** Color ****************** -->
+<!ELEMENT Color			EMPTY>						
+
+<!ATTLIST Color			red			%FLOAT;		#REQUIRED>
+<!ATTLIST Color			green		%FLOAT;		#REQUIRED>
+<!ATTLIST Color			blue		%FLOAT;		#REQUIRED>
+
+
+<!-- ******************* Light ***************** -->
+<!ELEMENT Light			EMPTY>						
+
+<!ATTLIST Light			on			%BOOL;		"true">				<!-- whether the light is on or off -->
+<!ATTLIST Light			brightness	%FLOAT;		"1.0">				<!-- scale factor used to weight lights -->
+<!ATTLIST Light			color		%COLOR;		"1.0 1.0 1.0">		
+
+
+<!-- **************** PointLight *************** -->
+<!ELEMENT PointLight	(Light)>									<!-- a light with a fixed location -->		
+
+<!ATTLIST PointLight 	loc 		%POINT3D;	#REQUIRED>
+<!ATTLIST PointLight 	attenuation %ATTENUATION; "none">
+
+
+<!-- ************* DirectionalLight ************ -->
+<!ELEMENT DirectionalLight	(Light)>								<!-- a light located infinitely far away that shines in a particular direction -->	
+
+<!ATTLIST DirectionalLight direction %POINT3D;	#REQUIRED>			<!-- vector that points in the direction the light is faced -->
+

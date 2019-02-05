@@ -1,1 +1,6 @@
-XML Compiler is a drag and drop app that parses XML files into an XXMLDoc andstreams the XXMLDoc to a bXML file using a binary stream. XXMLDoc::Load canthen be used to unflatten the XXMLDoc. This speeds up app's since they don't have to re-parse the XML each time they run and it means that the linker willbe able to dead-strip the XML parser for most apps. Note that you may need toput an alias/shortcut to the DTD files in the XML file's folder.
+XML Compiler is a drag and drop app that parses XML files into an XXMLDoc and
+streams the XXMLDoc to a bXML file using a binary stream. XXMLDoc::Load can
+then be used to unflatten the XXMLDoc. This speeds up app's since they don't 
+have to re-parse the XML each time they run and it means that the linker will
+be able to dead-strip the XML parser for most apps. Note that you may need to
+put an alias/shortcut to the DTD files in the XML file's folder.

@@ -1,1 +1,990 @@
-Date: Sun, May 6, 2001Time: 3:25:59 AMAdd Palette Dialog Boss:	IDocDialog             CAddPaletteDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerAmbient Coefficient Dialog Boss:	IFloatDialog           CFloatDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerAmbient Light Boss:	ILight              CAmbientLightAntiAliaser Boss:	IDocInfo            CDocInfo	ICamera             COrthographicCamera	IOrthographicCamera	IRenderer           CRenderer	IChildNode	ILoadedApplication Boss (singleton):	IInit               CAppInit	IInstallMenuHandler CAppMenuHandler	IColorFormulas      CColorFormulas	IFormulaState       CFormulaState	IInitMenuBar        CInitMenuBar	IPalettes           CPalettes	IRandomPalette      CRandomPalette	ITemporaryPalettes  CTemporaryPalettes	IEventDispatcher    MEventDispatcher	IInstallMenuHandler MMacsbugMenuHandler	IInstallMenuHandler MSIOUXExtension	IInstallMenuHandler MSystemHeapExtension	IInstallMenuHandler MSystemInfoExtension	IInstallMenuHandler MZoneRangerExtension	IActiveMenuBar      XActiveMenuBar	IActiveUndoContext  XActiveUndoContext	IEventLoop          XAppEventLoop	IFocus              XAppFocus	IInstallMenuHandler XAppMenuHandler	IApplication        XApplication	IInstallMenuHandler XAssertExtension	ICommandQueue       XCommandQueue	IInstallMenuHandler XControlExtension	ICreateDoc          XCreateDoc	ICurrentFocus       XCurrentFocus	IInstallMenuHandler XDocAppMenuHandler	ICommandLine        XDocuments	IDocuments	IInstallMenuHandler XFocusExtension	IHierarchy          XHierarchy	IInstallMenuHandler XIntenseExtension	IKeyHandler         XKeyHandler	IMenuBar            XMenuBar	IMenuHandler        XMenuHandler	IInstallMenuHandler XObjectHeapExtension	IInstallMenuHandler XSeperatorExtension	IInstallMenuHandler	IInstallMenuHandler	IInstallMenuHandler	IStringTableLoader  XStringTableLoader	ITimer              XTimer	IInstallMenuHandler XTraceExtension	IUndoContext        XUndoContext	IInstallMenuHandler XUnitTestExtension	IWindowMgr          XWindowMgr	IXMLMenu            XXMLMenuBailout Dialog Boss:	IFloatDialog           CFloatDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerBegin Sequence Action Boss:	IBeginUndoSequence  XBeginUndoSequence	ICommand            XCommand	IUndoActionHelper   XDummyUndoAction	IUndoAction         XUndoAction	ICommandHelper      XUndoCommandBevel Button Boss:	IValueControl           MValueControl	IBevelButton            XBevelButton	IHelpText               XButtonHelp	ISetCheckedHelp	ISetDisabledHelp	ISetHelp	ICallbackClickExtension XCallbackClickExtension	IClickExtension	IClickExtensible        XClickExtensible	IChildNode              XControl	IControl	IGeometry               XControlGeometry	IMouseDownHelper        XControlMouseHandler	IText                   XControlText	IDraw                   XDrawControl	IHierarchy              XHierarchy	IMouseHandler           XMouseHandlerCallback Action Boss:	ICommand            XCommand	IUndoAction         XUndoAction	IUndoActionHelper   XUndoCallbackAction	IUndoCallbackAction	ICommandHelper      XUndoCommandCallback Command Boss:	ICallbackCommand    XCallbackCommand	ICommandHelper	ICommand            XCommandCamera Dialog Boss:	IDocDialog             CCameraDialog	IValidate	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerCheck Box Boss:	IValueControl       MValueControl	IHelpText           XButtonHelp	ISetCheckedHelp	ISetDisabledHelp	ISetHelp	ICheckBox           XCheckBox	IControlPressedHelper	IChildNode          XControl	IControl	IGeometry           XControlGeometry	IMouseDownHelper    XControlMouseHandler	IText               XControlText	IDraw               XDrawControl	IHierarchy          XHierarchy	IMouseHandler       XMouseHandlerClear Action Boss:	IUndoActionHelper   XClearAction	ICommand            XCommand	IInstance           XInstance	IUndoAction         XUndoAction	ICommandHelper      XUndoCommandColor Swatch Boss:	IActivated          XActivateMenuHandlers	IColorSwatch        XColorSwatch	IContextMenuHelper	IDrawHelper	IInstallMenuHandler	IMouseDownHelper	IChildNode          XControl	IControl	IGeometry           XControlGeometry	IHelpText           XDefaultHelp	ISetHelp	IDraw               XDrawControl	IHierarchy          XHierarchy	IMouseHandler       XMouseHandler	IUserControl        XUserControlConstant Dialog Boss:	IComplexDialog         CComplexDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IRange<float>          XFloatRange	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerContext Menu Boss:	IContextMenu        XContextMenu	IMenu               XMenuCopy Action Boss:	ICommand            XCommand	IUndoActionHelper   XCopyAction	IInstance           XInstance	IUndoAction         XUndoAction	ICommandHelper      XUndoCommandCut Action Boss:	ICommand            XCommand	IUndoActionHelper   XCutAction	IInstance           XInstance	IUndoAction         XUndoAction	ICommandHelper      XUndoCommandDeferred Error Command Boss:	ICommand            XCommand	ICommandHelper      XDeferredErrorCommand	IDeferredErrorCommandDeferred Menu Command Boss:	ICommand            XCommand	ICommandHelper      XDeferredMenuCommand	IDeferredMenuCommandDelete Action Boss:	ICommand            XCommand	IInstance           XInstance	IMergeActions       XMergeAction	IUndoActionHelper	IUndoAction         XUndoAction	ICommandHelper      XUndoCommandDelete Color Formula Dialog Boss:	IAppDialog             CDeleteColorFormulaDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerDelete Palette Dialog Boss:	IAppDialog             CDeletePaletteDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerDiffuse Coefficient Dialog Boss:	IFloatDialog           CFloatDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerDirectional Light Boss:	IDirectionalLight   CDirectionalLight	ILight	IReflectedLightDocument Boss:	IDocCommands        CDocCommands	IDocInfo            CDocInfo	IDocReader          CInfoReader	IDocWriter          CInfoWriter	ICamera             COrthographicCamera	IOrthographicCamera	IDocReader          CPngReader	IDocWriter          CPngWriter	IFocus              XDocFocus	IDocument           XDocument	IHierarchy          XHierarchy	IPersistDoc         XPersistDocDouble Text Box Boss:	IAdjustCursorHelper MTETextBox	IFocused	IMemento	IScrapHelper	IText	ITextBox	IValidate	IActivated          XActivateMenuHandlers	IChildNode          XControl	IControl	IFocus              XControlFocus	IGeometry           XControlGeometry	IMouseDownHelper    XControlMouseHandler	IHelpText           XDefaultHelp	ISetHelp	IRange<double>      XDoubleValidator	IValidateTextHelper	IDraw               XDrawControl	IHierarchy          XHierarchy	IMouseHandler       XMouseHandler	IScrap              XScrap	IFocused            XScrapMenuHandler	IFocused            XTextBoxMenuHandler	IValue<double>      XTextDoubleValue	IValidateText       XValidateTextEdit Color Formula Dialog Boss:	IDocDialog             CEditColorFormulaDialog	IValidate	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerEnd Sequence Action Boss:	ICommand            XCommand	IUndoActionHelper   XDummyUndoAction	IEndUndoSequence    XEndUndoSequence	IUndoAction         XUndoAction	ICommandHelper      XUndoCommandFloat Text Box Boss:	IAdjustCursorHelper MTETextBox	IFocused	IMemento	IScrapHelper	IText	ITextBox	IValidate	IActivated          XActivateMenuHandlers	IChildNode          XControl	IControl	IFocus              XControlFocus	IGeometry           XControlGeometry	IMouseDownHelper    XControlMouseHandler	IHelpText           XDefaultHelp	ISetHelp	IRange<double>      XDoubleValidator	IValidateTextHelper	IDraw               XDrawControl	IHierarchy          XHierarchy	IMouseHandler       XMouseHandler	IScrap              XScrap	IFocused            XScrapMenuHandler	IFocused            XTextBoxMenuHandler	IValue<float>       XTextFloatValue	IValidateText       XValidateTextForward Delete Action Boss:	ICommand            XCommand	IInstance           XInstance	IMergeActions       XMergeAction	IUndoActionHelper	IUndoAction         XUndoAction	ICommandHelper      XUndoCommandFractal Control Boss:	IChildNode          CDrawFractal	IDrawHelper	ILoaded	IAdjustCursorHelper CFractalMouseHandler	IContextMenuHelper	IMouseDownHelper	IRenderer           CRenderer	IChildNode	ILoaded	IChildNode          XControl	IControl	IFocus              XControlFocus	IGeometry           XControlGeometry	IBinding            XDefaultChangedSize	IParentChangedSize	IHelpText           XDefaultHelp	ISetHelp	IDraw               XDrawControl	IHierarchy          XHierarchy	IMouseHandler       XMouseHandler	IScrollableControl  XScrollableControl	ISizeChanged	IFocused            XScrollableKeyHandler	IUserControl        XUserControlFractal Functions Boss (singleton):	IFractalFunction    CCubeH	IFractalFunction    CCubeQ	IFractalFunction    CEPwrH	IFractalFunction    CExpH	IFractalFunction    CLambdaQ	IFractalFunction    CPiPwrH	IFractalFunction    CPotts1H	IFractalFunction    CPotts1Q	IFractalFunction    CPotts2H	IFractalFunction    CPotts2Q	IFractalFunction    CQuadH	IFractalFunction    CQuadQ	IFractalFunction    CSinSqrH	IFractalFunction    CSphere	IFractalFunction    CSqrH	IFractalFunction    CSqrQ	IFractalFunction    CSqrtHFractal Window Boss:	IInstallMenuHandler    CDocMenuHandler	IWindowClick           MDocWindowClick	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IBrushDrawer           XBrushWindowDrawer	IDrawHelper	IChildNode             XDefaultDrawWindow	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IInstallMenuHandler    XDocMenuHandler	IDocView               XDocView	ICanClose              XDocWindow	IInit	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreDocWindowPos	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IInstallMenuHandler    XWindowMenuHandlerGroup Box Boss:	IChildNode          XControl	IControl	IGeometry           XControlGeometry	IMouseDownHelper    XControlMouseHandler	IText               XControlText	IDraw               XDrawControl	IGroupBox           XGroupBox	IHierarchy          XHierarchy	IMouseHandler       XMouseHandlerInt32 Text Box Boss:	IAdjustCursorHelper MTETextBox	IFocused	IMemento	IScrapHelper	IText	ITextBox	IValidate	IActivated          XActivateMenuHandlers	IChildNode          XControl	IControl	IFocus              XControlFocus	IGeometry           XControlGeometry	IMouseDownHelper    XControlMouseHandler	IHelpText           XDefaultHelp	ISetHelp	IDraw               XDrawControl	IHierarchy          XHierarchy	IRange<long>        XIntValidator	IValidateTextHelper	IMouseHandler       XMouseHandler	IScrap              XScrap	IFocused            XScrapMenuHandler	IFocused            XTextBoxMenuHandler	IValue<long>        XTextInt32Value	IValidateText       XValidateTextLambda Dialog Boss:	IComplexDialog         CComplexDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IRange<float>          XFloatRange	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerLambert Shader Boss:	IShader             CLambertShaderList Box Boss:	ICallbackClickExtension XCallbackClickExtension	IClickExtension	IClickExtensible        XClickExtensible	IChildNode              XControl	IControl	IFocus                  XControlFocus	IGeometry               XControlGeometry	IMouseDownHelper        XControlMouseHandler	IDraw                   XDrawControl	IHierarchy              XHierarchy	IControlPressedHelper   XListBox	IFocused	IListBox	IMouseExtension	ISizeChanged	IMouseExtensible        XMouseExtensible	IMouseHandler           XMouseHandlerMDI Frame Window Boss:Max Dwell Dialog Boss:	IInt32Dialog           CInt32Dialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerMenu Boss:	IMenu               XMenuMultiple Action Boss:	ICommand            XCommand	IMultipleUndoAction XMultipleUndoAction	IUndoActionHelper	IUndoAction         XUndoAction	ICommandHelper      XUndoCommandPaste Action Boss:	ICommand            XCommand	IInstance           XInstance	IUndoActionHelper   XPasteAction	IUndoAction         XUndoAction	ICommandHelper      XUndoCommandPhong Shader Boss:	IShader             CPhongShaderPoint Light Boss:	ILight              CPointLight	IPointLight	IReflectedLightPoint Light Dialog Boss:	IPointLightDialog      CPointLightDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerPose Dialog Box Boss:	IEventDispatcher    MEventDispatcher	IHierarchy          XHierarchy	IPoseDialogBox      XPoseDialogBoxPref Dialog Boss:	IAppDialog             CPrefDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerPrintable Text Box Boss:	IAdjustCursorHelper MTETextBox	IFocused	IMemento	IScrapHelper	IText	ITextBox	IValidate	IActivated          XActivateMenuHandlers	IChildNode          XControl	IControl	IFocus              XControlFocus	IGeometry           XControlGeometry	IMouseDownHelper    XControlMouseHandler	IHelpText           XDefaultHelp	ISetHelp	IDraw               XDrawControl	IHierarchy          XHierarchy	IMouseHandler       XMouseHandler	IValidateTextHelper XPrintableValidator	IScrap              XScrap	IFocused            XScrapMenuHandler	IFocused            XTextBoxMenuHandler	IValidateText       XValidateTextPush Button Boss:	ICallbackClickExtension XCallbackClickExtension	IClickExtension	IClickExtensible        XClickExtensible	IChildNode              XControl	IControl	IGeometry               XControlGeometry	IMouseDownHelper        XControlMouseHandler	IText                   XControlText	IDraw                   XDrawControl	IHierarchy              XHierarchy	IMouseHandler           XMouseHandler	IPushButton             XPushButtonRadio Button Boss:	IValueControl           MValueControl	IHelpText               XButtonHelp	ISetCheckedHelp	ISetDisabledHelp	ISetHelp	ICallbackClickExtension XCallbackClickExtension	IClickExtension	IClickExtensible        XClickExtensible	IChildNode              XControl	IControl	IGeometry               XControlGeometry	IMouseDownHelper        XControlMouseHandler	IText                   XControlText	IDraw                   XDrawControl	IHierarchy              XHierarchy	IMouseHandler           XMouseHandler	IControlPressedHelper   XRadioButton	IRadioButton	IValueChangedRadio Group Boss:	IChildNode          XControl	IControl	IGeometry           XControlGeometry	IMouseDownHelper    XControlMouseHandler	IDraw               XDrawControl	IGroupControl       XGroupControl	IHierarchy          XHierarchy	IMouseHandler       XMouseHandler	IValue<long>        XRadioButtonValueRadio Group Box Boss:	IChildNode          XControl	IControl	IGeometry           XControlGeometry	IMouseDownHelper    XControlMouseHandler	IText               XControlText	IDraw               XDrawControl	IGroupBox           XGroupBox	IHierarchy          XHierarchy	IMouseHandler       XMouseHandler	IValue<long>        XRadioButtonValueRandom Palette Options Dialog Boss:	IDocDialog             CRandomPaletteDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerRenderer Boss:	IRenderer           CRenderer	IChildNode	ILoaded	IHierarchy          XHierarchyResolution Dialog Boss:	IDocDialog             CResolutionDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerRoot Control Boss:	IGeometry           MRootGeometry	IParentChangedSize	IChildNode          XControl	IControl	IMouseDownHelper    XControlMouseHandler	IDraw               XDrawControl	IHierarchy          XHierarchy	IMouseHandler       XMouseHandler	IRootControl        XRootControlScroll Bar Boss:	ITrackControlHelper     MScrollBarMouseHandler	IMouseDownHelper        MThumbMouseHandler	IValueControl           MValueControl	ICallbackClickExtension XCallbackClickExtension	IClickExtension	IClickExtensible        XClickExtensible	IChildNode              XControl	IControl	IGeometry               XControlGeometry	IBinding                XDefaultChangedSize	IParentChangedSize	IDraw                   XDrawControl	IHierarchy              XHierarchy	IMouseHandler           XMouseHandler	IScrollBar              XScrollBarScroller Control Boss:	IChildNode          XControl	IControl	IGeometry           XControlGeometry	IMouseDownHelper    XControlMouseHandler	IBinding            XDefaultChangedSize	IParentChangedSize	IDraw               XDrawControl	IHierarchy          XHierarchy	IMouseHandler       XMouseHandler	IScrollerControl    XScrollerControl	IUserControl        XUserControlSeperator Boss:	IChildNode          XControl	IControl	IGeometry           XControlGeometry	IMouseDownHelper    XControlMouseHandler	IDraw               XDrawControl	IHierarchy          XHierarchy	IMouseHandler       XMouseHandler	ISeperator          XSeperatorSpecular Coefficient Dialog Boss:	IFloatDialog           CFloatDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerSpecular Exponent Dialog Boss:	IFloatDialog           CFloatDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerStatic Text Boss:	IStaticText         MStaticText	IText	IChildNode          XControl	IControl	IGeometry           XControlGeometry	IMouseDownHelper    XControlMouseHandler	IDraw               XDrawControl	IHierarchy          XHierarchy	IMouseHandler       XMouseHandlerTyping Action Boss:	ICommand            XCommand	IInstance           XInstance	IMergeActions       XMergeAction	IUndoActionHelper	IUndoAction         XUndoAction	ICommandHelper      XUndoCommandW Dialog Boss:	IFloatDialog           CFloatDialog	IWindowClick           MWindowClick	IActivated             XActivateMenuHandlers	IChildNode             XDefaultDrawWindow	IDrawHelper	IDefaultPositionWindow XDefaultPositionWindow	IPositionWindow	IActivated             XDialogBox	IDialogBox	IOpened	IDraw                  XDraw	IRange<float>          XFloatRange	IHierarchy             XHierarchy	IMouseHandler          XMouseHandler	IRestoreWindowPosition XRestoreWindowPosition	ITabber                XTabber	IUndoContext           XUndoContext	IWindow                XWindow	IFocus                 XWindowFocus	IGeometry              XWindowGeometry	IActivated             XWindowKeyHandlerXML Persist Boss (singleton):	IReadXML            XReadXML	IWriteXML           XWriteXML
+Date: Sun, May 6, 2001
+Time: 3:25:59 AM
+
+Add Palette Dialog Boss:
+	IDocDialog             CAddPaletteDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Ambient Coefficient Dialog Boss:
+	IFloatDialog           CFloatDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Ambient Light Boss:
+	ILight              CAmbientLight
+
+AntiAliaser Boss:
+	IDocInfo            CDocInfo
+	ICamera             COrthographicCamera
+	IOrthographicCamera
+	IRenderer           CRenderer
+	IChildNode
+	ILoaded
+
+Application Boss (singleton):
+	IInit               CAppInit
+	IInstallMenuHandler CAppMenuHandler
+	IColorFormulas      CColorFormulas
+	IFormulaState       CFormulaState
+	IInitMenuBar        CInitMenuBar
+	IPalettes           CPalettes
+	IRandomPalette      CRandomPalette
+	ITemporaryPalettes  CTemporaryPalettes
+	IEventDispatcher    MEventDispatcher
+	IInstallMenuHandler MMacsbugMenuHandler
+	IInstallMenuHandler MSIOUXExtension
+	IInstallMenuHandler MSystemHeapExtension
+	IInstallMenuHandler MSystemInfoExtension
+	IInstallMenuHandler MZoneRangerExtension
+	IActiveMenuBar      XActiveMenuBar
+	IActiveUndoContext  XActiveUndoContext
+	IEventLoop          XAppEventLoop
+	IFocus              XAppFocus
+	IInstallMenuHandler XAppMenuHandler
+	IApplication        XApplication
+	IInstallMenuHandler XAssertExtension
+	ICommandQueue       XCommandQueue
+	IInstallMenuHandler XControlExtension
+	ICreateDoc          XCreateDoc
+	ICurrentFocus       XCurrentFocus
+	IInstallMenuHandler XDocAppMenuHandler
+	ICommandLine        XDocuments
+	IDocuments
+	IInstallMenuHandler XFocusExtension
+	IHierarchy          XHierarchy
+	IInstallMenuHandler XIntenseExtension
+	IKeyHandler         XKeyHandler
+	IMenuBar            XMenuBar
+	IMenuHandler        XMenuHandler
+	IInstallMenuHandler XObjectHeapExtension
+	IInstallMenuHandler XSeperatorExtension
+	IInstallMenuHandler
+	IInstallMenuHandler
+	IInstallMenuHandler
+	IStringTableLoader  XStringTableLoader
+	ITimer              XTimer
+	IInstallMenuHandler XTraceExtension
+	IUndoContext        XUndoContext
+	IInstallMenuHandler XUnitTestExtension
+	IWindowMgr          XWindowMgr
+	IXMLMenu            XXMLMenu
+
+Bailout Dialog Boss:
+	IFloatDialog           CFloatDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Begin Sequence Action Boss:
+	IBeginUndoSequence  XBeginUndoSequence
+	ICommand            XCommand
+	IUndoActionHelper   XDummyUndoAction
+	IUndoAction         XUndoAction
+	ICommandHelper      XUndoCommand
+
+Bevel Button Boss:
+	IValueControl           MValueControl
+	IBevelButton            XBevelButton
+	IHelpText               XButtonHelp
+	ISetCheckedHelp
+	ISetDisabledHelp
+	ISetHelp
+	ICallbackClickExtension XCallbackClickExtension
+	IClickExtension
+	IClickExtensible        XClickExtensible
+	IChildNode              XControl
+	IControl
+	IGeometry               XControlGeometry
+	IMouseDownHelper        XControlMouseHandler
+	IText                   XControlText
+	IDraw                   XDrawControl
+	IHierarchy              XHierarchy
+	IMouseHandler           XMouseHandler
+
+Callback Action Boss:
+	ICommand            XCommand
+	IUndoAction         XUndoAction
+	IUndoActionHelper   XUndoCallbackAction
+	IUndoCallbackAction
+	ICommandHelper      XUndoCommand
+
+Callback Command Boss:
+	ICallbackCommand    XCallbackCommand
+	ICommandHelper
+	ICommand            XCommand
+
+Camera Dialog Boss:
+	IDocDialog             CCameraDialog
+	IValidate
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Check Box Boss:
+	IValueControl       MValueControl
+	IHelpText           XButtonHelp
+	ISetCheckedHelp
+	ISetDisabledHelp
+	ISetHelp
+	ICheckBox           XCheckBox
+	IControlPressedHelper
+	IChildNode          XControl
+	IControl
+	IGeometry           XControlGeometry
+	IMouseDownHelper    XControlMouseHandler
+	IText               XControlText
+	IDraw               XDrawControl
+	IHierarchy          XHierarchy
+	IMouseHandler       XMouseHandler
+
+Clear Action Boss:
+	IUndoActionHelper   XClearAction
+	ICommand            XCommand
+	IInstance           XInstance
+	IUndoAction         XUndoAction
+	ICommandHelper      XUndoCommand
+
+Color Swatch Boss:
+	IActivated          XActivateMenuHandlers
+	IColorSwatch        XColorSwatch
+	IContextMenuHelper
+	IDrawHelper
+	IInstallMenuHandler
+	IMouseDownHelper
+	IChildNode          XControl
+	IControl
+	IGeometry           XControlGeometry
+	IHelpText           XDefaultHelp
+	ISetHelp
+	IDraw               XDrawControl
+	IHierarchy          XHierarchy
+	IMouseHandler       XMouseHandler
+	IUserControl        XUserControl
+
+Constant Dialog Boss:
+	IComplexDialog         CComplexDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IRange<float>          XFloatRange
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Context Menu Boss:
+	IContextMenu        XContextMenu
+	IMenu               XMenu
+
+Copy Action Boss:
+	ICommand            XCommand
+	IUndoActionHelper   XCopyAction
+	IInstance           XInstance
+	IUndoAction         XUndoAction
+	ICommandHelper      XUndoCommand
+
+Cut Action Boss:
+	ICommand            XCommand
+	IUndoActionHelper   XCutAction
+	IInstance           XInstance
+	IUndoAction         XUndoAction
+	ICommandHelper      XUndoCommand
+
+Deferred Error Command Boss:
+	ICommand            XCommand
+	ICommandHelper      XDeferredErrorCommand
+	IDeferredErrorCommand
+
+Deferred Menu Command Boss:
+	ICommand            XCommand
+	ICommandHelper      XDeferredMenuCommand
+	IDeferredMenuCommand
+
+Delete Action Boss:
+	ICommand            XCommand
+	IInstance           XInstance
+	IMergeActions       XMergeAction
+	IUndoActionHelper
+	IUndoAction         XUndoAction
+	ICommandHelper      XUndoCommand
+
+Delete Color Formula Dialog Boss:
+	IAppDialog             CDeleteColorFormulaDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Delete Palette Dialog Boss:
+	IAppDialog             CDeletePaletteDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Diffuse Coefficient Dialog Boss:
+	IFloatDialog           CFloatDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Directional Light Boss:
+	IDirectionalLight   CDirectionalLight
+	ILight
+	IReflectedLight
+
+Document Boss:
+	IDocCommands        CDocCommands
+	IDocInfo            CDocInfo
+	IDocReader          CInfoReader
+	IDocWriter          CInfoWriter
+	ICamera             COrthographicCamera
+	IOrthographicCamera
+	IDocReader          CPngReader
+	IDocWriter          CPngWriter
+	IFocus              XDocFocus
+	IDocument           XDocument
+	IHierarchy          XHierarchy
+	IPersistDoc         XPersistDoc
+
+Double Text Box Boss:
+	IAdjustCursorHelper MTETextBox
+	IFocused
+	IMemento
+	IScrapHelper
+	IText
+	ITextBox
+	IValidate
+	IActivated          XActivateMenuHandlers
+	IChildNode          XControl
+	IControl
+	IFocus              XControlFocus
+	IGeometry           XControlGeometry
+	IMouseDownHelper    XControlMouseHandler
+	IHelpText           XDefaultHelp
+	ISetHelp
+	IRange<double>      XDoubleValidator
+	IValidateTextHelper
+	IDraw               XDrawControl
+	IHierarchy          XHierarchy
+	IMouseHandler       XMouseHandler
+	IScrap              XScrap
+	IFocused            XScrapMenuHandler
+	IFocused            XTextBoxMenuHandler
+	IValue<double>      XTextDoubleValue
+	IValidateText       XValidateText
+
+Edit Color Formula Dialog Boss:
+	IDocDialog             CEditColorFormulaDialog
+	IValidate
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+End Sequence Action Boss:
+	ICommand            XCommand
+	IUndoActionHelper   XDummyUndoAction
+	IEndUndoSequence    XEndUndoSequence
+	IUndoAction         XUndoAction
+	ICommandHelper      XUndoCommand
+
+Float Text Box Boss:
+	IAdjustCursorHelper MTETextBox
+	IFocused
+	IMemento
+	IScrapHelper
+	IText
+	ITextBox
+	IValidate
+	IActivated          XActivateMenuHandlers
+	IChildNode          XControl
+	IControl
+	IFocus              XControlFocus
+	IGeometry           XControlGeometry
+	IMouseDownHelper    XControlMouseHandler
+	IHelpText           XDefaultHelp
+	ISetHelp
+	IRange<double>      XDoubleValidator
+	IValidateTextHelper
+	IDraw               XDrawControl
+	IHierarchy          XHierarchy
+	IMouseHandler       XMouseHandler
+	IScrap              XScrap
+	IFocused            XScrapMenuHandler
+	IFocused            XTextBoxMenuHandler
+	IValue<float>       XTextFloatValue
+	IValidateText       XValidateText
+
+Forward Delete Action Boss:
+	ICommand            XCommand
+	IInstance           XInstance
+	IMergeActions       XMergeAction
+	IUndoActionHelper
+	IUndoAction         XUndoAction
+	ICommandHelper      XUndoCommand
+
+Fractal Control Boss:
+	IChildNode          CDrawFractal
+	IDrawHelper
+	ILoaded
+	IAdjustCursorHelper CFractalMouseHandler
+	IContextMenuHelper
+	IMouseDownHelper
+	IRenderer           CRenderer
+	IChildNode
+	ILoaded
+	IChildNode          XControl
+	IControl
+	IFocus              XControlFocus
+	IGeometry           XControlGeometry
+	IBinding            XDefaultChangedSize
+	IParentChangedSize
+	IHelpText           XDefaultHelp
+	ISetHelp
+	IDraw               XDrawControl
+	IHierarchy          XHierarchy
+	IMouseHandler       XMouseHandler
+	IScrollableControl  XScrollableControl
+	ISizeChanged
+	IFocused            XScrollableKeyHandler
+	IUserControl        XUserControl
+
+Fractal Functions Boss (singleton):
+	IFractalFunction    CCubeH
+	IFractalFunction    CCubeQ
+	IFractalFunction    CEPwrH
+	IFractalFunction    CExpH
+	IFractalFunction    CLambdaQ
+	IFractalFunction    CPiPwrH
+	IFractalFunction    CPotts1H
+	IFractalFunction    CPotts1Q
+	IFractalFunction    CPotts2H
+	IFractalFunction    CPotts2Q
+	IFractalFunction    CQuadH
+	IFractalFunction    CQuadQ
+	IFractalFunction    CSinSqrH
+	IFractalFunction    CSphere
+	IFractalFunction    CSqrH
+	IFractalFunction    CSqrQ
+	IFractalFunction    CSqrtH
+
+Fractal Window Boss:
+	IInstallMenuHandler    CDocMenuHandler
+	IWindowClick           MDocWindowClick
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IBrushDrawer           XBrushWindowDrawer
+	IDrawHelper
+	IChildNode             XDefaultDrawWindow
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IInstallMenuHandler    XDocMenuHandler
+	IDocView               XDocView
+	ICanClose              XDocWindow
+	IInit
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreDocWindowPos
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IInstallMenuHandler    XWindowMenuHandler
+
+Group Box Boss:
+	IChildNode          XControl
+	IControl
+	IGeometry           XControlGeometry
+	IMouseDownHelper    XControlMouseHandler
+	IText               XControlText
+	IDraw               XDrawControl
+	IGroupBox           XGroupBox
+	IHierarchy          XHierarchy
+	IMouseHandler       XMouseHandler
+
+Int32 Text Box Boss:
+	IAdjustCursorHelper MTETextBox
+	IFocused
+	IMemento
+	IScrapHelper
+	IText
+	ITextBox
+	IValidate
+	IActivated          XActivateMenuHandlers
+	IChildNode          XControl
+	IControl
+	IFocus              XControlFocus
+	IGeometry           XControlGeometry
+	IMouseDownHelper    XControlMouseHandler
+	IHelpText           XDefaultHelp
+	ISetHelp
+	IDraw               XDrawControl
+	IHierarchy          XHierarchy
+	IRange<long>        XIntValidator
+	IValidateTextHelper
+	IMouseHandler       XMouseHandler
+	IScrap              XScrap
+	IFocused            XScrapMenuHandler
+	IFocused            XTextBoxMenuHandler
+	IValue<long>        XTextInt32Value
+	IValidateText       XValidateText
+
+Lambda Dialog Boss:
+	IComplexDialog         CComplexDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IRange<float>          XFloatRange
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Lambert Shader Boss:
+	IShader             CLambertShader
+
+List Box Boss:
+	ICallbackClickExtension XCallbackClickExtension
+	IClickExtension
+	IClickExtensible        XClickExtensible
+	IChildNode              XControl
+	IControl
+	IFocus                  XControlFocus
+	IGeometry               XControlGeometry
+	IMouseDownHelper        XControlMouseHandler
+	IDraw                   XDrawControl
+	IHierarchy              XHierarchy
+	IControlPressedHelper   XListBox
+	IFocused
+	IListBox
+	IMouseExtension
+	ISizeChanged
+	IMouseExtensible        XMouseExtensible
+	IMouseHandler           XMouseHandler
+
+MDI Frame Window Boss:
+
+Max Dwell Dialog Boss:
+	IInt32Dialog           CInt32Dialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Menu Boss:
+	IMenu               XMenu
+
+Multiple Action Boss:
+	ICommand            XCommand
+	IMultipleUndoAction XMultipleUndoAction
+	IUndoActionHelper
+	IUndoAction         XUndoAction
+	ICommandHelper      XUndoCommand
+
+Paste Action Boss:
+	ICommand            XCommand
+	IInstance           XInstance
+	IUndoActionHelper   XPasteAction
+	IUndoAction         XUndoAction
+	ICommandHelper      XUndoCommand
+
+Phong Shader Boss:
+	IShader             CPhongShader
+
+Point Light Boss:
+	ILight              CPointLight
+	IPointLight
+	IReflectedLight
+
+Point Light Dialog Boss:
+	IPointLightDialog      CPointLightDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Pose Dialog Box Boss:
+	IEventDispatcher    MEventDispatcher
+	IHierarchy          XHierarchy
+	IPoseDialogBox      XPoseDialogBox
+
+Pref Dialog Boss:
+	IAppDialog             CPrefDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Printable Text Box Boss:
+	IAdjustCursorHelper MTETextBox
+	IFocused
+	IMemento
+	IScrapHelper
+	IText
+	ITextBox
+	IValidate
+	IActivated          XActivateMenuHandlers
+	IChildNode          XControl
+	IControl
+	IFocus              XControlFocus
+	IGeometry           XControlGeometry
+	IMouseDownHelper    XControlMouseHandler
+	IHelpText           XDefaultHelp
+	ISetHelp
+	IDraw               XDrawControl
+	IHierarchy          XHierarchy
+	IMouseHandler       XMouseHandler
+	IValidateTextHelper XPrintableValidator
+	IScrap              XScrap
+	IFocused            XScrapMenuHandler
+	IFocused            XTextBoxMenuHandler
+	IValidateText       XValidateText
+
+Push Button Boss:
+	ICallbackClickExtension XCallbackClickExtension
+	IClickExtension
+	IClickExtensible        XClickExtensible
+	IChildNode              XControl
+	IControl
+	IGeometry               XControlGeometry
+	IMouseDownHelper        XControlMouseHandler
+	IText                   XControlText
+	IDraw                   XDrawControl
+	IHierarchy              XHierarchy
+	IMouseHandler           XMouseHandler
+	IPushButton             XPushButton
+
+Radio Button Boss:
+	IValueControl           MValueControl
+	IHelpText               XButtonHelp
+	ISetCheckedHelp
+	ISetDisabledHelp
+	ISetHelp
+	ICallbackClickExtension XCallbackClickExtension
+	IClickExtension
+	IClickExtensible        XClickExtensible
+	IChildNode              XControl
+	IControl
+	IGeometry               XControlGeometry
+	IMouseDownHelper        XControlMouseHandler
+	IText                   XControlText
+	IDraw                   XDrawControl
+	IHierarchy              XHierarchy
+	IMouseHandler           XMouseHandler
+	IControlPressedHelper   XRadioButton
+	IRadioButton
+	IValueChanged
+
+Radio Group Boss:
+	IChildNode          XControl
+	IControl
+	IGeometry           XControlGeometry
+	IMouseDownHelper    XControlMouseHandler
+	IDraw               XDrawControl
+	IGroupControl       XGroupControl
+	IHierarchy          XHierarchy
+	IMouseHandler       XMouseHandler
+	IValue<long>        XRadioButtonValue
+
+Radio Group Box Boss:
+	IChildNode          XControl
+	IControl
+	IGeometry           XControlGeometry
+	IMouseDownHelper    XControlMouseHandler
+	IText               XControlText
+	IDraw               XDrawControl
+	IGroupBox           XGroupBox
+	IHierarchy          XHierarchy
+	IMouseHandler       XMouseHandler
+	IValue<long>        XRadioButtonValue
+
+Random Palette Options Dialog Boss:
+	IDocDialog             CRandomPaletteDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Renderer Boss:
+	IRenderer           CRenderer
+	IChildNode
+	ILoaded
+	IHierarchy          XHierarchy
+
+Resolution Dialog Boss:
+	IDocDialog             CResolutionDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Root Control Boss:
+	IGeometry           MRootGeometry
+	IParentChangedSize
+	IChildNode          XControl
+	IControl
+	IMouseDownHelper    XControlMouseHandler
+	IDraw               XDrawControl
+	IHierarchy          XHierarchy
+	IMouseHandler       XMouseHandler
+	IRootControl        XRootControl
+
+Scroll Bar Boss:
+	ITrackControlHelper     MScrollBarMouseHandler
+	IMouseDownHelper        MThumbMouseHandler
+	IValueControl           MValueControl
+	ICallbackClickExtension XCallbackClickExtension
+	IClickExtension
+	IClickExtensible        XClickExtensible
+	IChildNode              XControl
+	IControl
+	IGeometry               XControlGeometry
+	IBinding                XDefaultChangedSize
+	IParentChangedSize
+	IDraw                   XDrawControl
+	IHierarchy              XHierarchy
+	IMouseHandler           XMouseHandler
+	IScrollBar              XScrollBar
+
+Scroller Control Boss:
+	IChildNode          XControl
+	IControl
+	IGeometry           XControlGeometry
+	IMouseDownHelper    XControlMouseHandler
+	IBinding            XDefaultChangedSize
+	IParentChangedSize
+	IDraw               XDrawControl
+	IHierarchy          XHierarchy
+	IMouseHandler       XMouseHandler
+	IScrollerControl    XScrollerControl
+	IUserControl        XUserControl
+
+Seperator Boss:
+	IChildNode          XControl
+	IControl
+	IGeometry           XControlGeometry
+	IMouseDownHelper    XControlMouseHandler
+	IDraw               XDrawControl
+	IHierarchy          XHierarchy
+	IMouseHandler       XMouseHandler
+	ISeperator          XSeperator
+
+Specular Coefficient Dialog Boss:
+	IFloatDialog           CFloatDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Specular Exponent Dialog Boss:
+	IFloatDialog           CFloatDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+Static Text Boss:
+	IStaticText         MStaticText
+	IText
+	IChildNode          XControl
+	IControl
+	IGeometry           XControlGeometry
+	IMouseDownHelper    XControlMouseHandler
+	IDraw               XDrawControl
+	IHierarchy          XHierarchy
+	IMouseHandler       XMouseHandler
+
+Typing Action Boss:
+	ICommand            XCommand
+	IInstance           XInstance
+	IMergeActions       XMergeAction
+	IUndoActionHelper
+	IUndoAction         XUndoAction
+	ICommandHelper      XUndoCommand
+
+W Dialog Boss:
+	IFloatDialog           CFloatDialog
+	IWindowClick           MWindowClick
+	IActivated             XActivateMenuHandlers
+	IChildNode             XDefaultDrawWindow
+	IDrawHelper
+	IDefaultPositionWindow XDefaultPositionWindow
+	IPositionWindow
+	IActivated             XDialogBox
+	IDialogBox
+	IOpened
+	IDraw                  XDraw
+	IRange<float>          XFloatRange
+	IHierarchy             XHierarchy
+	IMouseHandler          XMouseHandler
+	IRestoreWindowPosition XRestoreWindowPosition
+	ITabber                XTabber
+	IUndoContext           XUndoContext
+	IWindow                XWindow
+	IFocus                 XWindowFocus
+	IGeometry              XWindowGeometry
+	IActivated             XWindowKeyHandler
+
+XML Persist Boss (singleton):
+	IReadXML            XReadXML
+	IWriteXML           XWriteXML
+

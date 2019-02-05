@@ -1,1 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- this file defines the attributes and elements used to build a string table used     to localize strings for different languages/regions -->      <!-- ****************** elements ****************** --><!ELEMENT StringTable (Entry)*><!ELEMENT Entry (Original, Text*)><!ELEMENT Original (#PCDATA)><!ELEMENT Text (#PCDATA)><!-- ****************** attributes ****************** --><!ATTLIST StringTable date CDATA "">	<!-- optional attributes for human consumption --><!ATTLIST StringTable time CDATA ""><!ATTLIST Entry file CDATA "">			<!-- also optional --><!ATTLIST Entry synthetic CDATA "">		<!-- if this is "true" the original string is considered to be assembled at runtime and StringTableBuilder won't remove the string from the xml file --><!ATTLIST Text language CDATA #REQUIRED><!ATTLIST Text region CDATA "">			
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- this file defines the attributes and elements used to build a string table used
+     to localize strings for different languages/regions -->
+      
+
+<!-- ****************** elements ****************** -->
+<!ELEMENT StringTable (Entry)*>
+<!ELEMENT Entry (Original, Text*)>
+<!ELEMENT Original (#PCDATA)>
+<!ELEMENT Text (#PCDATA)>
+
+
+<!-- ****************** attributes ****************** -->
+<!ATTLIST StringTable date CDATA "">	<!-- optional attributes for human consumption -->
+<!ATTLIST StringTable time CDATA "">
+
+<!ATTLIST Entry file CDATA "">			<!-- also optional -->
+<!ATTLIST Entry synthetic CDATA "">		<!-- if this is "true" the original string is considered to be assembled at runtime and StringTableBuilder won't remove the string from the xml file -->
+
+<!ATTLIST Text language CDATA #REQUIRED>
+<!ATTLIST Text region CDATA "">			
+
+
+
+

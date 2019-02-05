@@ -1,1 +1,3 @@
-DocSkeleton doesn't do anything very useful, but it's usually the best project to useif you want to write a document oriented application. Note that the Extra's module hasa more complex document oriented app called "HyperMandella" that may be worth examining.
+DocSkeleton doesn't do anything very useful, but it's usually the best project to use
+if you want to write a document oriented application. Note that the Extra's module has
+a more complex document oriented app called "HyperMandella" that may be worth examining.

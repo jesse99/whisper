@@ -1,1 +1,20 @@
-StringTableBuilder is a drag and drop app that that searches C++ source files forLoadAppString or LoadWhisperString and inserts the corresponding string literalinto a specified XML string table file. If the XML file starts with "Whisper"LoadWhisperString is searched for otherwise LoadAppString is searched for.Note that StringTableBuilder will remove any unused strings from the string tableso that you should search *all* your source files (the old XML file is renamed soyou can revert to the last version if there's a problem). If you are using LoadAppString with strings generated at runtime you can manually insert the stringsinto the XML file and mark them using the synthetic attribute to prevent StringTableBuilderfrom removing them (for example, XMiscUtils.cpp looks up Mac error strings using generated text that looks like, "Error -108". If the generated string is found inthe table a more meaningful error message is presented to the user).This example illustrates:* Writing a drag and drop app.* Filtering files by type and extension.* Using a spinning watch cursor.* Using XXMLParser to parse a relatively simple XML document.
+StringTableBuilder is a drag and drop app that that searches C++ source files for
+LoadAppString or LoadWhisperString and inserts the corresponding string literal
+into a specified XML string table file. If the XML file starts with "Whisper"
+LoadWhisperString is searched for otherwise LoadAppString is searched for.
+
+Note that StringTableBuilder will remove any unused strings from the string table
+so that you should search *all* your source files (the old XML file is renamed so
+you can revert to the last version if there's a problem). If you are using 
+LoadAppString with strings generated at runtime you can manually insert the strings
+into the XML file and mark them using the synthetic attribute to prevent StringTableBuilder
+from removing them (for example, XMiscUtils.cpp looks up Mac error strings using 
+generated text that looks like, "Error -108". If the generated string is found in
+the table a more meaningful error message is presented to the user).
+
+This example illustrates:
+
+* Writing a drag and drop app.
+* Filtering files by type and extension.
+* Using a spinning watch cursor.
+* Using XXMLParser to parse a relatively simple XML document.

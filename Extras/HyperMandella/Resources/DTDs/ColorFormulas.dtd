@@ -1,1 +1,46 @@
-<?xml version = "1.0" encoding = "UTF-8"?><!-- this file defines the elements and attributes used to specify      the formulas in the Color Formulas menu --><!-- ****************** Types ******************* --><!ENTITY % STRING		"CDATA">   		<!-- arbitrary text --><!-- ***************** Formulas ***************** --><!ELEMENT Formulas		(Formula*)>	<!-- ***************** Formula ****************** --><!ELEMENT Formula		EMPTY>						<!ATTLIST Formula		value		%STRING;	#REQUIRED>
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+
+
+<!-- this file defines the elements and attributes used to specify 
+
+     the formulas in the Color Formulas menu -->
+
+
+
+
+
+<!-- ****************** Types ******************* -->
+
+<!ENTITY % STRING		"CDATA">   		<!-- arbitrary text -->
+
+
+
+
+
+<!-- ***************** Formulas ***************** -->
+
+<!ELEMENT Formulas		(Formula*)>	
+
+
+
+
+
+<!-- ***************** Formula ****************** -->
+
+<!ELEMENT Formula		EMPTY>						
+
+
+
+<!ATTLIST Formula		value		%STRING;	#REQUIRED>
+
+
+
+
+
+
+
+
+
+
+

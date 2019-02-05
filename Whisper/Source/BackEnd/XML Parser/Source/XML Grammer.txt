@@ -1,1 +1,174 @@
-// This was taken from the XML 1.0 spec at <http://www.w3.org/TR/1998/REC-xml-19980210>[1] document ::= prolog element Misc*[2] Char ::= #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF] /* any Unicode character, excluding the surrogate blocks, FFFE, and FFFF. */[3] S ::= (#x20 | #x9 | #xD | #xA)+[4] NameChar ::= Letter | Digit | '.' | '-' | '_' | ':' | CombiningChar | Extender[5] Name ::= (Letter | '_' | ':') (NameChar)*[6] Names ::= Name (S Name)*[7] Nmtoken ::= (NameChar)+[8] Nmtokens ::= Nmtoken (S Nmtoken)*[9] EntityValue ::= '"' ([^%&"] | PEReference | Reference)* '"' |Ê "'" ([^%&'] | PEReference | Reference)* "'"[10] AttValue ::= '"' ([^<&"] | Reference)* '"' |Ê "'" ([^<&'] | Reference)* "'"[11] SystemLiteral ::= ('"' [^"]* '"') |Ê("'" [^']* "'") [12] PubidLiteral ::= '"' PubidChar* '"' | "'" (PubidChar - "'")* "'"[13] PubidChar ::= #x20 | #xD | #xA |Ê[a-zA-Z0-9] |Ê[-'()+,./:=?;!*#@$_%][14] CharData ::= [^<&]* - ([^<&]* ']]>' [^<&]*)[15] Comment ::= '<!--' ((Char - '-') | ('-' (Char - '-')))* '-->'[16] PI ::= '<?' PITarget (S (Char* - (Char* '?>' Char*)))? '?>'[17] PITarget ::= Name - (('X' | 'x') ('M' | 'm') ('L' | 'l'))[18] CDSect ::= CDStart CData CDEnd[19] CDStart ::= '<![CDATA['[20] CData ::= (Char* - (Char* ']]>' Char*)) [21] CDEnd ::= ']]>'[22] prolog ::= XMLDecl? Misc* (doctypedecl Misc*)?[23] XMLDecl ::= '<?xml' VersionInfo EncodingDecl? SDDecl? S? '?>'[24] VersionInfo ::= S 'version' Eq (' VersionNum ' | " VersionNum ")[25] Eq ::= S? '=' S?[26] VersionNum ::= ([a-zA-Z0-9_.:] | '-')+[27] Misc ::= Comment | PI | S[28] doctypedecl ::= '<!DOCTYPE' S Name (S ExternalID)? S? ('[' (markupdecl | PEReference | S)* ']' S?)? '>' [VC: Root Element Type][29] markupdecl ::= elementdecl | AttlistDecl | EntityDecl | NotationDecl | PI | Comment [VC: Proper Declaration/PE Nesting] [WFC: PEs in Internal Subset][30] extSubset ::= TextDecl? extSubsetDecl[31] extSubsetDecl ::= ( markupdecl | conditionalSect | PEReference | S )*[32] SDDecl ::= S 'standalone' Eq (("'" ('yes' | 'no') "'") | ('"' ('yes' | 'no') '"')) [VC: Standalone Document Declaration][33] LanguageID ::= Langcode ('-' Subcode)*[34] Langcode ::= ISO639Code | IanaCode | UserCode[35] ISO639Code ::= ([a-z] | [A-Z]) ([a-z] | [A-Z])[36] IanaCode ::= ('i' | 'I') '-' ([a-z] | [A-Z])+[37] UserCode ::= ('x' | 'X') '-' ([a-z] | [A-Z])+[38] Subcode ::= ([a-z] | [A-Z])+[39] element ::= EmptyElemTag | STag content ETag [WFC: Element Type Match] [VC: Element Valid][40] STag ::= '<' Name (S Attribute)* S? '>' [WFC: Unique Att Spec][41] Attribute ::= Name Eq AttValue [VC: Attribute Value Type] [WFC: No External Entity References] [WFC: No < in Attribute Values][42] ETag ::= '</' Name S? '>'[43] content ::= (element | CharData | Reference | CDSect | PI | Comment)*[44] EmptyElemTag ::= '<' Name (S Attribute)* S? '/>' [WFC: Unique Att Spec][45] elementdecl ::= '<!ELEMENT' S Name S contentspec S? '>' [VC: Unique Element Type Declaration][46] contentspec ::= 'EMPTY' | 'ANY' | Mixed | children [47] children ::= (choice | seq) ('?' | '*' | '+')?[48] cp ::= (Name | choice | seq) ('?' | '*' | '+')?[49] choice ::= '(' S? cp ( S? '|' S? cp )* S? ')' [VC: Proper Group/PE Nesting][50] seq ::= '(' S? cp ( S? ',' S? cp )* S? ')' [VC: Proper Group/PE Nesting][51] Mixed ::= '(' S? '#PCDATA' (S? '|' S? Name)* S? ')*' | '(' S? '#PCDATA' S? ')' [VC: Proper Group/PE Nesting] [VC: No Duplicate Types][52] AttlistDecl ::= '<!ATTLIST' S Name AttDef* S? '>'[53] AttDef ::= S Name S AttType S DefaultDecl[54] AttType ::= StringType | TokenizedType | EnumeratedType [55] StringType ::= 'CDATA'[56] TokenizedType ::= 	'ID' 		[VC: ID] [VC: One ID per Element Type] [VC: ID Attribute Default] | 						'IDREF' 	[VC: IDREF] 		| 						'IDREFS' 	[VC: IDREF] 		| 						'ENTITY' 	[VC: Entity Name] 	| 						'ENTITIES' 	[VC: Entity Name]	| 						'NMTOKEN' 	[VC: Name Token] 	| 						'NMTOKENS' 	[VC: Name Token][57] EnumeratedType ::= NotationType | Enumeration [58] NotationType ::= 'NOTATION' S '(' S? Name (S? '|' S? Name)* S? ')' [VC: Notation Attributes][59] Enumeration ::= '(' S? Nmtoken (S? '|' S? Nmtoken)* S? ')' [VC: Enumeration][60] DefaultDecl ::= '#REQUIRED' |Ê'#IMPLIED' | (('#FIXED' S)? AttValue) [VC: Required Attribute] [VC: Attribute Default Legal] [WFC: No < in Attribute Values] [VC: Fixed Attribute Default][61] conditionalSect ::= includeSect | ignoreSect [62] includeSect ::= '<![' S? 'INCLUDE' S? '[' extSubsetDecl ']]>' [63] ignoreSect ::= '<![' S? 'IGNORE' S? '[' ignoreSectContents* ']]>'[64] ignoreSectContents ::= Ignore ('<![' ignoreSectContents ']]>' Ignore)*[65] Ignore ::= Char* - (Char* ('<![' | ']]>') Char*) [66] CharRef ::= '&#' [0-9]+ ';' | '&#x' [0-9a-fA-F]+ ';' [WFC: Legal Character][67] Reference ::= EntityRef | CharRef[68] EntityRef ::= '&' Name ';' [WFC: Entity Declared] [VC: Entity Declared] [WFC: Parsed Entity] [WFC: No Recursion][69] PEReference ::= '%' Name ';' [VC: Entity Declared] [WFC: No Recursion] [WFC: In DTD][70] EntityDecl ::= GEDecl | PEDecl[71] GEDecl ::= '<!ENTITY' S Name S EntityDef S? '>'[72] PEDecl ::= '<!ENTITY' S '%' S Name S PEDef S? '>'[73] EntityDef ::= EntityValue | (ExternalID NDataDecl?)[74] PEDef ::= EntityValue | ExternalID[75] ExternalID ::= 'SYSTEM' S SystemLiteral | 'PUBLIC' S PubidLiteral S SystemLiteral [76] NDataDecl ::= S 'NDATA' S Name [VC: Notation Declared][77] TextDecl ::= '<?xml' VersionInfo? EncodingDecl S? '?>'[78] extParsedEnt ::= TextDecl? content[79] extPE ::= TextDecl? extSubsetDecl[80] EncodingDecl ::= S 'encoding' Eq ('"' EncName '"' | "'" EncName "'" ) [81] EncName ::= [A-Za-z] ([A-Za-z0-9._] | '-')* /* Encoding name contains only Latin characters */[82] NotationDecl ::= '<!NOTATION' S Name S (ExternalID | PublicID) S? '>'[83] PublicID ::= 'PUBLIC' S PubidLiteral 
+// This was taken from the XML 1.0 spec at <http://www.w3.org/TR/1998/REC-xml-19980210>
+
+[1] document ::= prolog element Misc*
+
+[2] Char ::= #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF] /* any Unicode character, excluding the surrogate blocks, FFFE, and FFFF. */
+
+[3] S ::= (#x20 | #x9 | #xD | #xA)+
+
+[4] NameChar ::= Letter | Digit | '.' | '-' | '_' | ':' | CombiningChar | Extender
+
+[5] Name ::= (Letter | '_' | ':') (NameChar)*
+
+[6] Names ::= Name (S Name)*
+
+[7] Nmtoken ::= (NameChar)+
+
+[8] Nmtokens ::= Nmtoken (S Nmtoken)*
+
+[9] EntityValue ::= '"' ([^%&"] | PEReference | Reference)* '"' |Ê "'" ([^%&'] | PEReference | Reference)* "'"
+
+[10] AttValue ::= '"' ([^<&"] | Reference)* '"' |Ê "'" ([^<&'] | Reference)* "'"
+
+[11] SystemLiteral ::= ('"' [^"]* '"') |Ê("'" [^']* "'") 
+
+[12] PubidLiteral ::= '"' PubidChar* '"' | "'" (PubidChar - "'")* "'"
+
+[13] PubidChar ::= #x20 | #xD | #xA |Ê[a-zA-Z0-9] |Ê[-'()+,./:=?;!*#@$_%]
+
+[14] CharData ::= [^<&]* - ([^<&]* ']]>' [^<&]*)
+
+[15] Comment ::= '<!--' ((Char - '-') | ('-' (Char - '-')))* '-->'
+
+[16] PI ::= '<?' PITarget (S (Char* - (Char* '?>' Char*)))? '?>'
+
+[17] PITarget ::= Name - (('X' | 'x') ('M' | 'm') ('L' | 'l'))
+
+[18] CDSect ::= CDStart CData CDEnd
+
+[19] CDStart ::= '<![CDATA['
+
+[20] CData ::= (Char* - (Char* ']]>' Char*)) 
+
+[21] CDEnd ::= ']]>'
+
+[22] prolog ::= XMLDecl? Misc* (doctypedecl Misc*)?
+
+[23] XMLDecl ::= '<?xml' VersionInfo EncodingDecl? SDDecl? S? '?>'
+
+[24] VersionInfo ::= S 'version' Eq (' VersionNum ' | " VersionNum ")
+
+[25] Eq ::= S? '=' S?
+
+[26] VersionNum ::= ([a-zA-Z0-9_.:] | '-')+
+
+[27] Misc ::= Comment | PI | S
+
+[28] doctypedecl ::= '<!DOCTYPE' S Name (S ExternalID)? S? ('[' (markupdecl | PEReference | S)* ']' S?)? '>' [VC: Root Element Type]
+
+[29] markupdecl ::= elementdecl | AttlistDecl | EntityDecl | NotationDecl | PI | Comment [VC: Proper Declaration/PE Nesting] [WFC: PEs in Internal Subset]
+
+[30] extSubset ::= TextDecl? extSubsetDecl
+
+[31] extSubsetDecl ::= ( markupdecl | conditionalSect | PEReference | S )*
+
+[32] SDDecl ::= S 'standalone' Eq (("'" ('yes' | 'no') "'") | ('"' ('yes' | 'no') '"')) [VC: Standalone Document Declaration]
+
+[33] LanguageID ::= Langcode ('-' Subcode)*
+
+[34] Langcode ::= ISO639Code | IanaCode | UserCode
+
+[35] ISO639Code ::= ([a-z] | [A-Z]) ([a-z] | [A-Z])
+
+[36] IanaCode ::= ('i' | 'I') '-' ([a-z] | [A-Z])+
+
+[37] UserCode ::= ('x' | 'X') '-' ([a-z] | [A-Z])+
+
+[38] Subcode ::= ([a-z] | [A-Z])+
+
+[39] element ::= EmptyElemTag | STag content ETag [WFC: Element Type Match] [VC: Element Valid]
+
+[40] STag ::= '<' Name (S Attribute)* S? '>' [WFC: Unique Att Spec]
+
+[41] Attribute ::= Name Eq AttValue [VC: Attribute Value Type] [WFC: No External Entity References] [WFC: No < in Attribute Values]
+
+[42] ETag ::= '</' Name S? '>'
+
+[43] content ::= (element | CharData | Reference | CDSect | PI | Comment)*
+
+[44] EmptyElemTag ::= '<' Name (S Attribute)* S? '/>' [WFC: Unique Att Spec]
+
+[45] elementdecl ::= '<!ELEMENT' S Name S contentspec S? '>' [VC: Unique Element Type Declaration]
+
+[46] contentspec ::= 'EMPTY' | 'ANY' | Mixed | children 
+
+[47] children ::= (choice | seq) ('?' | '*' | '+')?
+
+[48] cp ::= (Name | choice | seq) ('?' | '*' | '+')?
+
+[49] choice ::= '(' S? cp ( S? '|' S? cp )* S? ')' [VC: Proper Group/PE Nesting]
+
+[50] seq ::= '(' S? cp ( S? ',' S? cp )* S? ')' [VC: Proper Group/PE Nesting]
+
+[51] Mixed ::= '(' S? '#PCDATA' (S? '|' S? Name)* S? ')*' | '(' S? '#PCDATA' S? ')' [VC: Proper Group/PE Nesting] [VC: No Duplicate Types]
+
+[52] AttlistDecl ::= '<!ATTLIST' S Name AttDef* S? '>'
+
+[53] AttDef ::= S Name S AttType S DefaultDecl
+
+[54] AttType ::= StringType | TokenizedType | EnumeratedType 
+
+[55] StringType ::= 'CDATA'
+
+[56] TokenizedType ::= 	'ID' 		[VC: ID] [VC: One ID per Element Type] [VC: ID Attribute Default] | 
+						'IDREF' 	[VC: IDREF] 		| 
+						'IDREFS' 	[VC: IDREF] 		| 
+						'ENTITY' 	[VC: Entity Name] 	| 
+						'ENTITIES' 	[VC: Entity Name]	| 
+						'NMTOKEN' 	[VC: Name Token] 	| 
+						'NMTOKENS' 	[VC: Name Token]
+
+[57] EnumeratedType ::= NotationType | Enumeration 
+
+[58] NotationType ::= 'NOTATION' S '(' S? Name (S? '|' S? Name)* S? ')' [VC: Notation Attributes]
+
+[59] Enumeration ::= '(' S? Nmtoken (S? '|' S? Nmtoken)* S? ')' [VC: Enumeration]
+
+[60] DefaultDecl ::= '#REQUIRED' |Ê'#IMPLIED' | (('#FIXED' S)? AttValue) [VC: Required Attribute] [VC: Attribute Default Legal] [WFC: No < in Attribute Values] [VC: Fixed Attribute Default]
+
+[61] conditionalSect ::= includeSect | ignoreSect 
+
+[62] includeSect ::= '<![' S? 'INCLUDE' S? '[' extSubsetDecl ']]>' 
+
+[63] ignoreSect ::= '<![' S? 'IGNORE' S? '[' ignoreSectContents* ']]>'
+
+[64] ignoreSectContents ::= Ignore ('<![' ignoreSectContents ']]>' Ignore)*
+
+[65] Ignore ::= Char* - (Char* ('<![' | ']]>') Char*) 
+
+[66] CharRef ::= '&#' [0-9]+ ';' | '&#x' [0-9a-fA-F]+ ';' [WFC: Legal Character]
+
+[67] Reference ::= EntityRef | CharRef
+
+[68] EntityRef ::= '&' Name ';' [WFC: Entity Declared] [VC: Entity Declared] [WFC: Parsed Entity] [WFC: No Recursion]
+
+[69] PEReference ::= '%' Name ';' [VC: Entity Declared] [WFC: No Recursion] [WFC: In DTD]
+
+[70] EntityDecl ::= GEDecl | PEDecl
+
+[71] GEDecl ::= '<!ENTITY' S Name S EntityDef S? '>'
+
+[72] PEDecl ::= '<!ENTITY' S '%' S Name S PEDef S? '>'
+
+[73] EntityDef ::= EntityValue | (ExternalID NDataDecl?)
+
+[74] PEDef ::= EntityValue | ExternalID
+
+[75] ExternalID ::= 'SYSTEM' S SystemLiteral | 'PUBLIC' S PubidLiteral S SystemLiteral 
+
+[76] NDataDecl ::= S 'NDATA' S Name [VC: Notation Declared]
+
+[77] TextDecl ::= '<?xml' VersionInfo? EncodingDecl S? '?>'
+
+[78] extParsedEnt ::= TextDecl? content
+
+[79] extPE ::= TextDecl? extSubsetDecl
+
+[80] EncodingDecl ::= S 'encoding' Eq ('"' EncName '"' | "'" EncName "'" ) 
+
+[81] EncName ::= [A-Za-z] ([A-Za-z0-9._] | '-')* /* Encoding name contains only Latin characters */
+
+[82] NotationDecl ::= '<!NOTATION' S Name S (ExternalID | PublicID) S? '>'
+
+[83] PublicID ::= 'PUBLIC' S PubidLiteral 
+

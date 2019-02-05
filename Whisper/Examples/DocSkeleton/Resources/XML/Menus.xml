@@ -1,1 +1,292 @@
-<?xml version = "1.0" encoding = "UTF-8" standalone = "no"?><!DOCTYPE Menus SYSTEM "XMenus.dtd"><Menus>	<!-- ****** MenuBar ****** -->	<MenuBar id = "MenuBar">		<Entry id = "Apple" platform = "mac"/>		<Entry id = "File"/>		<Entry id = "Edit"/>		<Entry id = "Draw"/>		<Entry id = "Debug" target = "debug"/>	</MenuBar>		<!-- ****** Apple Menu ****** -->	<Menu id = "Apple">		<Title>			<Encoding language = "English">				<Text>&#x14;</Text>				<HelpMesg>Use this menu to open an item in the Apple Menu Items folder or to display the DocSkeleton about box.</HelpMesg>			</Encoding>		</Title>				<!-- ++++++ About ++++++ -->		<Item command = "about">			<Encoding language = "English">				<Text>About DocSkeleton</Text>				<HelpMesg>Displays the DocSkeleton version number and a copyright notice.</HelpMesg>			</Encoding>		</Item>	</Menu>			<!-- ****** File Menu ****** -->	<Menu id = "File">		<Title>			<Encoding language = "English">				<Text>_File</Text>				<HelpMesg>Use this menu to close windows or quit.</HelpMesg>			</Encoding>		</Title>				<!-- ++++++ New ++++++ -->		<Item command = "new">			<Encoding language = "English">				<Text>_New</Text>				<Accelerator>default+N</Accelerator>						<HelpMesg>Creates a new untitled document window.</HelpMesg>			</Encoding>		</Item>		<!-- ++++++ Open ++++++ -->		<Item command = "open">			<Encoding language = "English">				<Text>_Open...</Text>				<Accelerator>default+O</Accelerator>						<HelpMesg>Opens a saved DocSkeleton document.</HelpMesg>			</Encoding>		</Item>		<Separator/>		<!-- ++++++ Close ++++++ -->		<Item command = "close">			<Encoding language = "English">				<Text>_Close</Text>				<Accelerator platform = "mac">default+W</Accelerator>						<HelpMesg>Closes the frontmost window.</HelpMesg>				<DisabledHelp>Closes the frontmost window. Disabled because there are no windows.</DisabledHelp>			</Encoding>		</Item>		<!-- ++++++ Save ++++++ -->		<Item command = "save">			<Encoding language = "English">				<Text>_Save</Text>				<Accelerator>default+S</Accelerator>						<HelpMesg>Saves the frontmost document window.</HelpMesg>				<DisabledHelp>Saves the frontmost document window. Not available because the document hasn't been changed or there are no document windows.</DisabledHelp>			</Encoding>		</Item>		<!-- ++++++ Save As ++++++ -->		<Item command = "save as">			<Encoding language = "English">				<Text>Save _As...</Text>				<HelpMesg>Saves the frontmost document window under a new name.</HelpMesg>				<DisabledHelp>Saves the frontmost document window under a new name. Not available because there are no document windows.</DisabledHelp>			</Encoding>		</Item>		<!-- ++++++ Revert ++++++ -->		<Item command = "revert">			<Encoding language = "English">				<Text>_Revert</Text>				<HelpMesg>Removes any changes you've made to the document since saving it.</HelpMesg>				<DisabledHelp>Removes any changes you've made to the document since saving it. Not available because the document hasn't been saved or changed.</DisabledHelp>			</Encoding>		</Item>		<Separator/>		<!-- ++++++ Quit ++++++ -->		<Item command = "quit">			<Encoding language = "English">				<Text platform = "mac">Quit</Text>				<Text platform = "win">Exit</Text>				<Accelerator platform = "mac">default+Q</Accelerator>						<HelpMesg>Quits DocSkeleton.</HelpMesg>			</Encoding>		</Item>	</Menu>			<!-- ****** Edit Menu ****** -->	<Menu id = "Edit">		<Title>			<Encoding language = "English">				<Text>_Edit</Text>				<HelpMesg>Use this menu to undo/redo actions or to perform editing operations.</HelpMesg>			</Encoding>		</Title>				<!-- ++++++ Undo ++++++ -->		<Item command = "undo">			<Encoding language = "English">				<Text>Undo</Text>				<Accelerator>default+Z</Accelerator>						<HelpMesg>Reverses your last action.</HelpMesg>				<DisabledHelp>Reverses your last action. Disabled because you haven't done anything that can be undone.</DisabledHelp>			</Encoding>		</Item>		<!-- ++++++ Redo ++++++ -->		<Item command = "redo">			<Encoding language = "English">				<Text>Redo</Text>				<Accelerator platform = "mac">default+R</Accelerator>						<Accelerator platform = "win">default+Y</Accelerator>						<HelpMesg>Re-performs your last action after it has been undone.</HelpMesg>				<DisabledHelp>Re-performs your last action after it has been undone. Disabled because you haven't selected Undo yet.</DisabledHelp>			</Encoding>		</Item>		<Separator/>				<!-- ++++++ Cut ++++++ -->		<Item command = "cut">			<Encoding language = "English">				<Text>Cut</Text>				<Accelerator>default+X</Accelerator>						<HelpMesg>Copies the selection to the clipboard and deletes the selection.</HelpMesg>				<DisabledHelp>Copies the selection to the clipboard and deletes the selection. Not available because there isn't anything that can be selected.</DisabledHelp>			</Encoding>		</Item>		<!-- ++++++ Copy ++++++ -->		<Item command = "copy">			<Encoding language = "English">				<Text>Copy</Text>				<Accelerator>default+C</Accelerator>						<HelpMesg>Copies the selection to the clipboard.</HelpMesg>				<DisabledHelp>Copies the selection to the clipboard. Not available because there isn't a selection.</DisabledHelp>			</Encoding>		</Item>		<!-- ++++++ Paste ++++++ -->		<Item command = "paste">			<Encoding language = "English">				<Text>Paste</Text>				<Accelerator>default+V</Accelerator>						<HelpMesg>Replaces the selection with the contents of the clipboard.</HelpMesg>				<DisabledHelp>Replaces the selection with the contents of the clipboard. Not available because there is no selection.</DisabledHelp>			</Encoding>		</Item>		<!-- ++++++ Clear ++++++ -->		<Item command = "clear">			<Encoding language = "English">				<Text platform = "mac">Clear</Text>				<Text platform = "win">Delete</Text>				<Accelerator platform = "win" text = "Del">0x2E</Accelerator>						<HelpMesg>Deletes the selection.</HelpMesg>				<DisabledHelp>Deletes the selection. Not available because there is no selection.</DisabledHelp>			</Encoding>		</Item>		<Separator/>		<!-- ++++++ Select All ++++++ -->		<Item command = "select all">			<Encoding language = "English">				<Text>Select All</Text>				<Accelerator>default+A</Accelerator>						<HelpMesg>Selects everything.</HelpMesg>				<DisabledHelp>Selects everything. Not available because everything is already selected or there isn't a window with selectable content.</DisabledHelp>			</Encoding>		</Item>	</Menu>			<!-- ****** Draw Menu ****** -->	<Menu id = "Draw">		<Title>			<Encoding language = "English">				<Text>_Draw</Text>				<HelpMesg>Use this menu to change the parameters that affect the way DocSkeleton draws.</HelpMesg>			</Encoding>		</Title>				<!-- ++++++ Pen Width ++++++ -->		<Item command = "Pen Width">			<Encoding language = "English">				<Text>Pen Width...</Text>				<HelpMesg>Changes the width of the stroke around the rectangles.</HelpMesg>				<DisabledHelp>Changes the width of the stroke around the rectangles. Not available because there isn't a window.</DisabledHelp>			</Encoding>		</Item>		<Separator/>				<!-- ++++++ Whisper Colors ++++++ -->		<SubMenu id = "Whisper_Colors"/>						<!-- ++++++ Crayola Colors ++++++ -->		<SubMenu id = "Crayola_Colors"/>						<!-- ++++++ HTML Colors ++++++ -->		<SubMenu id = "HTML_Colors"/>						<!-- ++++++ Netscape Colors ++++++ -->		<SubMenu id = "Netscape_Colors"/>		<Separator/>						<!-- ++++++ Custom Color ++++++ -->		<Item command = "Custom Color">			<Encoding language = "English">				<Text>Custom Color...</Text>				<HelpMesg>Pops up a system color picker for the rectangle's fill color.</HelpMesg>				<DisabledHelp>Pops up a system color picker for the rectangle's fill color. Not available because there isn't a window.</DisabledHelp>			</Encoding>		</Item>	</Menu>	<!-- ****** Color Submenus ****** -->	<Menu id = "Whisper_Colors">		<Title>			<Encoding language = "English">				<Text>Whisper Colors</Text>			</Encoding>		</Title>	</Menu>	<Menu id = "Crayola_Colors">		<Title>			<Encoding language = "English">				<Text>Crayola Colors</Text>			</Encoding>		</Title>	</Menu>	<Menu id = "HTML_Colors">		<Title>			<Encoding language = "English">				<Text>HTML Colors</Text>			</Encoding>		</Title>	</Menu>	<Menu id = "Netscape_Colors">		<Title>			<Encoding language = "English">				<Text>Netscape Colors</Text>			</Encoding>		</Title>	</Menu>	<!-- ****** Debug Menu ****** -->	<Menu id = "Debug">		<Title>			<Encoding language = "English">				<Text>Debu_g</Text>				<HelpMesg>Misc debugging tools.</HelpMesg>			</Encoding>		</Title>				<!-- filled out at runtime -->	</Menu></Menus>
+<?xml version = "1.0" encoding = "UTF-8" standalone = "no"?>
+<!DOCTYPE Menus SYSTEM "XMenus.dtd">
+
+<Menus>
+	<!-- ****** MenuBar ****** -->
+	<MenuBar id = "MenuBar">
+		<Entry id = "Apple" platform = "mac"/>
+		<Entry id = "File"/>
+		<Entry id = "Edit"/>
+		<Entry id = "Draw"/>
+		<Entry id = "Debug" target = "debug"/>
+	</MenuBar>
+	
+
+	<!-- ****** Apple Menu ****** -->
+	<Menu id = "Apple">
+		<Title>
+			<Encoding language = "English">
+				<Text>&#x14;</Text>
+				<HelpMesg>Use this menu to open an item in the Apple Menu Items folder or to display the DocSkeleton about box.</HelpMesg>
+			</Encoding>
+		</Title>
+		
+		<!-- ++++++ About ++++++ -->
+		<Item command = "about">
+			<Encoding language = "English">
+				<Text>About DocSkeleton</Text>
+				<HelpMesg>Displays the DocSkeleton version number and a copyright notice.</HelpMesg>
+			</Encoding>
+		</Item>
+	</Menu>
+	
+	
+	<!-- ****** File Menu ****** -->
+	<Menu id = "File">
+		<Title>
+			<Encoding language = "English">
+				<Text>_File</Text>
+				<HelpMesg>Use this menu to close windows or quit.</HelpMesg>
+			</Encoding>
+		</Title>
+		
+		<!-- ++++++ New ++++++ -->
+		<Item command = "new">
+			<Encoding language = "English">
+				<Text>_New</Text>
+				<Accelerator>default+N</Accelerator>		
+				<HelpMesg>Creates a new untitled document window.</HelpMesg>
+			</Encoding>
+		</Item>
+
+		<!-- ++++++ Open ++++++ -->
+		<Item command = "open">
+			<Encoding language = "English">
+				<Text>_Open...</Text>
+				<Accelerator>default+O</Accelerator>		
+				<HelpMesg>Opens a saved DocSkeleton document.</HelpMesg>
+			</Encoding>
+		</Item>
+
+		<Separator/>
+
+		<!-- ++++++ Close ++++++ -->
+		<Item command = "close">
+			<Encoding language = "English">
+				<Text>_Close</Text>
+				<Accelerator platform = "mac">default+W</Accelerator>		
+				<HelpMesg>Closes the frontmost window.</HelpMesg>
+				<DisabledHelp>Closes the frontmost window. Disabled because there are no windows.</DisabledHelp>
+			</Encoding>
+		</Item>
+
+		<!-- ++++++ Save ++++++ -->
+		<Item command = "save">
+			<Encoding language = "English">
+				<Text>_Save</Text>
+				<Accelerator>default+S</Accelerator>		
+				<HelpMesg>Saves the frontmost document window.</HelpMesg>
+				<DisabledHelp>Saves the frontmost document window. Not available because the document hasn't been changed or there are no document windows.</DisabledHelp>
+			</Encoding>
+		</Item>
+
+		<!-- ++++++ Save As ++++++ -->
+		<Item command = "save as">
+			<Encoding language = "English">
+				<Text>Save _As...</Text>
+				<HelpMesg>Saves the frontmost document window under a new name.</HelpMesg>
+				<DisabledHelp>Saves the frontmost document window under a new name. Not available because there are no document windows.</DisabledHelp>
+			</Encoding>
+		</Item>
+
+		<!-- ++++++ Revert ++++++ -->
+		<Item command = "revert">
+			<Encoding language = "English">
+				<Text>_Revert</Text>
+				<HelpMesg>Removes any changes you've made to the document since saving it.</HelpMesg>
+				<DisabledHelp>Removes any changes you've made to the document since saving it. Not available because the document hasn't been saved or changed.</DisabledHelp>
+			</Encoding>
+		</Item>
+
+		<Separator/>
+
+		<!-- ++++++ Quit ++++++ -->
+		<Item command = "quit">
+			<Encoding language = "English">
+				<Text platform = "mac">Quit</Text>
+				<Text platform = "win">Exit</Text>
+				<Accelerator platform = "mac">default+Q</Accelerator>		
+				<HelpMesg>Quits DocSkeleton.</HelpMesg>
+			</Encoding>
+		</Item>
+	</Menu>
+	
+	
+	<!-- ****** Edit Menu ****** -->
+	<Menu id = "Edit">
+		<Title>
+			<Encoding language = "English">
+				<Text>_Edit</Text>
+				<HelpMesg>Use this menu to undo/redo actions or to perform editing operations.</HelpMesg>
+			</Encoding>
+		</Title>
+		
+		<!-- ++++++ Undo ++++++ -->
+		<Item command = "undo">
+			<Encoding language = "English">
+				<Text>Undo</Text>
+				<Accelerator>default+Z</Accelerator>		
+				<HelpMesg>Reverses your last action.</HelpMesg>
+				<DisabledHelp>Reverses your last action. Disabled because you haven't done anything that can be undone.</DisabledHelp>
+			</Encoding>
+		</Item>
+
+		<!-- ++++++ Redo ++++++ -->
+		<Item command = "redo">
+			<Encoding language = "English">
+				<Text>Redo</Text>
+				<Accelerator platform = "mac">default+R</Accelerator>		
+				<Accelerator platform = "win">default+Y</Accelerator>		
+				<HelpMesg>Re-performs your last action after it has been undone.</HelpMesg>
+				<DisabledHelp>Re-performs your last action after it has been undone. Disabled because you haven't selected Undo yet.</DisabledHelp>
+			</Encoding>
+		</Item>
+
+		<Separator/>
+		
+		<!-- ++++++ Cut ++++++ -->
+		<Item command = "cut">
+			<Encoding language = "English">
+				<Text>Cut</Text>
+				<Accelerator>default+X</Accelerator>		
+				<HelpMesg>Copies the selection to the clipboard and deletes the selection.</HelpMesg>
+				<DisabledHelp>Copies the selection to the clipboard and deletes the selection. Not available because there isn't anything that can be selected.</DisabledHelp>
+			</Encoding>
+		</Item>
+
+		<!-- ++++++ Copy ++++++ -->
+		<Item command = "copy">
+			<Encoding language = "English">
+				<Text>Copy</Text>
+				<Accelerator>default+C</Accelerator>		
+				<HelpMesg>Copies the selection to the clipboard.</HelpMesg>
+				<DisabledHelp>Copies the selection to the clipboard. Not available because there isn't a selection.</DisabledHelp>
+			</Encoding>
+		</Item>
+
+		<!-- ++++++ Paste ++++++ -->
+		<Item command = "paste">
+			<Encoding language = "English">
+				<Text>Paste</Text>
+				<Accelerator>default+V</Accelerator>		
+				<HelpMesg>Replaces the selection with the contents of the clipboard.</HelpMesg>
+				<DisabledHelp>Replaces the selection with the contents of the clipboard. Not available because there is no selection.</DisabledHelp>
+			</Encoding>
+		</Item>
+
+		<!-- ++++++ Clear ++++++ -->
+		<Item command = "clear">
+			<Encoding language = "English">
+				<Text platform = "mac">Clear</Text>
+				<Text platform = "win">Delete</Text>
+				<Accelerator platform = "win" text = "Del">0x2E</Accelerator>		
+				<HelpMesg>Deletes the selection.</HelpMesg>
+				<DisabledHelp>Deletes the selection. Not available because there is no selection.</DisabledHelp>
+			</Encoding>
+		</Item>
+
+		<Separator/>
+
+		<!-- ++++++ Select All ++++++ -->
+		<Item command = "select all">
+			<Encoding language = "English">
+				<Text>Select All</Text>
+				<Accelerator>default+A</Accelerator>		
+				<HelpMesg>Selects everything.</HelpMesg>
+				<DisabledHelp>Selects everything. Not available because everything is already selected or there isn't a window with selectable content.</DisabledHelp>
+			</Encoding>
+		</Item>
+	</Menu>
+	
+	
+	<!-- ****** Draw Menu ****** -->
+	<Menu id = "Draw">
+		<Title>
+			<Encoding language = "English">
+				<Text>_Draw</Text>
+				<HelpMesg>Use this menu to change the parameters that affect the way DocSkeleton draws.</HelpMesg>
+			</Encoding>
+		</Title>
+		
+		<!-- ++++++ Pen Width ++++++ -->
+		<Item command = "Pen Width">
+			<Encoding language = "English">
+				<Text>Pen Width...</Text>
+				<HelpMesg>Changes the width of the stroke around the rectangles.</HelpMesg>
+				<DisabledHelp>Changes the width of the stroke around the rectangles. Not available because there isn't a window.</DisabledHelp>
+			</Encoding>
+		</Item>
+
+		<Separator/>
+		
+		<!-- ++++++ Whisper Colors ++++++ -->
+		<SubMenu id = "Whisper_Colors"/>
+				
+		<!-- ++++++ Crayola Colors ++++++ -->
+		<SubMenu id = "Crayola_Colors"/>
+				
+		<!-- ++++++ HTML Colors ++++++ -->
+		<SubMenu id = "HTML_Colors"/>
+				
+		<!-- ++++++ Netscape Colors ++++++ -->
+		<SubMenu id = "Netscape_Colors"/>
+
+		<Separator/>
+				
+		<!-- ++++++ Custom Color ++++++ -->
+		<Item command = "Custom Color">
+			<Encoding language = "English">
+				<Text>Custom Color...</Text>
+				<HelpMesg>Pops up a system color picker for the rectangle's fill color.</HelpMesg>
+				<DisabledHelp>Pops up a system color picker for the rectangle's fill color. Not available because there isn't a window.</DisabledHelp>
+			</Encoding>
+		</Item>
+	</Menu>
+
+
+	<!-- ****** Color Submenus ****** -->
+	<Menu id = "Whisper_Colors">
+		<Title>
+			<Encoding language = "English">
+				<Text>Whisper Colors</Text>
+			</Encoding>
+		</Title>
+	</Menu>
+
+	<Menu id = "Crayola_Colors">
+		<Title>
+			<Encoding language = "English">
+				<Text>Crayola Colors</Text>
+			</Encoding>
+		</Title>
+	</Menu>
+
+	<Menu id = "HTML_Colors">
+		<Title>
+			<Encoding language = "English">
+				<Text>HTML Colors</Text>
+			</Encoding>
+		</Title>
+	</Menu>
+
+	<Menu id = "Netscape_Colors">
+		<Title>
+			<Encoding language = "English">
+				<Text>Netscape Colors</Text>
+			</Encoding>
+		</Title>
+	</Menu>
+
+
+	<!-- ****** Debug Menu ****** -->
+	<Menu id = "Debug">
+		<Title>
+			<Encoding language = "English">
+				<Text>Debu_g</Text>
+				<HelpMesg>Misc debugging tools.</HelpMesg>
+			</Encoding>
+		</Title>
+		
+		<!-- filled out at runtime -->
+	</Menu>
+</Menus>

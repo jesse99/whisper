@@ -1,1 +1,5 @@
-ListChanges searches for CVS-style change histories and builds an HTML filelisting all of the changes sorted by date and file name. Jesse Jonesjesjones@halcyon.com
+ListChanges searches for CVS-style change histories and builds an HTML file
+listing all of the changes sorted by date and file name. 
+
+Jesse Jones
+jesjones@halcyon.com

@@ -1,1 +1,27 @@
-/IClickExtensible.h/1.4/Sat Dec 16 09:46:46 2000///IClickExtension.h/1.4/Sat Dec 16 09:46:46 2000///IClickExtensions.h/1.4/Sun Mar  4 04:59:01 2001///IDrawExtensible.h/1.5/Wed Feb  7 04:10:34 2001///IDrawExtension.h/1.4/Wed Feb  7 03:46:31 2001///IDrawExtensionHelper.h/1.1/Wed Feb  7 03:55:50 2001///IEventExtensible.h/1.4/Sun Mar  4 05:13:29 2001///IEventExtension.h/1.4/Sun Mar  4 05:13:37 2001///IKeyExtensible.h/1.4/Sun Mar  4 05:14:03 2001///IKeyExtension.h/1.4/Sun Mar  4 05:14:12 2001///IMenuExtensible.h/1.6/Tue Jan 30 07:28:36 2001///IMenuExtension.h/1.6/Tue Jan 30 07:28:18 2001///IMouseExtensible.h/1.4/Sun Mar  4 05:14:34 2001///IMouseExtension.h/1.4/Sun Mar  4 05:14:42 2001///IMsgExtensible.h/1.4/Sun Mar  4 05:14:52 2001///IMsgExtension.h/1.4/Thu Dec 14 07:39:56 2000//D/Mac////D/Win/////XClickExtensible.cpp/1.6/Sat Apr 21 01:00:05 2001///XClickExtensions.cpp/1.5/Sat Apr 21 02:04:55 2001///XDebugExtensions.cpp/1.13/Fri Apr 27 06:54:40 2001///XDrawExtensible.cpp/1.5/Sat Apr 21 02:07:39 2001///XDrawExtension.cpp/1.4/Sat Apr 21 01:00:31 2001///XDrawExtensions.cpp/1.4/Wed Feb  7 04:28:03 2001///XKeyExtensible.cpp/1.6/Sat Apr 21 01:00:37 2001///XMenuExtensible.cpp/1.7/Sat Apr 21 02:08:30 2001///XMouseExtensible.cpp/1.6/Sat Apr 21 01:00:51 2001//
+/IClickExtensible.h/1.4/Sat Dec 16 09:46:46 2000//
+/IClickExtension.h/1.4/Sat Dec 16 09:46:46 2000//
+/IClickExtensions.h/1.4/Sun Mar  4 04:59:01 2001//
+/IDrawExtensible.h/1.5/Wed Feb  7 04:10:34 2001//
+/IDrawExtension.h/1.4/Wed Feb  7 03:46:31 2001//
+/IDrawExtensionHelper.h/1.1/Wed Feb  7 03:55:50 2001//
+/IEventExtensible.h/1.4/Sun Mar  4 05:13:29 2001//
+/IEventExtension.h/1.4/Sun Mar  4 05:13:37 2001//
+/IKeyExtensible.h/1.4/Sun Mar  4 05:14:03 2001//
+/IKeyExtension.h/1.4/Sun Mar  4 05:14:12 2001//
+/IMenuExtensible.h/1.6/Tue Jan 30 07:28:36 2001//
+/IMenuExtension.h/1.6/Tue Jan 30 07:28:18 2001//
+/IMouseExtensible.h/1.4/Sun Mar  4 05:14:34 2001//
+/IMouseExtension.h/1.4/Sun Mar  4 05:14:42 2001//
+/IMsgExtensible.h/1.4/Sun Mar  4 05:14:52 2001//
+/IMsgExtension.h/1.4/Thu Dec 14 07:39:56 2000//
+D/Mac////
+D/Win////
+/XClickExtensible.cpp/1.6/Sat Apr 21 01:00:05 2001//
+/XClickExtensions.cpp/1.5/Sat Apr 21 02:04:55 2001//
+/XDebugExtensions.cpp/1.13/Fri Apr 27 06:54:40 2001//
+/XDrawExtensible.cpp/1.5/Sat Apr 21 02:07:39 2001//
+/XDrawExtension.cpp/1.4/Sat Apr 21 01:00:31 2001//
+/XDrawExtensions.cpp/1.4/Wed Feb  7 04:28:03 2001//
+/XKeyExtensible.cpp/1.6/Sat Apr 21 01:00:37 2001//
+/XMenuExtensible.cpp/1.7/Sat Apr 21 02:08:30 2001//
+/XMouseExtensible.cpp/1.6/Sat Apr 21 01:00:51 2001//

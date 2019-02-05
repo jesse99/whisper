@@ -1,1 +1,56 @@
-<?xml version = "1.0" encoding = "UTF-8"?><!ENTITY % Extensions SYSTEM "XExtensions.dtd">%Extensions;<!-- this file defines the elements and attributes used to generate windows from XML --><!-- ******************* Constants ******************** --><!ENTITY % WINDOWTYPE "(document | modal | alert | floating)"><!ENTITY % WINDOWCLASS "(alert | moveable_alert | modal | moveable_modal | floating | document)"><!ENTITY % AUTOPOSITION "(dont_auto_position | 						  center_on_main_monitor   | alert_position_on_main_monitor   | stagger_on_main_monitor | 						  center_on_top_window  | alert_position_on_top_window  | stagger_on_top_window | 						  center_on_parent_monitor | alert_position_on_parent_monitor | stagger_on_parent_monitor)"><!-- ****************** SWindowStyle ****************** --><!ELEMENT SWindowStyle		EMPTY>						<!ATTLIST SWindowStyle	type 			%WINDOWTYPE;	#REQUIRED><!ATTLIST SWindowStyle	show_new		%BOOL;			"true"><!ATTLIST SWindowStyle	targetable		%BOOL;			"true"><!ATTLIST SWindowStyle	hide_on_suspend	%BOOL;			"false"><!ATTLIST SWindowStyle	style			%STRING;		#REQUIRED>		<!-- Win attributes -->	<!ATTLIST SWindowStyle	style_ex		%STRING;		#REQUIRED>		<!ATTLIST SWindowStyle	class_style		%STRING;		#REQUIRED>		<!ATTLIST SWindowStyle	icon_id			%INTEGER;		"0">			<!ATTLIST SWindowStyle	draw_size_grip	%BOOL;			"false">		<!ATTLIST SWindowStyle	window_class	%WINDOWCLASS;	#REQUIRED>		<!-- Mac attributes --><!ATTLIST SWindowStyle	attributes		%STRING;		#REQUIRED>	<!ATTLIST SWindowStyle	click_through	%BOOL;			"false">		<!ATTLIST SWindowStyle	get_select_click %BOOL;			"false">		<!-- *********** IDefaultPositionWindow ********** --><!ELEMENT IDefaultPositionWindow		EMPTY>						<!ATTLIST IDefaultPositionWindow		position 	%AUTOPOSITION;	#REQUIRED><!-- ****************** IDialogBox ****************** --><!ELEMENT IDialogBox	EMPTY>						<!ATTLIST IDialogBox	default_btn 	%STRING;	"ok"><!ATTLIST IDialogBox	cancel_btn 		%STRING;	"cancel"><!-- ****************** IWindow ****************** --><!ELEMENT IWindow		(SWindowStyle)>						<!ATTLIST IWindow		name 			%STRING;	#REQUIRED>
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!ENTITY % Extensions SYSTEM "XExtensions.dtd">
+%Extensions;
+
+<!-- this file defines the elements and attributes used to generate windows from XML -->
+
+
+<!-- ******************* Constants ******************** -->
+<!ENTITY % WINDOWTYPE "(document | modal | alert | floating)">
+
+<!ENTITY % WINDOWCLASS "(alert | moveable_alert | modal | moveable_modal | floating | document)">
+
+<!ENTITY % AUTOPOSITION "(dont_auto_position | 
+						  center_on_main_monitor   | alert_position_on_main_monitor   | stagger_on_main_monitor | 
+						  center_on_top_window  | alert_position_on_top_window  | stagger_on_top_window | 
+						  center_on_parent_monitor | alert_position_on_parent_monitor | stagger_on_parent_monitor)">
+
+
+<!-- ****************** SWindowStyle ****************** -->
+<!ELEMENT SWindowStyle		EMPTY>						
+
+<!ATTLIST SWindowStyle	type 			%WINDOWTYPE;	#REQUIRED>
+<!ATTLIST SWindowStyle	show_new		%BOOL;			"true">
+<!ATTLIST SWindowStyle	targetable		%BOOL;			"true">
+<!ATTLIST SWindowStyle	hide_on_suspend	%BOOL;			"false">
+
+<!ATTLIST SWindowStyle	style			%STRING;		#REQUIRED>		<!-- Win attributes -->	
+<!ATTLIST SWindowStyle	style_ex		%STRING;		#REQUIRED>		
+<!ATTLIST SWindowStyle	class_style		%STRING;		#REQUIRED>		
+<!ATTLIST SWindowStyle	icon_id			%INTEGER;		"0">			
+<!ATTLIST SWindowStyle	draw_size_grip	%BOOL;			"false">		
+
+<!ATTLIST SWindowStyle	window_class	%WINDOWCLASS;	#REQUIRED>		<!-- Mac attributes -->
+<!ATTLIST SWindowStyle	attributes		%STRING;		#REQUIRED>	
+<!ATTLIST SWindowStyle	click_through	%BOOL;			"false">		
+<!ATTLIST SWindowStyle	get_select_click %BOOL;			"false">		
+
+
+<!-- *********** IDefaultPositionWindow ********** -->
+<!ELEMENT IDefaultPositionWindow		EMPTY>						
+
+<!ATTLIST IDefaultPositionWindow		position 	%AUTOPOSITION;	#REQUIRED>
+
+
+<!-- ****************** IDialogBox ****************** -->
+<!ELEMENT IDialogBox	EMPTY>						
+
+<!ATTLIST IDialogBox	default_btn 	%STRING;	"ok">
+<!ATTLIST IDialogBox	cancel_btn 		%STRING;	"cancel">
+
+
+<!-- ****************** IWindow ****************** -->
+<!ELEMENT IWindow		(SWindowStyle)>						
+
+<!ATTLIST IWindow		name 			%STRING;	#REQUIRED>

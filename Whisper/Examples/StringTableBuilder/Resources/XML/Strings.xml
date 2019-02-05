@@ -1,1 +1,40 @@
-<?xml version="1.0" encoding="Mac-Roman" standalone="no"?><!DOCTYPE StringTable SYSTEM "XStringTable.dtd"><StringTable date = "7/14/99" time = "11:54 PM">	<Entry file = "App.cpp">		<Original>The file '#1' is #2.</Original>	</Entry>	<Entry file = "App.cpp">		<Original>The folder '#1' contains #2 files and #3.</Original>	</Entry>	<Entry file = "App.cpp">		<Original>The selected items contain #1 files and #2.</Original>	</Entry>	<Entry file = "App.cpp">		<Original>Drop a file on the app to count the number of bytes in the file. Drop a folder on the app to (recursively) count the number of bytes within the folder.</Original>	</Entry> 	<Entry file = "MMain.cpp">		<Original>the Thread Manager</Original>	</Entry>	<Entry file = "MMain.cpp">		<Original>DropSkeleton Prefs</Original>	</Entry>	<Entry file = "MMain.cpp">		<Original>Couldn't initialize the application.</Original>	</Entry>	<Entry file = "ProcessFiles.cpp">		<Original>Processing: </Original>	</Entry>	<Entry file = "WMain.cpp">		<Original>SOFTWARE\\Whisper\\DropSkeleton\\1.0</Original>	</Entry></StringTable>
+<?xml version="1.0" encoding="Mac-Roman" standalone="no"?>
+<!DOCTYPE StringTable SYSTEM "XStringTable.dtd">
+
+<StringTable date = "7/14/99" time = "11:54 PM">
+	<Entry file = "App.cpp">
+		<Original>The file '#1' is #2.</Original>
+	</Entry>
+
+	<Entry file = "App.cpp">
+		<Original>The folder '#1' contains #2 files and #3.</Original>
+	</Entry>
+
+	<Entry file = "App.cpp">
+		<Original>The selected items contain #1 files and #2.</Original>
+	</Entry>
+
+	<Entry file = "App.cpp">
+		<Original>Drop a file on the app to count the number of bytes in the file. Drop a folder on the app to (recursively) count the number of bytes within the folder.</Original>
+	</Entry>
+ 
+	<Entry file = "MMain.cpp">
+		<Original>the Thread Manager</Original>
+	</Entry>
+
+	<Entry file = "MMain.cpp">
+		<Original>DropSkeleton Prefs</Original>
+	</Entry>
+
+	<Entry file = "MMain.cpp">
+		<Original>Couldn't initialize the application.</Original>
+	</Entry>
+
+	<Entry file = "ProcessFiles.cpp">
+		<Original>Processing: </Original>
+	</Entry>
+
+	<Entry file = "WMain.cpp">
+		<Original>SOFTWARE\\Whisper\\DropSkeleton\\1.0</Original>
+	</Entry>
+</StringTable>

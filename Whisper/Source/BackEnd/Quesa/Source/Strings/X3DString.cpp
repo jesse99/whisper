@@ -1,1 +1,82 @@
-/* *  File:       X3DString.cpp *  Summary:	Base class for QuickDraw 3D string objects. *  Written by: Jesse Jones * *  Copyright © 1997 Jesse Jones.  *	This code is distributed under the zlib/libpng license (see License.txt for details).   * *  Change History (most recent first): * *		$Log: X3DString.cpp,v $ *		Revision 1.3  2001/04/14 07:32:09  jesjones *		Switched to using the Quesa includes (instead of the QD3D includes). *		 *		Revision 1.2  2000/11/09 12:21:06  jesjones *		1) Removed double CRs introduced during the initial checkin. 2) Changed the header comments to make it clearer that Whisper is using the zlib license agreement. 3) Added the Log keyword. *		 *		 <->	  2/16/97	JDJ		Created. */#include <XWhisperHeader.h>#include <X3DString.h>namespace Whisper {// ===================================================================================//	class X3DString// ===================================================================================//---------------------------------------------------------------//// X3DString::~X3DString////---------------------------------------------------------------X3DString::~X3DString(){}//---------------------------------------------------------------//// X3DString::X3DString (TQ3StringObject)////---------------------------------------------------------------X3DString::X3DString(TQ3StringObject object) : X3DSharedObject(object){	this->ConfirmType(kQ3SharedTypeString);}//---------------------------------------------------------------//// X3DString::Clone////---------------------------------------------------------------X3DString* X3DString::Clone() const{	X3DString* object = new X3DString(mObject);	object->Detach();		return object;}//---------------------------------------------------------------//// X3DString::IsCompatible		 						[static]//	//---------------------------------------------------------------bool X3DString::IsCompatible(TQ3Object object){	bool compatible = false;		if (object != nil)		compatible = Q3Object_IsType(object, kQ3SharedTypeString);		return compatible;}}	// namespace Whisper
+/*
+ *  File:       X3DString.cpp
+ *  Summary:	Base class for QuickDraw 3D string objects.
+ *  Written by: Jesse Jones
+ *
+ *  Copyright © 1997 Jesse Jones. 
+ *	This code is distributed under the zlib/libpng license (see License.txt for details).  
+ *
+ *  Change History (most recent first):
+ *
+ *		$Log: X3DString.cpp,v $
+ *		Revision 1.3  2001/04/14 07:32:09  jesjones
+ *		Switched to using the Quesa includes (instead of the QD3D includes).
+ *		
+ *		Revision 1.2  2000/11/09 12:21:06  jesjones
+ *		1) Removed double CRs introduced during the initial checkin. 2) Changed the header comments to make it clearer that Whisper is using the zlib license agreement. 3) Added the Log keyword.
+ *		
+ *		 <->	  2/16/97	JDJ		Created.
+ */
+
+#include <XWhisperHeader.h>
+#include <X3DString.h>
+
+namespace Whisper {
+
+
+// ===================================================================================
+//	class X3DString
+// ===================================================================================
+
+//---------------------------------------------------------------
+//
+// X3DString::~X3DString
+//
+//---------------------------------------------------------------
+X3DString::~X3DString()
+{
+}
+
+
+//---------------------------------------------------------------
+//
+// X3DString::X3DString (TQ3StringObject)
+//
+//---------------------------------------------------------------
+X3DString::X3DString(TQ3StringObject object) : X3DSharedObject(object)
+{
+	this->ConfirmType(kQ3SharedTypeString);
+}
+
+
+//---------------------------------------------------------------
+//
+// X3DString::Clone
+//
+//---------------------------------------------------------------
+X3DString* X3DString::Clone() const
+{
+	X3DString* object = new X3DString(mObject);
+	object->Detach();
+	
+	return object;
+}
+
+
+//---------------------------------------------------------------
+//
+// X3DString::IsCompatible		 						[static]
+//	
+//---------------------------------------------------------------
+bool X3DString::IsCompatible(TQ3Object object)
+{
+	bool compatible = false;
+	
+	if (object != nil)
+		compatible = Q3Object_IsType(object, kQ3SharedTypeString);
+	
+	return compatible;
+}
+
+
+}	// namespace Whisper

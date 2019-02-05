@@ -1,1 +1,6 @@
-AppSizer reads a CodeWarrior xMAP and generates a report listing the amount ofcode and data bytes each classes takes up. It also includes the space taken upby exception tables, RTTI, and vtables. Currently it only works with Mac map files. Jesse Jonesjesjones@halcyon.com 
+AppSizer reads a CodeWarrior xMAP and generates a report listing the amount of
+code and data bytes each classes takes up. It also includes the space taken up
+by exception tables, RTTI, and vtables. Currently it only works with Mac map files. 
+
+Jesse Jones
+jesjones@halcyon.com 

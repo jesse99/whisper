@@ -1,1 +1,6 @@
-HyperMandella is a port of an old Raven app that I never released. Itrenders a 3D slice of a 4D fractal. As of Whisper 2.0 it's still a longway from being fully ported.Jesse Jonesjesjones@halcyon.com
+HyperMandella is a port of an old Raven app that I never released. It
+renders a 3D slice of a 4D fractal. As of Whisper 2.0 it's still a long
+way from being fully ported.
+
+Jesse Jones
+jesjones@halcyon.com

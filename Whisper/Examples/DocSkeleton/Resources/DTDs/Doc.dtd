@@ -1,1 +1,30 @@
-<?xml version = "1.0" encoding = "UTF-8"?>  <!-- this file defines the elements and attributes used to stream      DocSkeleton documents in and out -->   <!-- ***************** Types ******************* --> <!ENTITY % INTEGER 		"NMTOKEN">   		<!-- signed integer --> <!ENTITY % COLOR 		"CDATA">  			<!-- RGB color triplet in [0.0, 1.0] -->    <!-- ***************** Doc ***************** --><!ELEMENT Doc			(IDocInfo)>	<!-- ***************** IDocInfo ***************** --> <!ELEMENT IDocInfo		(Rect*)>	  <!ATTLIST IDocInfo		pen_size	%INTEGER;	"1">				<!ATTLIST IDocInfo		color		%COLOR;		"0.0 0.0 0.0">		 <!-- ***************** Rect ***************** --> <!ELEMENT Rect			EMPTY>	  <!ATTLIST Rect			left		%INTEGER;	#REQUIRED>				<!ATTLIST Rect			top			%INTEGER;	#REQUIRED>				<!ATTLIST Rect			right		%INTEGER;	#REQUIRED>				<!ATTLIST Rect			bottom		%INTEGER;	#REQUIRED>				 
+<?xml version = "1.0" encoding = "UTF-8"?> 
+ 
+<!-- this file defines the elements and attributes used to stream 
+     DocSkeleton documents in and out --> 
+ 
+ 
+<!-- ***************** Types ******************* --> 
+<!ENTITY % INTEGER 		"NMTOKEN">   		<!-- signed integer --> 
+<!ENTITY % COLOR 		"CDATA">  			<!-- RGB color triplet in [0.0, 1.0] --> 
+  
+ 
+<!-- ***************** Doc ***************** -->
+<!ELEMENT Doc			(IDocInfo)>	
+
+
+<!-- ***************** IDocInfo ***************** --> 
+<!ELEMENT IDocInfo		(Rect*)>	 
+ 
+<!ATTLIST IDocInfo		pen_size	%INTEGER;	"1">				
+<!ATTLIST IDocInfo		color		%COLOR;		"0.0 0.0 0.0">		
+ 
+
+<!-- ***************** Rect ***************** --> 
+<!ELEMENT Rect			EMPTY>	 
+ 
+<!ATTLIST Rect			left		%INTEGER;	#REQUIRED>				
+<!ATTLIST Rect			top			%INTEGER;	#REQUIRED>				
+<!ATTLIST Rect			right		%INTEGER;	#REQUIRED>				
+<!ATTLIST Rect			bottom		%INTEGER;	#REQUIRED>				
+ 

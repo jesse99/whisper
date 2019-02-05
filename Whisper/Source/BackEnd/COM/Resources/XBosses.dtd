@@ -1,1 +1,55 @@
-<?xml version = "1.0" encoding = "UTF-8"?><!ENTITY % BOOL 	"(true|false)"> <!ENTITY % PLATF0RM	"(mac | win | carbon | classic_mac | all)"><!ENTITY % TARGET 	"(release | debug | profile | all)"><!-- In Microsoft's COM Whisper interfaces are typically mixed into one C++ objectand QueryInterface merely returns a pointer to one of the base classes. Whisper usesa different model: each interface is typically implemented in a different C++ classand interfaces are aggregated into "boss" objects.This file defines the XML syntax used to specify the contents of bosses. You candeclare three types of boss objects: 1) normally you'll use the Boss element whichlets you list the interfaces in the boss 2) you can also use the AddInBoss element which lets you add new interfaces and/or replace the implementations in an existing boss (this makes plugins much more powerful) 3) finally you can use the AbstractBoss element to declare a boss that cannot be instantiated. This is useful because bosses can inherit the interfaces in other bosses. By using abstract bosses you can declare a common set of interfaces in one place.Inside any of the bosses there are two elements you can use: 1) the Interfaceelement allows you to declare an interface by specifying the interface and implementationnames 2) the Parent elements allows you to pull in all the interfaces in another boss(usually an abstract boss). -->      <!-- ****************** elements ****************** --><!ELEMENT BossList 		((AbstractBoss | AddInBoss | Boss)*)><!ELEMENT AbstractBoss 	((Interface | Inherit)*)>		<!ELEMENT AddInBoss 	((Interface | Inherit)*)>		<!ELEMENT Boss 			((Interface | Inherit)*)>		<!ELEMENT Interface 	EMPTY>									<!-- interfaces replace existing interfaces unless the name starts with a '+' character --><!ELEMENT Inherit 		EMPTY>									<!-- adds in all the interfaces in the parent boss (note that the ordering of the Interface and Inherit elements is significant) --><!ELEMENT Group 		(Interface*)><!-- ****************** attributes ****************** --><!ATTLIST Boss 			name 	 	CDATA		#REQUIRED>		<!-- this is the boss name used in the XInterfacePtr ctor --><!ATTLIST Boss 			singleton	%BOOL; 		"false">		<!-- singleton bosses are created when their plugin loads and destroyed when the plugin unloads --><!ATTLIST AbstractBoss 	name 	 	CDATA		#REQUIRED><!ATTLIST AbstractBoss 	singleton	%BOOL; 		#FIXED "false"><!ATTLIST AddInBoss 	name 	 	CDATA		#REQUIRED><!ATTLIST AddInBoss 	singleton	%BOOL; 		#FIXED "false"><!ATTLIST Interface 	name 		CDATA 		#REQUIRED>		<!-- used (indirectly) by QueryInterface --><!ATTLIST Interface 	impl 		CDATA 		#REQUIRED>		<!-- specifies the factory to use when creating the interface, note that these names must be globally unique, also "none" may be used inside an AbstractBoss --><!ATTLIST Interface		platform	%PLATF0RM;	"all"><!ATTLIST Interface		target		%TARGET;	"all"><!ATTLIST Inherit 		name 		CDATA 		#REQUIRED>		<!-- parent boss name --><!ATTLIST Inherit		platform	%PLATF0RM;	"all"><!ATTLIST Inherit		target		%TARGET;	"all">
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!ENTITY % BOOL 	"(true|false)"> 
+<!ENTITY % PLATF0RM	"(mac | win | carbon | classic_mac | all)">
+<!ENTITY % TARGET 	"(release | debug | profile | all)">
+
+<!-- In Microsoft's COM Whisper interfaces are typically mixed into one C++ object
+and QueryInterface merely returns a pointer to one of the base classes. Whisper uses
+a different model: each interface is typically implemented in a different C++ class
+and interfaces are aggregated into "boss" objects.
+
+This file defines the XML syntax used to specify the contents of bosses. You can
+declare three types of boss objects: 1) normally you'll use the Boss element which
+lets you list the interfaces in the boss 2) you can also use the AddInBoss element 
+which lets you add new interfaces and/or replace the implementations in an existing 
+boss (this makes plugins much more powerful) 3) finally you can use the AbstractBoss 
+element to declare a boss that cannot be instantiated. This is useful because bosses 
+can inherit the interfaces in other bosses. By using abstract bosses you can declare 
+a common set of interfaces in one place.
+
+Inside any of the bosses there are two elements you can use: 1) the Interface
+element allows you to declare an interface by specifying the interface and implementation
+names 2) the Parent elements allows you to pull in all the interfaces in another boss
+(usually an abstract boss). -->
+      
+
+<!-- ****************** elements ****************** -->
+<!ELEMENT BossList 		((AbstractBoss | AddInBoss | Boss)*)>
+<!ELEMENT AbstractBoss 	((Interface | Inherit)*)>		
+<!ELEMENT AddInBoss 	((Interface | Inherit)*)>		
+<!ELEMENT Boss 			((Interface | Inherit)*)>
+		
+<!ELEMENT Interface 	EMPTY>									<!-- interfaces replace existing interfaces unless the name starts with a '+' character -->
+<!ELEMENT Inherit 		EMPTY>									<!-- adds in all the interfaces in the parent boss (note that the ordering of the Interface and Inherit elements is significant) -->
+<!ELEMENT Group 		(Interface*)>
+
+
+<!-- ****************** attributes ****************** -->
+<!ATTLIST Boss 			name 	 	CDATA		#REQUIRED>		<!-- this is the boss name used in the XInterfacePtr ctor -->
+<!ATTLIST Boss 			singleton	%BOOL; 		"false">		<!-- singleton bosses are created when their plugin loads and destroyed when the plugin unloads -->
+
+<!ATTLIST AbstractBoss 	name 	 	CDATA		#REQUIRED>
+<!ATTLIST AbstractBoss 	singleton	%BOOL; 		#FIXED "false">
+
+<!ATTLIST AddInBoss 	name 	 	CDATA		#REQUIRED>
+<!ATTLIST AddInBoss 	singleton	%BOOL; 		#FIXED "false">
+
+<!ATTLIST Interface 	name 		CDATA 		#REQUIRED>		<!-- used (indirectly) by QueryInterface -->
+<!ATTLIST Interface 	impl 		CDATA 		#REQUIRED>		<!-- specifies the factory to use when creating the interface, note that these names must be globally unique, also "none" may be used inside an AbstractBoss -->
+<!ATTLIST Interface		platform	%PLATF0RM;	"all">
+<!ATTLIST Interface		target		%TARGET;	"all">
+
+<!ATTLIST Inherit 		name 		CDATA 		#REQUIRED>		<!-- parent boss name -->
+<!ATTLIST Inherit		platform	%PLATF0RM;	"all">
+<!ATTLIST Inherit		target		%TARGET;	"all">

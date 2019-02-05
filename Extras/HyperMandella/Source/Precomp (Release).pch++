@@ -1,1 +1,47 @@
-/* *  File:       Precomp (Release).pch++ *  Summary:   	Precompiled header. *  Written by: Jesse Jones * *  Copyright © 2000 Jesse Jones.  *	This code is distributed under the zlib/libpng license (see License.txt for details).   * *  Change History (most recent first):	 * *		$Log: Precomp\040(Release).pch++,v $ *		Revision 1.2  2001/01/03 05:39:15  jesjones *		Win pch files are no longer created in the Source folder. *		 *		Revision 1.1  2000/12/28 02:52:18  jesjones *		Moved from the Whisper to the Extras module. *		 *		Revision 1.2  2000/11/09 12:02:14  jesjones *		1) Removed double CRs introduced during the initial checkin. 2) Changed the header comments to make it clearer that Whisper is using the zlib license agreement. 3) Added the Log keyword. *		 *		 <1>	 7/19/99	JDJ		Created  */ #if __profile__	#if __POWERPC__		#pragma precompile_target ":Precomp PPC (Profile)"		#elif __INTEL__		#pragma precompile_target ".\\Precomp Intel (Profile)"	#else		#error Bad target	#endif#else	#if __POWERPC__		#pragma precompile_target ":Precomp PPC (Release)"	#elif __INTEL__		#pragma precompile_target ".\\Precomp Intel (Release)"	#else		#error Bad target	#endif#endif//#define _DEBUG						// this is how we know a build is a debug build on Windows so we'll use the same mechanism on the Mac#define PRECOMPILE_WHISPER_HEADERS	0	// $$$ when this is enabled I run out of memory on a 128M machine with 32M devoted to CW...#include "AppHeader.h"
+/*
+ *  File:       Precomp (Release).pch++
+ *  Summary:   	Precompiled header.
+ *  Written by: Jesse Jones
+ *
+ *  Copyright © 2000 Jesse Jones. 
+ *	This code is distributed under the zlib/libpng license (see License.txt for details).  
+ *
+ *  Change History (most recent first):	
+ *
+ *		$Log: Precomp\040(Release).pch++,v $
+ *		Revision 1.2  2001/01/03 05:39:15  jesjones
+ *		Win pch files are no longer created in the Source folder.
+ *		
+ *		Revision 1.1  2000/12/28 02:52:18  jesjones
+ *		Moved from the Whisper to the Extras module.
+ *		
+ *		Revision 1.2  2000/11/09 12:02:14  jesjones
+ *		1) Removed double CRs introduced during the initial checkin. 2) Changed the header comments to make it clearer that Whisper is using the zlib license agreement. 3) Added the Log keyword.
+ *		
+ *		 <1>	 7/19/99	JDJ		Created 
+ */
+ 
+#if __profile__
+	#if __POWERPC__
+		#pragma precompile_target ":Precomp PPC (Profile)"	
+	#elif __INTEL__
+		#pragma precompile_target ".\\Precomp Intel (Profile)"
+	#else
+		#error Bad target
+	#endif
+#else
+	#if __POWERPC__
+		#pragma precompile_target ":Precomp PPC (Release)"
+	#elif __INTEL__
+		#pragma precompile_target ".\\Precomp Intel (Release)"
+	#else
+		#error Bad target
+	#endif
+#endif
+
+
+//#define _DEBUG						// this is how we know a build is a debug build on Windows so we'll use the same mechanism on the Mac
+
+#define PRECOMPILE_WHISPER_HEADERS	0	// $$$ when this is enabled I run out of memory on a 128M machine with 32M devoted to CW...
+
+#include "AppHeader.h"

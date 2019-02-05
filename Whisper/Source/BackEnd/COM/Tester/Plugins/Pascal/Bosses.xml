@@ -1,1 +1,8 @@
-<?xml version = "1.0" encoding = "UTF-8" standalone = "no"?><!DOCTYPE BossList SYSTEM "XBosses.dtd"><BossList>	<Boss name = "Pascal Plugin" singleton = "true">		<Interface name = "ICountLines" impl = "Pascal Count Lines"/>	</Boss></BossList>
+<?xml version = "1.0" encoding = "UTF-8" standalone = "no"?>
+<!DOCTYPE BossList SYSTEM "XBosses.dtd">
+
+<BossList>
+	<Boss name = "Pascal Plugin" singleton = "true">
+		<Interface name = "ICountLines" impl = "Pascal Count Lines"/>
+	</Boss>
+</BossList>

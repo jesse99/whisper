@@ -1,1 +1,438 @@
-<?xml version = "1.0" encoding = "UTF-8"?><!-- This file has abstract bosses listing the required interfaces for things like a     push button. Most of the bosses your app defines will inherit from these bosses,     but you'll often add additional interfaces and sometimes override one of the     provided interface implementations.           These are all abstract bosses because the implementations in abstract bosses     don't have to be registered with the object model (many apps won't register all     of these interfaces to minimize code bloat). --><!-- Application -->	<AbstractBoss name = "Base Application">		<!-- almost all apps need these -->		<Interface name = "IApplication" impl = "XApplication"/>		<Interface name = "IEventDispatcher" impl = "MEventDispatcher" platform = "mac"/>		<Interface name = "IEventLoop" impl = "XAppEventLoop"/>		<Interface name = "IWindowMgr" impl = "XWindowMgr"/>			<Interface name = "IHierarchy" impl = "XHierarchy"/>	</AbstractBoss>	<AbstractBoss name = "Application Extras">		<!-- most apps will want these -->		<Interface name = "IFocus" impl = "XAppFocus"/>		<Interface name = "ICurrentFocus" impl = "XCurrentFocus"/>		<Interface name = "IMenuBar" impl = "XMenuBar" platform = "mac"/>		<Interface name = "IMenuHandler" impl = "XMenuHandler"/>		<Interface name = "IKeyHandler" impl = "XKeyHandler"/>		<Interface name = "+IInstallMenuHandler" impl = "XAppMenuHandler"/>		<Interface name = "IXMLMenu" impl = "XXMLMenu"/>					<Interface name = "IActiveMenuBar" impl = "XActiveMenuBar"/>		<Interface name = "ICommandQueue" impl = "XCommandQueue"/>			<Interface name = "IUndoContext" impl = "XUndoContext"/>		<Interface name = "IActiveUndoContext" impl = "XActiveUndoContext"/>		<Interface name = "IStringTableLoader" impl = "XStringTableLoader"/>						<Interface name = "IInit" impl = "none"/>					</AbstractBoss>	<AbstractBoss name = "Base Drag and Drop App">			<Inherit name = "Base Application"/>		<Interface name = "ICommandQueue" impl = "XCommandQueue"/>		<Interface name = "IStringTableLoader" impl = "XStringTableLoader"/>						<Interface name = "ITimer" impl = "XTimer"/>					<!-- so we can update the static text control -->		<Interface name = "IKeyHandler" impl = "XKeyHandler" platform = "win"/>		<Interface name = "IDropApp, ICommandLine" impl = "XDropApp"/>		<Interface name = "IDropAppHelper" impl = "none"/>	</AbstractBoss>	<AbstractBoss name = "Document App">			<!-- interfaces for document oriented apps -->		<Interface name = "IDocuments, ICommandLine" impl = "XDocuments"/>		<Interface name = "ICreateDoc" impl = "XCreateDoc"/>		<Interface name = "+IInstallMenuHandler" impl = "XDocAppMenuHandler"/>	</AbstractBoss>	<AbstractBoss name = "Debug Extensions">						<Interface name = "+IInstallMenuHandler" impl = "MMacsbugMenuHandler" target = "debug" platform = "mac"/>		<Interface name = "+IInstallMenuHandler" impl = "XAssertExtension" target = "debug"/>		<Interface name = "+IInstallMenuHandler" impl = "XIntenseExtension" target = "debug"/>		<Interface name = "+IInstallMenuHandler" impl = "MSystemInfoExtension" target = "debug" platform = "mac"/>		<Interface name = "+IInstallMenuHandler" impl = "WSystemInfoExtension" target = "debug" platform = "win"/>		<Interface name = "+IInstallMenuHandler" impl = "XSeperatorExtension" target = "debug"/>		<Interface name = "+IInstallMenuHandler" impl = "XFocusExtension" target = "debug"/>		<Interface name = "+IInstallMenuHandler" impl = "XControlExtension" target = "debug"/>		<Interface name = "+IInstallMenuHandler" impl = "XSeperatorExtension" target = "debug"/>		<Interface name = "+IInstallMenuHandler" impl = "XObjectHeapExtension" target = "debug"/>		<Interface name = "+IInstallMenuHandler" impl = "MSystemHeapExtension" target = "debug" platform = "mac"/>		<Interface name = "+IInstallMenuHandler" impl = "MZoneRangerExtension" target = "debug" platform = "mac"/>		<Interface name = "+IInstallMenuHandler" impl = "XSeperatorExtension" target = "debug"/>		<Interface name = "+IInstallMenuHandler" impl = "MSIOUXExtension" target = "debug" platform = "mac"/>		<Interface name = "+IInstallMenuHandler" impl = "XTraceExtension" target = "debug"/>		<Interface name = "+IInstallMenuHandler" impl = "XSeperatorExtension" target = "debug"/>		<Interface name = "+IInstallMenuHandler" impl = "XUnitTestExtension" target = "debug"/>	</AbstractBoss><!-- Commands -->	<AbstractBoss name = "Base Undoable Command">							<Interface name = "ICommand" impl = "XCommand"/>		<Interface name = "ICommandHelper" impl = "XUndoCommand"/>		<Interface name = "IUndoAction" impl = "XUndoAction"/>	</AbstractBoss>	<AbstractBoss name = "Base Begin Sequence Action">							<Inherit name = "Base Undoable Command"/>		<Interface name = "IBeginUndoSequence" impl = "XBeginUndoSequence"/>		<Interface name = "IUndoActionHelper" impl = "XDummyUndoAction"/>	</AbstractBoss>	<AbstractBoss name = "Base Clear Action">							<Inherit name = "Base Undoable Command"/>		<Interface name = "IUndoActionHelper" impl = "XClearAction"/>		<Interface name = "IInstance" impl = "XInstance"/>	</AbstractBoss>	<AbstractBoss name = "Base Copy Action">							<Inherit name = "Base Undoable Command"/>		<Interface name = "IUndoActionHelper" impl = "XCopyAction"/>		<Interface name = "IInstance" impl = "XInstance"/>	</AbstractBoss>	<AbstractBoss name = "Base Cut Action">							<Inherit name = "Base Undoable Command"/>		<Interface name = "IUndoActionHelper" impl = "XCutAction"/>		<Interface name = "IInstance" impl = "XInstance"/>	</AbstractBoss>	<AbstractBoss name = "Base Delete Action">							<Inherit name = "Base Undoable Command"/>		<Interface name = "IUndoActionHelper, IMergeActions" impl = "XMergeAction"/>		<Interface name = "IInstance" impl = "XInstance"/>	</AbstractBoss>	<AbstractBoss name = "Base End Sequence Action">							<Inherit name = "Base Undoable Command"/>		<Interface name = "IEndUndoSequence" impl = "XEndUndoSequence"/>		<Interface name = "IUndoActionHelper" impl = "XDummyUndoAction"/>	</AbstractBoss>	<AbstractBoss name = "Base Forward Delete Action">							<Inherit name = "Base Undoable Command"/>		<Interface name = "IUndoActionHelper, IMergeActions" impl = "XMergeAction"/>		<Interface name = "IInstance" impl = "XInstance"/>	</AbstractBoss>	<AbstractBoss name = "Base Multiple Action">							<Inherit name = "Base Undoable Command"/>		<Interface name = "IUndoActionHelper, IMultipleUndoAction" impl = "XMultipleUndoAction"/>	</AbstractBoss>	<AbstractBoss name = "Base Paste Action">							<Inherit name = "Base Undoable Command"/>		<Interface name = "IUndoActionHelper" impl = "XPasteAction"/>		<Interface name = "IInstance" impl = "XInstance"/>	</AbstractBoss>	<AbstractBoss name = "Base Typing Action">							<Inherit name = "Base Undoable Command"/>		<Interface name = "IUndoActionHelper, IMergeActions" impl = "XMergeAction"/>		<Interface name = "IInstance" impl = "XInstance"/>	</AbstractBoss><!-- Controls -->	<AbstractBoss name = "Abstract Control">							<Interface name = "IControl, IChildNode" impl = "XControl"/>			<Interface name = "IDraw" impl = "XDrawControl"/>			<Interface name = "IGeometry" impl = "XControlGeometry"/>			<Interface name = "IHierarchy" impl = "XHierarchy"/>		<Interface name = "IMouseHandler" impl = "XMouseHandler"/>		<Interface name = "IMouseDownHelper" impl = "XControlMouseHandler" platform = "mac"/>		<Interface name = "IMouseUpHelper" impl = "XControlMouseHandler" platform = "win"/>	</AbstractBoss>	<AbstractBoss name = "Abstract Targetable Control">							<Interface name = "IFocus" impl = "XControlFocus"/>	</AbstractBoss>	<AbstractBoss name = "Base Bevel Button">							<Inherit name = "Abstract Control"/>		<Inherit name = "Abstract Targetable Control" platform = "win"/>		<Interface name = "IBevelButton" impl = "XBevelButton" platform = "mac"/>		<Interface name = "IBevelButton, IControlPressedHelper" impl = "XBevelButton" platform = "win"/>		<Interface name = "IText" impl = "XControlText"/>		<Interface name = "IValueControl" impl = "MValueControl" platform = "mac"/>		<Interface name = "IValueControl" impl = "WButtonValueControl" platform = "win"/>		<Interface name = "+IFocused" impl = "WButtonKeyHandler" platform = "win"/>			</AbstractBoss>	<AbstractBoss name = "Base Check Box">							<Inherit name = "Abstract Control"/>		<Inherit name = "Abstract Targetable Control" platform = "win"/>		<Interface name = "ICheckBox, IControlPressedHelper" impl = "XCheckBox"/>		<Interface name = "IText" impl = "XControlText"/>		<Interface name = "IValueControl" impl = "MValueControl" platform = "mac"/>		<Interface name = "IValueControl" impl = "WButtonValueControl" platform = "win"/>		<Interface name = "+IFocused" impl = "WButtonKeyHandler" platform = "win"/>			</AbstractBoss>	<AbstractBoss name = "Base Color Swatch">							<Inherit name = "Abstract Control"/>		<Interface name = "IUserControl" impl = "XUserControl"/>		<Interface name = "IColorSwatch, IDrawHelper, IInstallMenuHandler, IMouseDownHelper, IContextMenuHelper" impl = "XColorSwatch"/>			<Interface name = "+IActivated" impl = "XActivateMenuHandlers"/>	</AbstractBoss>	<AbstractBoss name = "Base Group Box">							<Inherit name = "Abstract Control"/>		<Interface name = "IGroupBox" impl = "XGroupBox"/>		<Interface name = "IText" impl = "XControlText"/>	</AbstractBoss>	<AbstractBoss name = "Base Group Control">							<Inherit name = "Abstract Control"/>		<Interface name = "IGroupControl" impl = "XGroupControl"/>	</AbstractBoss>	<AbstractBoss name = "Base List Box">							<Inherit name = "Abstract Control"/>		<Inherit name = "Abstract Targetable Control"/>		<Interface name = "IMouseExtensible" impl = "XMouseExtensible"/>		<Interface name = "IListBox, ISizeChanged, IFocused, IControlPressedHelper, IMouseExtension" impl = "XListBox" platform = "mac"/>		<Interface name = "IListBox, IFocused, IControlPressedHelper" impl = "XListBox" platform = "win"/>	</AbstractBoss>	<AbstractBoss name = "Base Progress Bar">							<Inherit name = "Abstract Control"/>		<Interface name = "IProgressBar" impl = "XProgressBar"/>		<Interface name = "IValueControl" impl = "M16BitValueControl" platform = "classic_mac"/>	<!-- progress bar doesn't handle 32-bit values... -->		<Interface name = "IValueControl" impl = "MValueControl" platform = "carbon"/>			<Interface name = "IValueControl" impl = "WProgressValueControl" platform = "win"/>		</AbstractBoss>	<AbstractBoss name = "Base Push Button">							<Inherit name = "Abstract Control"/>		<Inherit name = "Abstract Targetable Control" platform = "win"/>		<Interface name = "IPushButton" impl = "XPushButton"/>		<Interface name = "IText" impl = "XControlText"/>		<Interface name = "IClickExtensible" impl = "XClickExtensible"/>		<Interface name = "+IFocused" impl = "WButtonKeyHandler" platform = "win"/>			</AbstractBoss>	<AbstractBoss name = "Base Radio Button">							<Inherit name = "Abstract Control"/>		<Inherit name = "Abstract Targetable Control" platform = "win"/>		<Interface name = "IText" impl = "XControlText"/>		<Interface name = "IRadioButton, IValueChanged, IControlPressedHelper" impl = "XRadioButton"/>		<Interface name = "IValueControl" impl = "MValueControl" platform = "mac"/>		<Interface name = "IValueControl" impl = "WButtonValueControl" platform = "win"/>		<Interface name = "+IFocused" impl = "WButtonKeyHandler" platform = "win"/>			</AbstractBoss>	<AbstractBoss name = "Base Root Control">							<Inherit name = "Abstract Control"/>		<Interface name = "IRootControl" impl = "XRootControl"/>		<Interface name = "IGeometry, IParentChangedSize" impl = "MRootGeometry" platform = "mac"/>			<Interface name = "IDrawHelper" impl = "XNullDrawer" platform = "win"/>			<Interface name = "IParentChangedSize, IBinding" impl = "XDefaultChangedSize" platform = "win"/>	</AbstractBoss>	<AbstractBoss name = "Base Scroll Bar">							<Inherit name = "Abstract Control"/>		<Interface name = "IValueControl" impl = "MValueControl" platform = "mac"/>		<Interface name = "IValueControl" impl = "WScrollBarValueControl" platform = "win"/>			<Interface name = "IScrollBar" impl = "XScrollBar"/>		<Interface name = "IMouseDownHelper" impl = "MThumbMouseHandler" platform = "mac"/>			<Interface name = "ITrackControlHelper" impl = "MScrollBarMouseHandler" platform = "mac"/>		<Interface name = "IParentChangedSize, IBinding" impl = "XDefaultChangedSize"/>		<Interface name = "IClickExtensible" impl = "XClickExtensible"/>		<Interface name = "IClickExtension, ICallbackClickExtension" impl = "XCallbackClickExtension"/>	</AbstractBoss>	<AbstractBoss name = "Base Scrollable Control">							<Inherit name = "Abstract Control"/>		<Inherit name = "Abstract Targetable Control"/>		<Interface name = "IUserControl" impl = "XUserControl"/>		<Interface name = "IParentChangedSize, IBinding" impl = "XDefaultChangedSize"/>		<Interface name = "IScrollableControl, ISizeChanged" impl = "XScrollableControl"/>		<Interface name = "+IFocused" impl = "XScrollableKeyHandler"/>				<Interface name = "IDrawHelper" impl = "none"/>		</AbstractBoss>	<AbstractBoss name = "Base Scroller Control">							<Inherit name = "Abstract Control"/>		<Interface name = "IUserControl" impl = "XUserControl"/>		<Interface name = "IDrawHelper" impl = "XNullDrawer" platform = "win"/>			<Interface name = "IParentChangedSize, IBinding" impl = "XDefaultChangedSize"/>		<Interface name = "IScrollerControl" impl = "XScrollerControl"/>	</AbstractBoss>	<AbstractBoss name = "Base Seperator">							<Inherit name = "Abstract Control"/>		<Interface name = "ISeperator" impl = "XSeperator"/>	</AbstractBoss>	<AbstractBoss name = "Base Static Text">							<Inherit name = "Abstract Control"/>		<Interface name = "IStaticText, IText" impl = "MStaticText" platform = "mac"/>		<Interface name = "IStaticText" impl = "WStaticText" platform = "win"/>		<Interface name = "IText" impl = "XControlText" platform = "win"/>	</AbstractBoss>	<AbstractBoss name = "Base Text Box">							<Inherit name = "Abstract Control"/>		<Inherit name = "Abstract Targetable Control"/>		<Interface name = "ITextBox, IText, IValidate, +IFocused, IAdjustCursorHelper, IScrapHelper, IMemento" impl = "MTETextBox" platform = "mac"/>		<Interface name = "ITextBox, IText, IValidate, +IFocused, IAdjustCursorHelper, IScrapHelper, IMemento, IChildNode, IContextMenuHelper" impl = "WTextBox" platform = "win"/>		<Interface name = "IScrap" impl = "XScrap"/>		<Interface name = "IUndoContext" impl = "XUndoContext" platform = "win"/>		<Interface name = "+IActivated" impl = "XActivateMenuHandlers"/>		<Interface name = "+IFocused" impl = "XScrapMenuHandler"/>		<Interface name = "+IFocused" impl = "XTextBoxMenuHandler"/>	</AbstractBoss>	<AbstractBoss name = "Base Alpha Text Box">							<Inherit name = "Base Text Box"/>		<Interface name = "IValidateText" impl = "XValidateText"/>		<Interface name = "IValidateTextHelper" impl = "XAlphaValidator"/>	</AbstractBoss>	<AbstractBoss name = "Base AlphaNum Text Box">							<Inherit name = "Base Text Box"/>		<Interface name = "IValidateText" impl = "XValidateText"/>		<Interface name = "IValidateTextHelper" impl = "XAlphaNumValidator"/>	</AbstractBoss>	<AbstractBoss name = "Base Float Text Box">							<Inherit name = "Base Text Box"/>		<Interface name = "IValidateText" impl = "XValidateText"/>		<Interface name = "IValidateTextHelper, IDoubleRange" impl = "XDoubleValidator"/>		<Interface name = "IFloatValue" impl = "XTextFloatValue"/>	</AbstractBoss>	<AbstractBoss name = "Base Double Text Box">							<Inherit name = "Base Text Box"/>		<Interface name = "IValidateText" impl = "XValidateText"/>		<Interface name = "IValidateTextHelper, IDoubleRange" impl = "XDoubleValidator"/>		<Interface name = "IDoubleValue" impl = "XTextDoubleValue"/>	</AbstractBoss>	<AbstractBoss name = "Base Int32 Text Box">							<Inherit name = "Base Text Box"/>		<Interface name = "IValidateText" impl = "XValidateText"/>		<Interface name = "IValidateTextHelper, IInt32Range" impl = "XIntValidator"/>		<Interface name = "IInt32Value" impl = "XTextInt32Value"/>	</AbstractBoss>	<AbstractBoss name = "Base Printable Text Box">							<Inherit name = "Base Text Box"/>		<Interface name = "IValidateText" impl = "XValidateText"/>		<Interface name = "IValidateTextHelper" impl = "XPrintableValidator"/>	</AbstractBoss><!-- Document -->	<AbstractBoss name = "Base Document">						<Interface name = "IDocument" impl = "XDocument"/>			<Interface name = "IHierarchy" impl = "XHierarchy"/>		<Interface name = "IFocus" impl = "XDocFocus"/>		<Interface name = "IPersistDoc" impl = "none"/>				<!-- often you'll want to use XPersistDoc and one or more IDocWriter/IDocReader interfaces -->	</AbstractBoss><!-- Draw Extensions -->	<AbstractBoss name = "Base Erase Extension">					<!-- unlike the other extensions, draw extensions reside in their own bosses -->		<Interface name = "IDrawExtension" impl = "XDrawExtension"/>		<Interface name = "IBrush" impl = "XBrushImp"/>		<Interface name = "IDrawExtensionHelper" impl = "XEraseExtension"/>		</AbstractBoss>	<AbstractBoss name = "Base Line Left Extension">						<Interface name = "IDrawExtension" impl = "XDrawExtension"/>		<Interface name = "IPen" impl = "XPenImp"/>		<Interface name = "IDrawExtensionHelper" impl = "XLineLeftExtension"/>		</AbstractBoss>	<AbstractBoss name = "Base Line Right Extension">						<Interface name = "IDrawExtension" impl = "XDrawExtension"/>		<Interface name = "IPen" impl = "XPenImp"/>		<Interface name = "IDrawExtensionHelper" impl = "XLineRightExtension"/>		</AbstractBoss>	<AbstractBoss name = "Base Line Top Extension">						<Interface name = "IDrawExtension" impl = "XDrawExtension"/>		<Interface name = "IPen" impl = "XPenImp"/>		<Interface name = "IDrawExtensionHelper" impl = "XLineTopExtension"/>		</AbstractBoss>	<AbstractBoss name = "Base Line Bottom Extension">						<Interface name = "IDrawExtension" impl = "XDrawExtension"/>		<Interface name = "IPen" impl = "XPenImp"/>		<Interface name = "IDrawExtensionHelper" impl = "XLineBottomExtension"/>		</AbstractBoss>	<AbstractBoss name = "Base Frame Extension">						<Interface name = "IDrawExtension" impl = "XDrawExtension"/>		<Interface name = "IPen" impl = "XPenImp"/>		<Interface name = "IDrawExtensionHelper" impl = "XFrameExtension"/>		</AbstractBoss>	<AbstractBoss name = "Base Shadowed Frame Extension">						<Interface name = "IDrawExtension" impl = "XDrawExtension"/>		<Interface name = "IPen" impl = "XPenImp"/>		<Interface name = "IDrawExtensionHelper" impl = "XShadowedFrameExtension"/>		</AbstractBoss><!-- Window -->	<AbstractBoss name = "Base Window">							<Interface name = "IWindow" impl = "XWindow"/>			<Interface name = "IDraw" impl = "XDraw"/>			<Interface name = "+IWindowClick" impl = "MWindowClick" platform = "mac"/>			<Interface name = "IDrawHelper, +IChildNode" impl = "XDefaultDrawWindow"/>			<Interface name = "IGeometry" impl = "XWindowGeometry"/>			<Interface name = "IHierarchy" impl = "XHierarchy"/>		<Interface name = "IFocus" impl = "XWindowFocus"/>		<Interface name = "IPositionWindow, IDefaultPositionWindow" impl = "XDefaultPositionWindow"/>		<Interface name = "+IActivated" impl = "XActivateMenuHandlers"/>	</AbstractBoss>	<AbstractBoss name = "DropApp Progress Window">						<Inherit name = "Base Window"/>		<Interface name = "IMouseHandler" impl = "XMouseHandler"/>		<Interface name = "IDropAppProgress" impl = "XDropAppProgress"/>	</AbstractBoss>	<AbstractBoss name = "Base Document Window">							<Interface name = "+IWindowClick" impl = "MDocWindowClick" platform = "mac"/>	<!-- needs to be first so that it can handle inDrag... -->		<Inherit name = "Base Window"/>		<Interface name = "+IInit, +ICanClose" impl = "XDocWindow"/>			<Interface name = "IDocView" impl = "XDocView"/>		<Interface name = "IUndoContext" impl = "XUndoContext"/>		<Interface name = "IRestoreWindowPosition" impl = "XRestoreDocWindowPos"/>		<Interface name = "IMouseHandler" impl = "XMouseHandler"/>		<Interface name = "+IInstallMenuHandler" impl = "XDocMenuHandler"/>	</AbstractBoss>	<AbstractBoss name = "Base MDI Frame Window">						<Inherit name = "Base Window"/>		<Interface name = "IFrameWindow, +IActivated, +ISizeChanged" impl = "WFrameWindow" platform = "win"/>			<Interface name = "IRestoreWindowPosition" impl = "XRestoreWindowPosition"/>		<Interface name = "IMenuBar" impl = "XMenuBar"/>		<Interface name = "+IInstallMenuHandler" impl = "XWindowMenuHandler"/>		<Interface name = "IShowHelp" impl = "WMDIHelp"/>	</AbstractBoss>	<AbstractBoss name = "Base Dialog Box">						<Inherit name = "Base Window"/>		<Interface name = "+IOpened, +IActivated, IDialogBox" impl = "XDialogBox"/>			<Interface name = "IMouseHandler" impl = "XMouseHandler"/>		<Interface name = "IRestoreWindowPosition" impl = "XRestoreWindowPosition"/>		<Interface name = "IUndoContext" impl = "XUndoContext"/>		<Interface name = "ITabber" impl = "XTabber"/>		<Interface name = "+IActivated" impl = "XWindowKeyHandler"/>		</AbstractBoss>	<AbstractBoss name = "Base Pose Dialog Box">						<Interface name = "IPoseDialogBox" impl = "XPoseDialogBox"/>			<Interface name = "IEventDispatcher" impl = "MEventDispatcher" platform = "mac"/>		<Interface name = "IHierarchy" impl = "XHierarchy"/>	</AbstractBoss>
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!-- This file has abstract bosses listing the required interfaces for things like a
+     push button. Most of the bosses your app defines will inherit from these bosses,
+     but you'll often add additional interfaces and sometimes override one of the
+     provided interface implementations. 
+     
+     These are all abstract bosses because the implementations in abstract bosses
+     don't have to be registered with the object model (many apps won't register all
+     of these interfaces to minimize code bloat). -->
+
+<!-- Application -->
+	<AbstractBoss name = "Base Application">		<!-- almost all apps need these -->
+		<Interface name = "IApplication" impl = "XApplication"/>
+		<Interface name = "IEventDispatcher" impl = "MEventDispatcher" platform = "mac"/>
+		<Interface name = "IEventLoop" impl = "XAppEventLoop"/>
+		<Interface name = "IWindowMgr" impl = "XWindowMgr"/>	
+		<Interface name = "IHierarchy" impl = "XHierarchy"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Application Extras">		<!-- most apps will want these -->
+		<Interface name = "IFocus" impl = "XAppFocus"/>
+		<Interface name = "ICurrentFocus" impl = "XCurrentFocus"/>
+		<Interface name = "IMenuBar" impl = "XMenuBar" platform = "mac"/>
+		<Interface name = "IMenuHandler" impl = "XMenuHandler"/>
+		<Interface name = "IKeyHandler" impl = "XKeyHandler"/>
+		<Interface name = "+IInstallMenuHandler" impl = "XAppMenuHandler"/>
+		<Interface name = "IXMLMenu" impl = "XXMLMenu"/>			
+		<Interface name = "IActiveMenuBar" impl = "XActiveMenuBar"/>
+		<Interface name = "ICommandQueue" impl = "XCommandQueue"/>	
+		<Interface name = "IUndoContext" impl = "XUndoContext"/>
+		<Interface name = "IActiveUndoContext" impl = "XActiveUndoContext"/>
+		<Interface name = "IStringTableLoader" impl = "XStringTableLoader"/>				
+		<Interface name = "IInit" impl = "none"/>				
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Drag and Drop App">	
+		<Inherit name = "Base Application"/>
+		<Interface name = "ICommandQueue" impl = "XCommandQueue"/>
+		<Interface name = "IStringTableLoader" impl = "XStringTableLoader"/>				
+		<Interface name = "ITimer" impl = "XTimer"/>					<!-- so we can update the static text control -->
+		<Interface name = "IKeyHandler" impl = "XKeyHandler" platform = "win"/>
+		<Interface name = "IDropApp, ICommandLine" impl = "XDropApp"/>
+		<Interface name = "IDropAppHelper" impl = "none"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Document App">			<!-- interfaces for document oriented apps -->
+		<Interface name = "IDocuments, ICommandLine" impl = "XDocuments"/>
+		<Interface name = "ICreateDoc" impl = "XCreateDoc"/>
+		<Interface name = "+IInstallMenuHandler" impl = "XDocAppMenuHandler"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Debug Extensions">				
+		<Interface name = "+IInstallMenuHandler" impl = "MMacsbugMenuHandler" target = "debug" platform = "mac"/>
+		<Interface name = "+IInstallMenuHandler" impl = "XAssertExtension" target = "debug"/>
+		<Interface name = "+IInstallMenuHandler" impl = "XIntenseExtension" target = "debug"/>
+		<Interface name = "+IInstallMenuHandler" impl = "MSystemInfoExtension" target = "debug" platform = "mac"/>
+		<Interface name = "+IInstallMenuHandler" impl = "WSystemInfoExtension" target = "debug" platform = "win"/>
+		<Interface name = "+IInstallMenuHandler" impl = "XSeperatorExtension" target = "debug"/>
+
+		<Interface name = "+IInstallMenuHandler" impl = "XFocusExtension" target = "debug"/>
+		<Interface name = "+IInstallMenuHandler" impl = "XControlExtension" target = "debug"/>
+		<Interface name = "+IInstallMenuHandler" impl = "XSeperatorExtension" target = "debug"/>
+
+		<Interface name = "+IInstallMenuHandler" impl = "XObjectHeapExtension" target = "debug"/>
+		<Interface name = "+IInstallMenuHandler" impl = "MSystemHeapExtension" target = "debug" platform = "mac"/>
+		<Interface name = "+IInstallMenuHandler" impl = "MZoneRangerExtension" target = "debug" platform = "mac"/>
+		<Interface name = "+IInstallMenuHandler" impl = "XSeperatorExtension" target = "debug"/>
+
+		<Interface name = "+IInstallMenuHandler" impl = "MSIOUXExtension" target = "debug" platform = "mac"/>
+		<Interface name = "+IInstallMenuHandler" impl = "XTraceExtension" target = "debug"/>
+		<Interface name = "+IInstallMenuHandler" impl = "XSeperatorExtension" target = "debug"/>
+
+		<Interface name = "+IInstallMenuHandler" impl = "XUnitTestExtension" target = "debug"/>
+	</AbstractBoss>
+
+<!-- Commands -->
+	<AbstractBoss name = "Base Undoable Command">					
+		<Interface name = "ICommand" impl = "XCommand"/>
+		<Interface name = "ICommandHelper" impl = "XUndoCommand"/>
+		<Interface name = "IUndoAction" impl = "XUndoAction"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Begin Sequence Action">					
+		<Inherit name = "Base Undoable Command"/>
+		<Interface name = "IBeginUndoSequence" impl = "XBeginUndoSequence"/>
+		<Interface name = "IUndoActionHelper" impl = "XDummyUndoAction"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Clear Action">					
+		<Inherit name = "Base Undoable Command"/>
+		<Interface name = "IUndoActionHelper" impl = "XClearAction"/>
+		<Interface name = "IInstance" impl = "XInstance"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Copy Action">					
+		<Inherit name = "Base Undoable Command"/>
+		<Interface name = "IUndoActionHelper" impl = "XCopyAction"/>
+		<Interface name = "IInstance" impl = "XInstance"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Cut Action">					
+		<Inherit name = "Base Undoable Command"/>
+		<Interface name = "IUndoActionHelper" impl = "XCutAction"/>
+		<Interface name = "IInstance" impl = "XInstance"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Delete Action">					
+		<Inherit name = "Base Undoable Command"/>
+		<Interface name = "IUndoActionHelper, IMergeActions" impl = "XMergeAction"/>
+		<Interface name = "IInstance" impl = "XInstance"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base End Sequence Action">					
+		<Inherit name = "Base Undoable Command"/>
+		<Interface name = "IEndUndoSequence" impl = "XEndUndoSequence"/>
+		<Interface name = "IUndoActionHelper" impl = "XDummyUndoAction"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Forward Delete Action">					
+		<Inherit name = "Base Undoable Command"/>
+		<Interface name = "IUndoActionHelper, IMergeActions" impl = "XMergeAction"/>
+		<Interface name = "IInstance" impl = "XInstance"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Multiple Action">					
+		<Inherit name = "Base Undoable Command"/>
+		<Interface name = "IUndoActionHelper, IMultipleUndoAction" impl = "XMultipleUndoAction"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Paste Action">					
+		<Inherit name = "Base Undoable Command"/>
+		<Interface name = "IUndoActionHelper" impl = "XPasteAction"/>
+		<Interface name = "IInstance" impl = "XInstance"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Typing Action">					
+		<Inherit name = "Base Undoable Command"/>
+		<Interface name = "IUndoActionHelper, IMergeActions" impl = "XMergeAction"/>
+		<Interface name = "IInstance" impl = "XInstance"/>
+	</AbstractBoss>
+
+<!-- Controls -->
+	<AbstractBoss name = "Abstract Control">					
+		<Interface name = "IControl, IChildNode" impl = "XControl"/>	
+		<Interface name = "IDraw" impl = "XDrawControl"/>	
+		<Interface name = "IGeometry" impl = "XControlGeometry"/>	
+		<Interface name = "IHierarchy" impl = "XHierarchy"/>
+		<Interface name = "IMouseHandler" impl = "XMouseHandler"/>
+		<Interface name = "IMouseDownHelper" impl = "XControlMouseHandler" platform = "mac"/>
+		<Interface name = "IMouseUpHelper" impl = "XControlMouseHandler" platform = "win"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Abstract Targetable Control">					
+		<Interface name = "IFocus" impl = "XControlFocus"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Bevel Button">					
+		<Inherit name = "Abstract Control"/>
+		<Inherit name = "Abstract Targetable Control" platform = "win"/>
+		<Interface name = "IBevelButton" impl = "XBevelButton" platform = "mac"/>
+		<Interface name = "IBevelButton, IControlPressedHelper" impl = "XBevelButton" platform = "win"/>
+		<Interface name = "IText" impl = "XControlText"/>
+		<Interface name = "IValueControl" impl = "MValueControl" platform = "mac"/>
+		<Interface name = "IValueControl" impl = "WButtonValueControl" platform = "win"/>
+		<Interface name = "+IFocused" impl = "WButtonKeyHandler" platform = "win"/>		
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Check Box">					
+		<Inherit name = "Abstract Control"/>
+		<Inherit name = "Abstract Targetable Control" platform = "win"/>
+		<Interface name = "ICheckBox, IControlPressedHelper" impl = "XCheckBox"/>
+		<Interface name = "IText" impl = "XControlText"/>
+		<Interface name = "IValueControl" impl = "MValueControl" platform = "mac"/>
+		<Interface name = "IValueControl" impl = "WButtonValueControl" platform = "win"/>
+		<Interface name = "+IFocused" impl = "WButtonKeyHandler" platform = "win"/>		
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Color Swatch">					
+		<Inherit name = "Abstract Control"/>
+		<Interface name = "IUserControl" impl = "XUserControl"/>
+		<Interface name = "IColorSwatch, IDrawHelper, IInstallMenuHandler, IMouseDownHelper, IContextMenuHelper" impl = "XColorSwatch"/>	
+		<Interface name = "+IActivated" impl = "XActivateMenuHandlers"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Group Box">					
+		<Inherit name = "Abstract Control"/>
+		<Interface name = "IGroupBox" impl = "XGroupBox"/>
+		<Interface name = "IText" impl = "XControlText"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Group Control">					
+		<Inherit name = "Abstract Control"/>
+		<Interface name = "IGroupControl" impl = "XGroupControl"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base List Box">					
+		<Inherit name = "Abstract Control"/>
+		<Inherit name = "Abstract Targetable Control"/>
+		<Interface name = "IMouseExtensible" impl = "XMouseExtensible"/>
+		<Interface name = "IListBox, ISizeChanged, IFocused, IControlPressedHelper, IMouseExtension" impl = "XListBox" platform = "mac"/>
+		<Interface name = "IListBox, IFocused, IControlPressedHelper" impl = "XListBox" platform = "win"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Progress Bar">					
+		<Inherit name = "Abstract Control"/>
+		<Interface name = "IProgressBar" impl = "XProgressBar"/>
+		<Interface name = "IValueControl" impl = "M16BitValueControl" platform = "classic_mac"/>	<!-- progress bar doesn't handle 32-bit values... -->
+		<Interface name = "IValueControl" impl = "MValueControl" platform = "carbon"/>	
+		<Interface name = "IValueControl" impl = "WProgressValueControl" platform = "win"/>	
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Push Button">					
+		<Inherit name = "Abstract Control"/>
+		<Inherit name = "Abstract Targetable Control" platform = "win"/>
+		<Interface name = "IPushButton" impl = "XPushButton"/>
+		<Interface name = "IText" impl = "XControlText"/>
+		<Interface name = "IClickExtensible" impl = "XClickExtensible"/>
+		<Interface name = "+IFocused" impl = "WButtonKeyHandler" platform = "win"/>		
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Radio Button">					
+		<Inherit name = "Abstract Control"/>
+		<Inherit name = "Abstract Targetable Control" platform = "win"/>
+		<Interface name = "IText" impl = "XControlText"/>
+		<Interface name = "IRadioButton, IValueChanged, IControlPressedHelper" impl = "XRadioButton"/>
+		<Interface name = "IValueControl" impl = "MValueControl" platform = "mac"/>
+		<Interface name = "IValueControl" impl = "WButtonValueControl" platform = "win"/>
+		<Interface name = "+IFocused" impl = "WButtonKeyHandler" platform = "win"/>		
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Root Control">					
+		<Inherit name = "Abstract Control"/>
+		<Interface name = "IRootControl" impl = "XRootControl"/>
+		<Interface name = "IGeometry, IParentChangedSize" impl = "MRootGeometry" platform = "mac"/>	
+		<Interface name = "IDrawHelper" impl = "XNullDrawer" platform = "win"/>	
+		<Interface name = "IParentChangedSize, IBinding" impl = "XDefaultChangedSize" platform = "win"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Scroll Bar">					
+		<Inherit name = "Abstract Control"/>
+		<Interface name = "IValueControl" impl = "MValueControl" platform = "mac"/>
+		<Interface name = "IValueControl" impl = "WScrollBarValueControl" platform = "win"/>	
+		<Interface name = "IScrollBar" impl = "XScrollBar"/>
+		<Interface name = "IMouseDownHelper" impl = "MThumbMouseHandler" platform = "mac"/>	
+		<Interface name = "ITrackControlHelper" impl = "MScrollBarMouseHandler" platform = "mac"/>
+		<Interface name = "IParentChangedSize, IBinding" impl = "XDefaultChangedSize"/>
+		<Interface name = "IClickExtensible" impl = "XClickExtensible"/>
+		<Interface name = "IClickExtension, ICallbackClickExtension" impl = "XCallbackClickExtension"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Scrollable Control">					
+		<Inherit name = "Abstract Control"/>
+		<Inherit name = "Abstract Targetable Control"/>
+		<Interface name = "IUserControl" impl = "XUserControl"/>
+		<Interface name = "IParentChangedSize, IBinding" impl = "XDefaultChangedSize"/>
+		<Interface name = "IScrollableControl, ISizeChanged" impl = "XScrollableControl"/>
+		<Interface name = "+IFocused" impl = "XScrollableKeyHandler"/>		
+		<Interface name = "IDrawHelper" impl = "none"/>	
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Scroller Control">					
+		<Inherit name = "Abstract Control"/>
+		<Interface name = "IUserControl" impl = "XUserControl"/>
+		<Interface name = "IDrawHelper" impl = "XNullDrawer" platform = "win"/>	
+		<Interface name = "IParentChangedSize, IBinding" impl = "XDefaultChangedSize"/>
+		<Interface name = "IScrollerControl" impl = "XScrollerControl"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Seperator">					
+		<Inherit name = "Abstract Control"/>
+		<Interface name = "ISeperator" impl = "XSeperator"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Static Text">					
+		<Inherit name = "Abstract Control"/>
+		<Interface name = "IStaticText, IText" impl = "MStaticText" platform = "mac"/>
+		<Interface name = "IStaticText" impl = "WStaticText" platform = "win"/>
+		<Interface name = "IText" impl = "XControlText" platform = "win"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Text Box">					
+		<Inherit name = "Abstract Control"/>
+		<Inherit name = "Abstract Targetable Control"/>
+		<Interface name = "ITextBox, IText, IValidate, +IFocused, IAdjustCursorHelper, IScrapHelper, IMemento" impl = "MTETextBox" platform = "mac"/>
+		<Interface name = "ITextBox, IText, IValidate, +IFocused, IAdjustCursorHelper, IScrapHelper, IMemento, IChildNode, IContextMenuHelper" impl = "WTextBox" platform = "win"/>
+		<Interface name = "IScrap" impl = "XScrap"/>
+		<Interface name = "IUndoContext" impl = "XUndoContext" platform = "win"/>
+		<Interface name = "+IActivated" impl = "XActivateMenuHandlers"/>
+		<Interface name = "+IFocused" impl = "XScrapMenuHandler"/>
+		<Interface name = "+IFocused" impl = "XTextBoxMenuHandler"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Alpha Text Box">					
+		<Inherit name = "Base Text Box"/>
+		<Interface name = "IValidateText" impl = "XValidateText"/>
+		<Interface name = "IValidateTextHelper" impl = "XAlphaValidator"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base AlphaNum Text Box">					
+		<Inherit name = "Base Text Box"/>
+		<Interface name = "IValidateText" impl = "XValidateText"/>
+		<Interface name = "IValidateTextHelper" impl = "XAlphaNumValidator"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Float Text Box">					
+		<Inherit name = "Base Text Box"/>
+		<Interface name = "IValidateText" impl = "XValidateText"/>
+		<Interface name = "IValidateTextHelper, IDoubleRange" impl = "XDoubleValidator"/>
+		<Interface name = "IFloatValue" impl = "XTextFloatValue"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Double Text Box">					
+		<Inherit name = "Base Text Box"/>
+		<Interface name = "IValidateText" impl = "XValidateText"/>
+		<Interface name = "IValidateTextHelper, IDoubleRange" impl = "XDoubleValidator"/>
+		<Interface name = "IDoubleValue" impl = "XTextDoubleValue"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Int32 Text Box">					
+		<Inherit name = "Base Text Box"/>
+		<Interface name = "IValidateText" impl = "XValidateText"/>
+		<Interface name = "IValidateTextHelper, IInt32Range" impl = "XIntValidator"/>
+		<Interface name = "IInt32Value" impl = "XTextInt32Value"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Printable Text Box">					
+		<Inherit name = "Base Text Box"/>
+		<Interface name = "IValidateText" impl = "XValidateText"/>
+		<Interface name = "IValidateTextHelper" impl = "XPrintableValidator"/>
+	</AbstractBoss>
+
+<!-- Document -->
+	<AbstractBoss name = "Base Document">				
+		<Interface name = "IDocument" impl = "XDocument"/>	
+		<Interface name = "IHierarchy" impl = "XHierarchy"/>
+		<Interface name = "IFocus" impl = "XDocFocus"/>
+		<Interface name = "IPersistDoc" impl = "none"/>				<!-- often you'll want to use XPersistDoc and one or more IDocWriter/IDocReader interfaces -->
+	</AbstractBoss>
+
+<!-- Draw Extensions -->
+	<AbstractBoss name = "Base Erase Extension">					<!-- unlike the other extensions, draw extensions reside in their own bosses -->
+		<Interface name = "IDrawExtension" impl = "XDrawExtension"/>
+		<Interface name = "IBrush" impl = "XBrushImp"/>
+		<Interface name = "IDrawExtensionHelper" impl = "XEraseExtension"/>	
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Line Left Extension">				
+		<Interface name = "IDrawExtension" impl = "XDrawExtension"/>
+		<Interface name = "IPen" impl = "XPenImp"/>
+		<Interface name = "IDrawExtensionHelper" impl = "XLineLeftExtension"/>	
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Line Right Extension">				
+		<Interface name = "IDrawExtension" impl = "XDrawExtension"/>
+		<Interface name = "IPen" impl = "XPenImp"/>
+		<Interface name = "IDrawExtensionHelper" impl = "XLineRightExtension"/>	
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Line Top Extension">				
+		<Interface name = "IDrawExtension" impl = "XDrawExtension"/>
+		<Interface name = "IPen" impl = "XPenImp"/>
+		<Interface name = "IDrawExtensionHelper" impl = "XLineTopExtension"/>	
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Line Bottom Extension">				
+		<Interface name = "IDrawExtension" impl = "XDrawExtension"/>
+		<Interface name = "IPen" impl = "XPenImp"/>
+		<Interface name = "IDrawExtensionHelper" impl = "XLineBottomExtension"/>	
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Frame Extension">				
+		<Interface name = "IDrawExtension" impl = "XDrawExtension"/>
+		<Interface name = "IPen" impl = "XPenImp"/>
+		<Interface name = "IDrawExtensionHelper" impl = "XFrameExtension"/>	
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Shadowed Frame Extension">				
+		<Interface name = "IDrawExtension" impl = "XDrawExtension"/>
+		<Interface name = "IPen" impl = "XPenImp"/>
+		<Interface name = "IDrawExtensionHelper" impl = "XShadowedFrameExtension"/>	
+	</AbstractBoss>
+
+<!-- Window -->
+	<AbstractBoss name = "Base Window">					
+		<Interface name = "IWindow" impl = "XWindow"/>	
+		<Interface name = "IDraw" impl = "XDraw"/>	
+		<Interface name = "+IWindowClick" impl = "MWindowClick" platform = "mac"/>	
+		<Interface name = "IDrawHelper, +IChildNode" impl = "XDefaultDrawWindow"/>	
+		<Interface name = "IGeometry" impl = "XWindowGeometry"/>	
+		<Interface name = "IHierarchy" impl = "XHierarchy"/>
+		<Interface name = "IFocus" impl = "XWindowFocus"/>
+		<Interface name = "IPositionWindow, IDefaultPositionWindow" impl = "XDefaultPositionWindow"/>
+		<Interface name = "+IActivated" impl = "XActivateMenuHandlers"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "DropApp Progress Window">				
+		<Inherit name = "Base Window"/>
+		<Interface name = "IMouseHandler" impl = "XMouseHandler"/>
+		<Interface name = "IDropAppProgress" impl = "XDropAppProgress"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Document Window">					
+		<Interface name = "+IWindowClick" impl = "MDocWindowClick" platform = "mac"/>	<!-- needs to be first so that it can handle inDrag... -->
+		<Inherit name = "Base Window"/>
+		<Interface name = "+IInit, +ICanClose" impl = "XDocWindow"/>	
+		<Interface name = "IDocView" impl = "XDocView"/>
+		<Interface name = "IUndoContext" impl = "XUndoContext"/>
+		<Interface name = "IRestoreWindowPosition" impl = "XRestoreDocWindowPos"/>
+		<Interface name = "IMouseHandler" impl = "XMouseHandler"/>
+		<Interface name = "+IInstallMenuHandler" impl = "XDocMenuHandler"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base MDI Frame Window">				
+		<Inherit name = "Base Window"/>
+		<Interface name = "IFrameWindow, +IActivated, +ISizeChanged" impl = "WFrameWindow" platform = "win"/>	
+		<Interface name = "IRestoreWindowPosition" impl = "XRestoreWindowPosition"/>
+		<Interface name = "IMenuBar" impl = "XMenuBar"/>
+		<Interface name = "+IInstallMenuHandler" impl = "XWindowMenuHandler"/>
+		<Interface name = "IShowHelp" impl = "WMDIHelp"/>
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Dialog Box">				
+		<Inherit name = "Base Window"/>
+		<Interface name = "+IOpened, +IActivated, IDialogBox" impl = "XDialogBox"/>	
+		<Interface name = "IMouseHandler" impl = "XMouseHandler"/>
+		<Interface name = "IRestoreWindowPosition" impl = "XRestoreWindowPosition"/>
+		<Interface name = "IUndoContext" impl = "XUndoContext"/>
+		<Interface name = "ITabber" impl = "XTabber"/>
+		<Interface name = "+IActivated" impl = "XWindowKeyHandler"/>	
+	</AbstractBoss>
+
+	<AbstractBoss name = "Base Pose Dialog Box">				
+		<Interface name = "IPoseDialogBox" impl = "XPoseDialogBox"/>	
+		<Interface name = "IEventDispatcher" impl = "MEventDispatcher" platform = "mac"/>
+		<Interface name = "IHierarchy" impl = "XHierarchy"/>
+	</AbstractBoss>
+

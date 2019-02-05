@@ -1,1 +1,60 @@
-<?xml version = "1.0" encoding = "UTF-8"?><!-- this file defines the elements and attributes used to specify      the palettes in the Palette menu --><!-- ****************** Types ******************* --><!ENTITY % STRING		"CDATA">   		<!-- arbitrary text --><!ENTITY % FLOAT 		"CDATA">  		<!-- real number --><!-- ***************** Palettes ***************** --><!ELEMENT Palettes		(Palette*)>	<!-- ***************** Palette ****************** --><!ELEMENT Palette		(Color+)>						<!ATTLIST Palette		name		%STRING;	#REQUIRED><!-- ***************** Color ****************** --><!ELEMENT Color			EMPTY>						<!ATTLIST Color			red			%FLOAT;		#REQUIRED><!ATTLIST Color			green		%FLOAT;		#REQUIRED><!ATTLIST Color			blue		%FLOAT;		#REQUIRED>
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+
+
+<!-- this file defines the elements and attributes used to specify 
+
+     the palettes in the Palette menu -->
+
+
+
+
+
+<!-- ****************** Types ******************* -->
+
+<!ENTITY % STRING		"CDATA">   		<!-- arbitrary text -->
+
+<!ENTITY % FLOAT 		"CDATA">  		<!-- real number -->
+
+
+
+
+
+<!-- ***************** Palettes ***************** -->
+
+<!ELEMENT Palettes		(Palette*)>	
+
+
+
+
+
+<!-- ***************** Palette ****************** -->
+
+<!ELEMENT Palette		(Color+)>						
+
+
+
+<!ATTLIST Palette		name		%STRING;	#REQUIRED>
+
+
+
+
+
+<!-- ***************** Color ****************** -->
+
+<!ELEMENT Color			EMPTY>						
+
+
+
+<!ATTLIST Color			red			%FLOAT;		#REQUIRED>
+
+<!ATTLIST Color			green		%FLOAT;		#REQUIRED>
+
+<!ATTLIST Color			blue		%FLOAT;		#REQUIRED>
+
+
+
+
+
+
+
